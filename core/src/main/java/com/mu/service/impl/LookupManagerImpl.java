@@ -53,7 +53,7 @@ public class LookupManagerImpl implements LookupManager {
 		List<LabelValue> list = new ArrayList<LabelValue>();
 		for (NetworkOperator operator : operators) {
 			list.add(new LabelValue(operator.getOperatorName(), operator
-					.getOperatorName()));
+					.getOperatorCode()));
 		}
 		return list;
 	}

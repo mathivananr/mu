@@ -42,4 +42,6 @@ public interface RechargeManager extends GenericManager<Recharge, Long> {
 	RcErrorCode getRcErrorByCode(String errorCode) throws MUException;
 
 	List<RcErrorCode> getAllRcErrorCodes() throws MUException;
+	
+	boolean completeRecharge(String rechargeId) throws MUException;
 }

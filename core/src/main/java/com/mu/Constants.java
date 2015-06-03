@@ -19,6 +19,8 @@ public final class Constants {
 	public static final String ERROR = "error";
 
 	public static final String FAIL = "fail";
+	
+	public static final String FAILED = "failed";
 
 	/**
 	 * Assets Version constant
@@ -133,4 +135,20 @@ public final class Constants {
 	 * @deprecated No longer used to set themes.
 	 */
 	public static final String CSS_THEME = "csstheme";
+	
+	public static final String GET = "GET";
+	
+	public static final String POST = "POST";
+	
+	public static final String STATUS_SUCCESS = "SUCCESS";
+	
+	public static final String STATUS_FAILED = "FAILED";
+	
+	public static final String JOLO_USER_ID = "mathivanan";
+	
+	public static final String JOLO_KEY = "222654834793126";
+	
+	public static final int JOLO_MODE_TEST = 0;
+	
+	public static final int JOLO_MODE_LIVE = 1;
 }

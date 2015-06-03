@@ -81,10 +81,7 @@ public class RechargeController extends BaseFormController {
 		JsonResponse res = new JsonResponse();
 		try {
 			if (!StringUtil.isEmptyString(rechargeId)) {
-				Recharge recharge = rechargeManager.getRechargeById(Long
-						.parseLong(rechargeId));
-				recharge.setStatus(Constants.SUCCESS);
-				rechargeManager.saveRecharge(recharge);
+				rechargeManager.completeRecharge(rechargeId);
 				res.setStatus(Constants.SUCCESS);
 				return res;
 			} else {

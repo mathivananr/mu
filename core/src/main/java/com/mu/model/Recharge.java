@@ -40,6 +40,8 @@ public class Recharge extends BaseObject implements Serializable {
 	private String macAddress;
 	private String secretKey;
 	private String rechargeSummary;
+	private String referenceId;
+	private String referenceDetail;
 
 	public Recharge() {
 		super();
@@ -189,6 +191,24 @@ public class Recharge extends BaseObject implements Serializable {
 
 	public void setRechargeSummary(String rechargeSummary) {
 		this.rechargeSummary = rechargeSummary;
+	}
+
+	@Column(name = "reference_id")
+	public String getReferenceId() {
+		return referenceId;
+	}
+
+	@Column(name = "reference_id", columnDefinition = "TEXT")
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+
+	public String getReferenceDetail() {
+		return referenceDetail;
+	}
+
+	public void setReferenceDetail(String referenceDetail) {
+		this.referenceDetail = referenceDetail;
 	}
 
 	/**

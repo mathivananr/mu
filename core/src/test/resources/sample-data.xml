@@ -142,260 +142,278 @@
 		<row>
 			<value description="id">-1</value>
 			<value description="operator_name">AIRCEL</value>
-			<value description="operator_code">1</value>
+			<value description="operator_code">AL</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-2</value>
 			<value description="operator_name">AIRTEL</value>
-			<value description="operator_code">28</value>
+			<value description="operator_code">AT</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-3</value>
 			<value description="operator_name">IDEA</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">IDX</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-4</value>
 			<value description="operator_name">VODAFONE</value>
-			<value description="operator_code">22</value>
+			<value description="operator_code">VF</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-5</value>
 			<value description="operator_name">BSNL</value>
-			<value description="operator_code">3</value>
+			<value description="operator_code">BS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-6</value>
 			<value description="operator_name">BSNL SPECIAL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">BSS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-7</value>
 			<value description="operator_name">MTS</value>
-			<value description="operator_code">10</value>
+			<value description="operator_code">MS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-8</value>
 			<value description="operator_name">RELIANCE CDMA</value>
-			<value description="operator_code">12</value>
+			<value description="operator_code">RL</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-9</value>
 			<value description="operator_name">RELIANCE GSM</value>
-			<value description="operator_code">13</value>
+			<value description="operator_code">RG</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-10</value>
 			<value description="operator_name">UNINOR</value>
-			<value description="operator_code">19</value>
+			<value description="operator_code">UN</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-11</value>
 			<value description="operator_name">UNINOR SPECIAL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">UNS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-12</value>
-			<value description="operator_name">TATA INDICOM</value>
-			<value description="operator_code"></value>
-			<value description="operator_type">mobile</value>
-		</row>
-		<row>
-			<value description="id">-13</value>
-			<value description="operator_name">TATA DOCOMO CDMA</value>
-			<value description="operator_code">18</value>
+			<value description="operator_name">TATA INDICOM (CDMA)</value>
+			<value description="operator_code">TI</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-14</value>
 			<value description="operator_name">TATA DOCOMO GSM</value>
-			<value description="operator_code">17</value>
+			<value description="operator_code">TD</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-15</value>
 			<value description="operator_name">TATA DOCOMO GSM SPECIAL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">TDS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-16</value>
 			<value description="operator_name">TATA WALKY</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">TW</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-17</value>
 			<value description="operator_name">T24</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">T24</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-18</value>
 			<value description="operator_name">T24 SPECIAL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">T24S</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-19</value>
 			<value description="operator_name">VIDEOCON</value>
-			<value description="operator_code">5</value>
+			<value description="operator_code">VD</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-20</value>
 			<value description="operator_name">VIDEOCON SPECIAL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">VDS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-21</value>
 			<value description="operator_name">MTNL MUMBAI</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">MTM</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-22</value>
 			<value description="operator_name">MTNL MUMBAI SPECIAL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">MTMS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-23</value>
 			<value description="operator_name">MTNL DELHI</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">MTD</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-24</value>
 			<value description="operator_name">MTNL DELHI SPECIAL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">MTDS</value>
 			<value description="operator_type">mobile</value>
 		</row>
 		<row>
 			<value description="id">-25</value>
 			<value description="operator_name">SUN</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">SD</value>
 			<value description="operator_type">DTH</value>
 		</row>
 		<row>
 			<value description="id">-26</value>
 			<value description="operator_name">AIRTEL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">AD</value>
 			<value description="operator_type">DTH</value>
 		</row>
 		<row>
 			<value description="id">-27</value>
 			<value description="operator_name">DISH TV</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">DT</value>
 			<value description="operator_type">DTH</value>
 		</row>
 		<row>
 			<value description="id">-28</value>
 			<value description="operator_name">TATA SKY</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">TS</value>
 			<value description="operator_type">DTH</value>
 		</row>
 		<row>
 			<value description="id">-29</value>
-			<value description="operator_name">BIG TV</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">RELIANCE BIG TV</value>
+			<value description="operator_code">BT</value>
 			<value description="operator_type">DTH</value>
 		</row>
 		<row>
 			<value description="id">-30</value>
-			<value description="operator_name">VIDEOCON</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">VIDEOCON D2H</value>
+			<value description="operator_code">VT</value>
 			<value description="operator_type">DTH</value>
 		</row>
 		<row>
 			<value description="id">-32</value>
 			<value description="operator_name">AIRTEL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">ATD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-33</value>
 			<value description="operator_name">AIRCEL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">ALD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-31</value>
 			<value description="operator_name">BSNL</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">BSD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-34</value>
-			<value description="operator_name">Reliance NetConnect 1X</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">RELIANCE CDMA</value>
+			<value description="operator_code">RLD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-35</value>
-			<value description="operator_name">Reliance NetConnect+</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">IDEA</value>
+			<value description="operator_code">IDXD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-36</value>
-			<value description="operator_name">Reliance NetConnect 3G</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">UNINOR</value>
+			<value description="operator_code">UND</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-37</value>
-			<value description="operator_name">Tata Photon Whiz</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">TATA INDICOM (CDMA)</value>
+			<value description="operator_code">TID</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-38</value>
-			<value description="operator_name">Tata Photon+</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">MTNL DELHI</value>
+			<value description="operator_code">MTDD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-39</value>
-			<value description="operator_name">MTS MBrowse</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">MTNL MUMBAI</value>
+			<value description="operator_code">MTMD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-40</value>
-			<value description="operator_name">MTS MBlaze</value>
-			<value description="operator_code"></value>
+			<value description="operator_name">LOOP</value>
+			<value description="operator_code">LMD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-41</value>
 			<value description="operator_name">Vodafone</value>
-			<value description="operator_code"></value>
+			<value description="operator_code">VFD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-42</value>
-			<value description="operator_name">MTNL Delhi</value>
-			<value description="operator_code">20</value>
+			<value description="operator_name">MTS</value>
+			<value description="operator_code">MSD</value>
 			<value description="operator_type">datacard</value>
 		</row>
 		<row>
 			<value description="id">-43</value>
-			<value description="operator_name">MTNL Mumbai</value>
-			<value description="operator_code">6</value>
+			<value description="operator_name">VIDEOCON</value>
+			<value description="operator_code">VDD</value>
 			<value description="operator_type">datacard</value>
+		</row>
+		<row>
+			<value description="id">-44</value>
+			<value description="operator_name">LOOP</value>
+			<value description="operator_code">LM</value>
+			<value description="operator_type">mobile</value>
+		</row>
+		<row>
+			<value description="id">-45</value>
+			<value description="operator_name">VIRGIN GSM</value>
+			<value description="operator_code">VG</value>
+			<value description="operator_type">mobile</value>
+		</row>
+		<row>
+			<value description="id">-46</value>
+			<value description="operator_name">VIRGIN GSM SPECIAL</value>
+			<value description="operator_code">VGS</value>
+			<value description="operator_type">mobile</value>
+		</row>
+		<row>
+			<value description="id">-47</value>
+			<value description="operator_name">VIRGIN CDMA</value>
+			<value description="operator_code">VC</value>
+			<value description="operator_type">mobile</value>
 		</row>
 	</table>
 	<table name="mu_rc_error_code">
