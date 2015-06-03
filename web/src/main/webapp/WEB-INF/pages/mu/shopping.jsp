@@ -1,18 +1,23 @@
 <%@ include file="/common/taglibs.jsp"%>
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="col-lg-offset-4 col-md-offset-4">
+		<p>Click your favorite site and continue your successful shopping.</p>
+	</div>
 	<div class="page-header">
 		<h1>Top Shopping</h1>
 	</div>
-	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-		<div class="thumbnail">
-			<a href="http://www.coupondunia.in/amazon?src=most_popular"><img
-				src="http://cdn01.coupondunia.in/sitespecific/media/generated/merchantlogos/logo_2d0d480_289.jpg?v=1413531812"
-				alt="Amazon" width="100%" class="slider-store-image">
-			</a>
+	<c:forEach var="merchant" items="${merchantList}">
+		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+			<div class="thumbnail">
+				<a href="${targetLink}"><img
+					src="${logoPath}"
+					alt="${merchant.merchantName}" width="100%" class="slider-store-image">
+				</a>
+			</div>
 		</div>
-	</div>
-	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+	 </c:forEach>
+	<!-- <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
 		<div class="thumbnail">
 			<a href="http://www.coupondunia.in/jabong?src=most_popular"><img
 				src="http://cdn01.coupondunia.in/sitespecific/media/generated/merchantlogos/logo_2741ba5_395.jpg?v=1413531813"
@@ -88,10 +93,10 @@
 				src="http://cdn01.coupondunia.in/sitespecific/media/generated/merchantlogos/logo_3edd69e_431.jpg?v=1416212070"
 				alt="ShopClues" width="100%" class="slider-store-image"></a>
 		</div>
-	</div>
+	</div> -->
 </div>
 
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<div class="page-header">
 		<h1>Travel Booking</h1>
 	</div>
@@ -158,4 +163,4 @@
 				alt="Paytm" width="100%" class="slider-store-image"></a>
 		</div>
 	</div>
-</div>
+</div> -->

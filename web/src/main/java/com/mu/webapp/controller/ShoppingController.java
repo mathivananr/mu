@@ -44,6 +44,8 @@ public class ShoppingController extends BaseFormController {
 	public ModelAndView showShoppingPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
+		model.addAttribute(Constants.MERCHANT_LIST,
+				shoppingManager.getAllMerchant());
 		model.addAttribute("activeMenu", "shopping-link");
 		return new ModelAndView("/mu/shopping", model.asMap());
 	}

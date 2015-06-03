@@ -92,7 +92,16 @@ public class RechargeController extends BaseFormController {
 			res.setStatus(Constants.FAIL);
 			return res;
 		}
+	}
 
+	@ModelAttribute
+	@RequestMapping(value = "/proceedPayment", method = RequestMethod.POST)
+	public ModelAndView proceedPayment(final HttpServletRequest request,
+			final HttpServletResponse response) {
+		Model model = new ExtendedModelMap();
+		model.addAttribute("activeMenu", "recharge-link");
+		saveMessage(request, "Your recharge success.");
+		return new ModelAndView("/mu/rechargeForm", model.asMap());
 	}
 
 	@ModelAttribute

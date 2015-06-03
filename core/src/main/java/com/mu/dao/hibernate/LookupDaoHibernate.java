@@ -6,6 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -65,7 +66,8 @@ public class LookupDaoHibernate implements LookupDao {
 		Session session = sessionFactory.getCurrentSession();
 		return session.createCriteria(NetworkOperator.class)
 				.add(Restrictions.eq("operatorType", "mobile"))
-				.add(Restrictions.eq("enabled", true)).list();
+				.add(Restrictions.eq("enabled", true))
+				.addOrder(Order.asc("operatorName")).list();
 	}
 
 	/**
@@ -77,9 +79,10 @@ public class LookupDaoHibernate implements LookupDao {
 		Session session = sessionFactory.getCurrentSession();
 		return session.createCriteria(NetworkOperator.class)
 				.add(Restrictions.eq("operatorType", "datacard"))
-				.add(Restrictions.eq("enabled", true)).list();
+				.add(Restrictions.eq("enabled", true))
+				.addOrder(Order.asc("operatorName")).list();
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -89,6 +92,7 @@ public class LookupDaoHibernate implements LookupDao {
 		Session session = sessionFactory.getCurrentSession();
 		return session.createCriteria(NetworkOperator.class)
 				.add(Restrictions.eq("operatorType", "DTH"))
-				.add(Restrictions.eq("enabled", true)).list();
+				.add(Restrictions.eq("enabled", true))
+				.addOrder(Order.asc("operatorName")).list();
 	}
 }

@@ -2,106 +2,63 @@
 
 <div class="container">
     <div class="page-header">
-        <h1 id="timeline">Bootstrap Timeline</h1>
-      	<p>http://www.facebook.com/sergiomandrake</p>
+        <h1 id="timeline">Timeline</h1>
     </div>
     <ul class="timeline">
         <li>
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-hand-left"></i></div>
+          <div class="timeline-badge success">2015</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Bootstrap released</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2011</small></p>
+              <h4 class="timeline-title"></h4>
+              <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-              Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-              dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-              Aliquam in felis sit amet augue.</p>
+              <p>Trying to become farmer, each extra 1Rs of your recharge and each purchase via shopping link will help me to become former.this website will run next 99 days.</p>
             </div>
           </div>
         </li>
         <li class="timeline-inverted">
-          <div class="timeline-badge warning"><i class="glyphicon glyphicon-chevron-right"></i></div>
+          <div class="timeline-badge warning">2011</i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Bootstrap 2</h4>
+              <h4 class="timeline-title"></h4>
             </div>
             <div class="timeline-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-              Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-              dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-              Aliquam in felis sit amet augue.</p>
+              <p>Entering in software industry. Started my career as software engineer.</p>
             </div>
           </div>
         </li>
         <li>
-          <div class="timeline-badge danger"><i class="glyphicon glyphicon-eye-open"></i></div>
+          <div class="timeline-badge danger">2010</i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Left Event</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 years ago</small></p>
+              <h4 class="timeline-title"></h4>
+              <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>Add more progress events and milestones to the left or right side of the timeline. Each event can be tagged with a date and given a beautiful icon to symbolize it's spectacular meaning.</p>
+              <p>Done my engineering.</p>
             </div>
           </div>
         </li>
         <li class="timeline-inverted">
-          <div class="timeline-badge default"><i class="glyphicon glyphicon-home"></i></div>
+          <div class="timeline-badge default">2006</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Right Event</h4>
+              <h4 class="timeline-title"></h4>
             </div>
             <div class="timeline-body">
-              <p>Add more progress events and milestones to the left or right side of the timeline. Each event can be tagged with a date and given a beautiful icon to symbolize it's spectacular meaning.</p>
+              <p>Done my schooling and joined in engineering.</p>
             </div>
           </div>
         </li>
         <li>
-          <div class="timeline-badge default"><i class="glyphicon glyphicon-home"></i></div>
+          <div class="timeline-badge info">1988</i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Left Event</h4>
+              <h4 class="timeline-title"></h4>
             </div>
             <div class="timeline-body">
-              <p>Add more progress events and milestones to the left or right side of the timeline. Each event can be tagged with a date and given a beautiful icon to symbolize it's spectacular meaning.</p>
-            
-              <hr>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-           <div class="timeline-badge default"><i class="glyphicon glyphicon-arrow-left"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Left Event</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Add more progress events and milestones to the left or right side of the timeline. Each event can be tagged with a date and given a beautiful icon to symbolize it's spectacular meaning.</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Oldest event</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Add more progress events and milestones to the left or right side of the timeline. Each event can be tagged with a date and given a beautiful icon to symbolize it's spectacular meaning.</p>
+              <p>Born in middle class.</p>
             </div>
           </div>
         </li>

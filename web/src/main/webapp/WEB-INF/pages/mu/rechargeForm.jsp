@@ -3,6 +3,9 @@
 <div class='row'>
 	<div
 		class='col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1 col-lg-4 col-md-4 col-sm-6 col-xs-10'>
+		<div class="col-lg-offset-3 col-md-offset-3">
+			<p>For every recharge Rs.1 extra.</p>
+		</div>
 		<div role="tabpanel">
 
 			<!-- Nav tabs -->

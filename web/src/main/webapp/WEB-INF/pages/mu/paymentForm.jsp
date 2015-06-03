@@ -17,7 +17,7 @@
 				<br>
 				<hr class="featurette-divider"></hr>
 			</div>
-			<form accept-charset="UTF-8" action="/" class="require-validation"
+			<form accept-charset="UTF-8" action="/proceedPayment" class="require-validation"
 				data-cc-on-file="false" id="payment-form" method="post">
 				<div class='form-row'>
 					<div class='col-xs-12 form-group required'>

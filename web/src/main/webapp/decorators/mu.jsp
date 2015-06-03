@@ -13,9 +13,9 @@
 		<!-- Page Title -->
         <title>MU</title>		
 		<!-- Meta Description -->
-        <meta name="description" content="Blue One Page Creative HTML5 Template">
-        <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
-        <meta name="author" content="Muhammad Morshed">
+        <meta name="description" content="Your Regular expense will change someone life. Make someone dream true via Online Recharge of Prepaid Mobile, Datacard, DTH and online shopping referral">
+        <meta name="keywords" content="muniyamma, munima, muniyama, online, recharge, online recharge, online shopping, shopping referral, farmer, agriculture">
+        <meta name="author" content="Muniyamma">
 		<!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -102,12 +102,12 @@
 				<div class="row">
 				
 					<div class="sec-title text-center">
-						<h2><span id="clock"></span></h2>
+						<h2><span id="clock">Comming Soon</span></h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p>Your regular expense made one</p>
+						<p>Your regular expense will change someone life</p>
 					</div>
 					
 					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
@@ -115,7 +115,7 @@
 							<li><a id="recharge-link" href="/rechargeForm" class="active filter">Recharge</a></li>
 							<li><a id="shopping-link" href="/shopping" class="filter">Shopping</a></li>
 							<li><a id="advise-link" href="/advise" class="filter">Advise</a></li>
-							<li><a id="video-link" href="/video" class="filter">Video</a></li>
+							<!-- <li><a id="video-link" href="/video" class="filter">Video</a></li> -->
 							<li><a id="about-link" href="/about" class="filter">About</a></li>
 						</ul>
 					</div>
@@ -123,6 +123,7 @@
 			</div>
 			<div class="project-wrapper">
 				<div class="container">
+					<%@ include file="/common/messages.jsp" %>
 					<div class="row mb50" id="main-content">
 						<decorator:body/>
 					</div>
@@ -140,12 +141,13 @@
 				
 					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="footer-single">
-							<img src="images/core/footer-logo.png" alt="">
-							<p>define soon.</p>
+							<!-- <img src="images/core/footer-logo.png" alt=""> -->
+							<h2>Muniyamma</h2>
+							<p class="col-md-8 col-sm-9 col-xs-9 pull-right">Define Soon.</p>
 						</div>
 					</div>
 				
-					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
+					<!-- <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
 						<div class="footer-single">
 							<h6>Subscribe </h6>
 							<form action="#" class="subscribe">
@@ -153,7 +155,7 @@
 								<input type="submit" value="&#8594;" id="subs">
 							</form>
 						</div>
-					</div>
+					</div> -->
 				
 					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
 						<div class="footer-single">
@@ -168,7 +170,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<p class="copyright text-center">
-							Copyright © 2015 <a href="http://themefisher.com/">Themefisher</a>. All rights reserved. Designed & developed by <a href="http://themefisher.com/">Themefisher</a>
+							Copyright © 2015 <a href="http://muniyamma.com/">Muniyamma</a>. All rights reserved. Designed & developed by <a href="http://muniyamma.com/">Muniyamma</a>
 						</p>
 					</div>
 				</div>
