@@ -102,7 +102,7 @@
 				<div class="row">
 				
 					<div class="sec-title text-center">
-						<h2><span id="clock">Comming Soon</span></h2>
+						<h2><span id="clock">Coming Soon</span></h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					

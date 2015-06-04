@@ -13,7 +13,7 @@
               <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>Trying to become farmer, each extra 1Rs of your recharge and each purchase via shopping link will help me to become former.this website will run next 99 days.</p>
+              <p>Trying to become farmer, each extra 1Rs of your recharge and each purchase via shopping link will help me to become farmer.this website will run next 99 days.</p>
             </div>
           </div>
         </li>
