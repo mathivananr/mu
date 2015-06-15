@@ -130,8 +130,20 @@
 		<row>
 			<value description="id">-1</value>
 			<value description="type_code">1</value>
-			<value description="type_name">Shopping</value>
+			<value description="type_name">Top Sites</value>
 			<value description="type_order">1</value>
+		</row>
+		<row>
+			<value description="id">-2</value>
+			<value description="type_code">2</value>
+			<value description="type_name">Shopping</value>
+			<value description="type_order">2</value>
+		</row>
+		<row>
+			<value description="id">-3</value>
+			<value description="type_code">3</value>
+			<value description="type_name">Ticket Booking</value>
+			<value description="type_order">3</value>
 		</row>
 	</table>
 	<table name="mu_operator">

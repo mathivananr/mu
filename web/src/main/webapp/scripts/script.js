@@ -71,3 +71,25 @@ function completeRecharge(rechargeId) {
         }
     });
 }
+
+function closeSupportRequest(id){
+	$.ajax({
+        type: "POST",
+        url: "/admin/closeSupportRequest",
+        data: { id : id },
+        success: function(response) {
+            if (response.status == "success") {
+            	console.log('success '+response);
+            	$("#supportRequestDone-"+id).attr("disabled", "disabled");
+            } else {
+            	console.log('failed '+response);
+            }
+        },
+        error: function() {
+            console.log('it broke');
+        },
+        complete: function() {
+            console.log('it completed');
+        }
+    });
+}

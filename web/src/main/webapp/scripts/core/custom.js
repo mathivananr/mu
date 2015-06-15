@@ -222,7 +222,6 @@ $("#collapseAdvise").click(function() {
 });
 
 $("#adviseEditLink").click(function() {
-	alert("asdsd");
 	/*
 	 * alert($(this).attr('data-id')); getAdvise($(this).attr('data-id'));
 	 */

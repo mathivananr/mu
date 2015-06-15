@@ -74,7 +74,7 @@ public class MerchantType extends BaseObject implements Serializable {
 		this.typeOrder = typeOrder;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "merchantType")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "merchantType")
 	public List<Merchant> getMerchants() {
 		return merchants;
 	}

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mu.common.MUException;
 import com.mu.dao.ShoppingDao;
 import com.mu.model.Merchant;
+import com.mu.model.MerchantType;
 import com.mu.service.ShoppingManager;
 
 @Service("shoppingManager")
@@ -38,6 +39,18 @@ public class ShoppingManagerImpl extends GenericManagerImpl<Merchant, Long>
 		return shoppingDao.getMerchantByName(merchantName);
 	}
 
+	public MerchantType saveMerchantType(MerchantType merchantType){
+		return shoppingDao.saveMerchantType(merchantType);
+	}
+	
+	public List<MerchantType> getAllMerchantTypes(){
+		return shoppingDao.getAllMerchantTypes();
+	}
+	
+	public MerchantType getMerchantTypeById(Long merchantTypeId) throws MUException{
+		return shoppingDao.getMerchantTypeById(merchantTypeId);
+	}
+	
 	public List<Merchant> getMerchantByType(String merchantType) {
 		return shoppingDao.getMerchantByType(merchantType);
 	}

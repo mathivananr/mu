@@ -2,8 +2,11 @@ package com.mu.dao;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.mu.common.MUException;
 import com.mu.model.Merchant;
+import com.mu.model.MerchantType;
 
 public interface ShoppingDao extends GenericDao<Merchant, Long> {
 	
@@ -14,6 +17,12 @@ public interface ShoppingDao extends GenericDao<Merchant, Long> {
 	Merchant getMerchantById(Long merchantId) throws MUException;
 	
 	Merchant getMerchantByName(String merchantName) throws MUException;
+
+	MerchantType saveMerchantType(MerchantType merchantType);
+	
+	List<MerchantType> getAllMerchantTypes();
+	
+	MerchantType getMerchantTypeById(Long merchantTypeId) throws MUException;
 	
 	List<Merchant> getMerchantByType(String merchantType);
 

@@ -70,7 +70,7 @@ public class RechargeController extends BaseFormController {
 		} catch (MUException e) {
 			log.error(e.getMessage(), e);
 			model.addAttribute(Constants.RECHARGE_LIST,
-					new ArrayList<NetworkOperator>());
+					new ArrayList<Recharge>());
 		}
 		return new ModelAndView("/admin/rechargeList", model.asMap());
 	}

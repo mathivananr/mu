@@ -70,6 +70,11 @@ public final class Constants {
 	public static final String MERCHANT_LIST = "merchantList";
 
 	/**
+	 * The request scope attribute that holds the merchant list
+	 */
+	public static final String MERCHANT_TYPE_LIST = "merchantTypeList";
+	
+	/**
 	 * The request scope attribute that holds the network operator list
 	 */
 	public static final String NETWORK_OPERATOR_LIST = "networkOperatorList";
@@ -78,6 +83,11 @@ public final class Constants {
 	 * The request scope attribute that holds the recharge list
 	 */
 	public static final String RECHARGE_LIST = "rechargeList";
+	
+	/**
+	 * The request scope attribute that holds the support request list
+	 */
+	public static final String SUPPORT_REQUEST_LIST = "supportRequestList";
 	
 	/**
 	 * The request scope attribute that holds the recharge error code list
@@ -129,6 +139,10 @@ public final class Constants {
 	
 	public static final String RC_FAILED = "failed";
 
+	public static final String SR_OPEN = "open";
+	
+	public static final String SR_CLOSE = "close";
+	
 	/**
 	 * The name of the CSS Theme setting.
 	 * 

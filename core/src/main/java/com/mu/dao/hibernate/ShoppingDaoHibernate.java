@@ -2,6 +2,7 @@ package com.mu.dao.hibernate;
 
 import java.util.List;
 
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mu.common.MUException;
 import com.mu.dao.ShoppingDao;
 import com.mu.model.Merchant;
+import com.mu.model.MerchantType;
 
 @Repository("shoppingDao")
 public class ShoppingDaoHibernate extends GenericDaoHibernate<Merchant, Long>
@@ -71,6 +73,39 @@ public class ShoppingDaoHibernate extends GenericDaoHibernate<Merchant, Long>
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Transactional
+	public MerchantType saveMerchantType(MerchantType merchantType) {
+		return (MerchantType) getSession().merge(merchantType);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<MerchantType> getAllMerchantTypes() {
+		return getSession().createCriteria(MerchantType.class).addOrder(Order.asc("typeOrder")).list();
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * @throws MUException 
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public MerchantType getMerchantTypeById(Long merchantTypeId) throws MUException {
+		List<MerchantType> merchantTypes = getSession().createCriteria(MerchantType.class)
+				.add(Restrictions.eq("id", merchantTypeId)).list();
+		if(merchantTypes != null && merchantTypes.size() > 0){
+			return merchantTypes.get(0);
+		} else {
+			throw new MUException("No Merchant type fout for id "+merchantTypeId);
+		}
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */

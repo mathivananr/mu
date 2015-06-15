@@ -4,18 +4,23 @@
 	<div class="col-lg-offset-4 col-md-offset-4">
 		<p>Click your favorite site and continue your successful shopping.</p>
 	</div>
-	<div class="page-header">
-		<h1>Top Shopping</h1>
-	</div>
-	<c:forEach var="merchant" items="${merchantList}">
-		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-			<div class="thumbnail">
-				<a href="${targetLink}"><img
-					src="${logoPath}"
-					alt="${merchant.merchantName}" width="100%" class="slider-store-image">
-				</a>
+	<c:forEach var="merchantType" items="${merchantTypeList}">
+		<div class="row">
+			<div class="page-header">
+				<h1>${merchantType.typeName}</h1>
 			</div>
-		</div>
+			<c:forEach var="merchant" items="${merchantType.merchants}">
+				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+					<div class="thumbnail">
+						<a href="${merchant.targetLink}"><img
+							src="${merchant.logoPath}"
+							alt="${merchant.merchantName}" width="100%" class="slider-store-image">
+						</a>
+					</div>
+				</div>
+			 </c:forEach>
+		 </div>
+		 <br/>
 	 </c:forEach>
 	<!-- <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
 		<div class="thumbnail">
