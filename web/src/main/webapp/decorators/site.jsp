@@ -137,6 +137,7 @@
 					<div class="row">
 						<div class="text-center">
 							<!-- <h6>Support</h6> -->
+							<a href="/site/about">About</a> |
 							<a href="/site/contact">Contact Us</a> |
 							<a href="/site/termsAndConditions">Terms and Conditions</a> |
 							<a href="/site/privacyPolicy">Privacy Policy</a>

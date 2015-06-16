@@ -1,9 +1,10 @@
 <%@ include file="/common/taglibs.jsp"%>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	<div class="text-center">
+	<div class="sec-title text-center mb50">
 		<h2>Privacy Policy</h2>
+		<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 	</div>
-	<div class="span12">
+	<div class="span12 sec-sub-title">
 		<div class="page-header">
 			<h2>Privacy Policy</h2>
 		</div>

@@ -69,7 +69,7 @@
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="phoneNumber" id="phoneNumber"
-									placeholder="Phone Number" type='text' required="required">
+									placeholder="Data Card Number" type='text' required="required">
 							</div>
 						</div>
 						<div class='form-row'>
@@ -106,7 +106,7 @@
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="phoneNumber" id="phoneNumber"
-									placeholder="Phone Number" type='text' required="required">
+									placeholder="DTH Number" type='text' required="required">
 							</div>
 						</div>
 						<div class='form-row'>

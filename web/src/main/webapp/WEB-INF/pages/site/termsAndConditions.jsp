@@ -1,13 +1,14 @@
 <%@ include file="/common/taglibs.jsp"%>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	<div class="text-center">
-		<h2>Privacy Policy</h2>
+	<div class="sec-title text-center mb50">
+		<h2>Terms and Conditions</h2>
+		<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 	</div>
-	<div class="span12">
+	<div class="span12 sec-sub-title">
 		<div class="page-header">
 		<h2>Welcome to muniyamma.com (MU)</h2>
 		</div>
-		<p>MU offers recharge services of various telecom operators. By visiting or accessing our Services, the User agrees to be bound by the following terms and conditions and User acceptance of this agreement is reconfirmed each time User accesses the service. Mu can change or modify these Terms at any time without further notice. The "User" shall re-visit the Terms and Conditions link to get Mu terms updates.</p>
+		<p>MU offers recharge services of various telecom operators. By visiting or accessing our Services, the User agrees to be bound by the following terms and conditions and User acceptance of this agreement is reconfirmed each time User accesses the service. MU can change or modify these Terms at any time without further notice. The "User" shall re-visit the Terms and Conditions link to get MU terms updates.</p>
         <div class="page-header">
                 <h2>General Terms</h2>
         </div>
@@ -42,6 +43,6 @@ Users are responsible for the selection of mobile operator and the recharge amou
         <div class="page-header">
                 <h2>Changes to terms</h2>
         </div>
-        <p> If Mu reserves the right to change these conditions from time to time as it sees fit and your continued use of the site will signify your acceptance of any adjustment to these terms. No notification communication will be done subject to change in terms and conditions. The "User" shall re-visit the 'Terms and Conditions' link to get Mu terms updates.</p>
+        <p> If MU reserves the right to change these conditions from time to time as it sees fit and your continued use of the site will signify your acceptance of any adjustment to these terms. No notification communication will be done subject to change in terms and conditions. The "User" shall re-visit the 'Terms and Conditions' link to get MU terms updates.</p>
 	</div>
 </div>
