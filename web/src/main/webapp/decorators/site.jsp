@@ -98,29 +98,6 @@
         ==================================== -->
 		
 		<section id="works" class="works clearfix">
-			<div class="container">
-				<div class="row">
-				
-					<div class="sec-title text-center">
-						<h2><span id="clock">Coming Soon</span></h2>
-						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-					</div>
-					
-					<div class="sec-sub-title text-center">
-						<p>Your regular expense will change someone life</p>
-					</div>
-					
-					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
-						<ul class="text-center">
-							<li><a id="recharge-link" href="/rechargeForm" class="active filter">Recharge</a></li>
-							<li><a id="shopping-link" href="/shopping" class="filter">Shopping</a></li>
-							<li><a id="advise-link" href="/advise" class="filter">Advise</a></li>
-							<!-- <li><a id="video-link" href="/video" class="filter">Video</a></li> -->
-							<li><a id="about-link" href="/about" class="filter">About</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
 			<div class="project-wrapper">
 				<div class="container">
 					<%@ include file="/common/messages.jsp" %>
@@ -160,8 +137,7 @@
 					<div class="row">
 						<div class="text-center">
 							<!-- <h6>Support</h6> -->
-							<a href="/site/about">About</a> |
-							<a href="/site/contact">Contact</a> |
+							<a href="/site/contact">Contact Us</a> |
 							<a href="/site/termsAndConditions">Terms and Conditions</a> |
 							<a href="/site/privacyPolicy">Privacy Policy</a>
 							<!-- <ul>

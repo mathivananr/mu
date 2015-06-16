@@ -1,4 +1,4 @@
-<%@ page language="java" isErrorPage="true" %>
+<%-- <%@ page language="java" isErrorPage="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
@@ -16,3 +16,19 @@
     </div>
 </body>
 </html>
+ --%>
+ 
+<%@ page language="java" isErrorPage="true" %>
+<%@ include file="/common/taglibs.jsp"%>
+<!DOCTYPE html>
+<page:applyDecorator name="site">
+<head>
+    <title><fmt:message key="errorPage.title"/></title>
+</head>
+<div style="text-align: center">
+    <h1><fmt:message key="errorPage.heading"/></h1>
+        <%@ include file="/common/messages.jsp" %>
+
+        <p><fmt:message key="errorPage.message"/></p>
+</div>
+</page:applyDecorator>

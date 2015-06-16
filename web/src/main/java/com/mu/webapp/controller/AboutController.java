@@ -16,7 +16,6 @@ import com.mu.common.MUException;
 @Controller
 public class AboutController extends BaseFormController {
 
-	@ModelAttribute
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
 	public ModelAndView showAboutPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
