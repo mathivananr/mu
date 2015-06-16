@@ -58,11 +58,13 @@ public class ShoppingController extends BaseFormController {
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
 		String merchantId = request.getParameter("id");
+		model.addAttribute(Constants.MERCHANT_TYPE_LIST,
+				shoppingManager.getAllMerchantTypes());
 		if (!StringUtil.isEmptyString(merchantId)) {
 			model.addAttribute("merchant",
 					shoppingManager.getMerchantById(Long.parseLong(merchantId)));
 		} else {
-			model.addAttribute("merchant", new Merchant());
+			model.addAttribute(Constants.MERCHANT, new Merchant());
 		}
 		return new ModelAndView("/admin/merchant", model.asMap());
 	}
@@ -142,9 +144,13 @@ public class ShoppingController extends BaseFormController {
 			try {
 				stream = file.getInputStream();
 				// write the file to the file specified
-				OutputStream bos = new FileOutputStream(uploadDir
-						+ merchant.getMerchantName() + "_icon" + "."
-						+ FilenameUtils.getExtension(file.getOriginalFilename()));
+				OutputStream bos = new FileOutputStream(
+						uploadDir
+								+ merchant.getMerchantName()
+								+ "_icon"
+								+ "."
+								+ FilenameUtils.getExtension(file
+										.getOriginalFilename()));
 				int bytesRead;
 				byte[] buffer = new byte[8192];
 				while ((bytesRead = stream.read(buffer, 0, 8192)) != -1) {
@@ -153,11 +159,16 @@ public class ShoppingController extends BaseFormController {
 				bos.close();
 				// close the stream
 				stream.close();
-				String logoPath = Constants.FILE_SEP + "images"
-						+ Constants.FILE_SEP + merchant.getMerchantName() 
-						+ Constants.FILE_SEP + merchant.getMerchantName()
-						+ "_icon" + "."
-						+ FilenameUtils.getExtension(file.getOriginalFilename());
+				String logoPath = Constants.FILE_SEP
+						+ "images"
+						+ Constants.FILE_SEP
+						+ merchant.getMerchantName()
+						+ Constants.FILE_SEP
+						+ merchant.getMerchantName()
+						+ "_icon"
+						+ "."
+						+ FilenameUtils
+								.getExtension(file.getOriginalFilename());
 				merchant.setLogoPath(logoPath);
 			} catch (IOException e) {
 				saveError(request, "problem in saving logo...");

@@ -67,6 +67,11 @@ public final class Constants {
 	/**
 	 * The request scope attribute that holds the merchant list
 	 */
+	public static final String MERCHANT = "merchant";
+	
+	/**
+	 * The request scope attribute that holds the merchant list
+	 */
 	public static final String MERCHANT_LIST = "merchantList";
 
 	/**
