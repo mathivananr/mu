@@ -254,3 +254,8 @@ function getAdvise(adviseId) {
 				}
 			});
 }
+
+$('#paymentTabs a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  });

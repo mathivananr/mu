@@ -745,3 +745,8 @@ label.error {
 .dropdown-menu li:hover .sub-menu {
     visibility: visible;
 }
+
+.payment-link-text {
+  color: #337ab7;
+  text-decoration: none;
+}

@@ -5,28 +5,22 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import org.hibernate.search.annotations.DocumentId;
 
 @Entity
-@Table(name = "mu_advise")
-public class CardDetail extends BaseObject implements Serializable {
+public class Payment extends BaseObject implements Serializable {
 
 	private static final long serialVersionUID = 3832626162173359411L;
 
-	private Long id;
-	private String email;
-	private String banknName;
+	private String paymentType;
+	private String bankName;
 	private String cardHolderName;
 	private String cardNumber;
 	private String expiryMonth;
 	private String expiryYear;
+	private String cvvNumber;
 	private Calendar createdOn;
 	private Calendar updatedOn;
 	private String createdIpAddress;
@@ -35,37 +29,17 @@ public class CardDetail extends BaseObject implements Serializable {
 	private String updatedMacAddress;
 	private String secretKey;
 
-	public CardDetail() {
+	public Payment() {
 		super();
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
-	public Long getId() {
-		return id;
+	@Column(name = "bank_name")
+	public String getBankName() {
+		return bankName;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	@Column(name = "email")
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Column(name = "bankn_name")
-	public String getBanknName() {
-		return banknName;
-	}
-
-	public void setBanknName(String banknName) {
-		this.banknName = banknName;
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
 	}
 
 	@Column(name = "card_holder_name")
@@ -84,6 +58,22 @@ public class CardDetail extends BaseObject implements Serializable {
 
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
+	}
+
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	public String getCvvNumber() {
+		return cvvNumber;
+	}
+
+	public void setCvvNumber(String cvvNumber) {
+		this.cvvNumber = cvvNumber;
 	}
 
 	@Column(name = "expiry_month")
@@ -174,19 +164,19 @@ public class CardDetail extends BaseObject implements Serializable {
 		if (this == o) {
 			return true;
 		}
-		if (!(o instanceof CardDetail)) {
+		if (!(o instanceof Payment)) {
 			return false;
 		}
-		final CardDetail cardDetail = (CardDetail) o;
-		return !(id != null ? !id.equals(cardDetail.getId()) : cardDetail
-				.getId() != null);
+		final Payment cardDetail = (Payment) o;
+		return !(cardNumber != null ? !cardNumber.equals(cardDetail
+				.getCardNumber()) : cardDetail.getCardNumber() != null);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public int hashCode() {
-		return (id != null ? id.hashCode() : 0);
+		return (cardNumber != null ? cardNumber.hashCode() : 0);
 	}
 
 	/**
@@ -194,7 +184,8 @@ public class CardDetail extends BaseObject implements Serializable {
 	 */
 	public String toString() {
 		ToStringBuilder sb = new ToStringBuilder(this,
-				ToStringStyle.DEFAULT_STYLE).append("id", this.id);
+				ToStringStyle.DEFAULT_STYLE).append("cardNumber",
+				this.cardNumber);
 		return sb.toString();
 	}
 }

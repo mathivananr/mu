@@ -67,6 +67,6 @@ public class ApiUtil {
 	}
 
 	public static String postRequest() {
-		return null;
+		return "success";
 	}
 }

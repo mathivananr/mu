@@ -1,5 +1,6 @@
 package com.mu.dao;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,8 @@ public interface RechargeDao extends GenericDao<Recharge, Long> {
 
 	List<Recharge> getAllRecharge() throws MUException;
 
+	List<Recharge> getRecharges(Calendar from, Calendar to, String email, String phoneNumber, String status) throws MUException;
+	
 	List<Recharge> getRecharge(int from, int to) throws MUException;
 
 	Recharge getRechargeById(Long rechargeId) throws MUException;

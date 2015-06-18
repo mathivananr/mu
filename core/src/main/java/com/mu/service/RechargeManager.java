@@ -1,5 +1,6 @@
 package com.mu.service;
 
+import java.util.Calendar;
 import java.util.List;
 
 import com.mu.common.MUException;
@@ -15,6 +16,8 @@ public interface RechargeManager extends GenericManager<Recharge, Long> {
 
 	List<Recharge> getAllRecharge() throws MUException;
 
+	List<Recharge> getRecharges(Calendar from, Calendar to, String email, String phoneNumber, String status) throws MUException;
+	
 	List<Recharge> getRecharge(int from, int to) throws MUException;
 
 	Recharge getRechargeById(Long rechargeId) throws MUException;
@@ -43,5 +46,7 @@ public interface RechargeManager extends GenericManager<Recharge, Long> {
 
 	List<RcErrorCode> getAllRcErrorCodes() throws MUException;
 	
-	boolean completeRecharge(String rechargeId) throws MUException;
+	Recharge completeRecharge(String rechargeId) throws MUException;
+	
+	Recharge proceedPayment(String rechargeId) throws MUException;
 }

@@ -20,7 +20,7 @@
     </rule> -->
     <rule>
         <from>/</from>
-        <to type="redirect" last="true">rechargeForm</to>
+        <to type="redirect" last="true">recharge</to>
     </rule>
     <rule>
         <from>/app/**</from>

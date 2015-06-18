@@ -28,13 +28,13 @@
 						</div>
 					</div>
 					<div class='form-row'>
-						<div class='col-lg-10 col-md-10 col-sm-8 col-xs-8'>
+						<!-- <div class='col-lg-10 col-md-10 col-sm-8 col-xs-8'>
 							<div class='col-lg-6 col-md-6 col-sm-10 col-xs-12 pull-right'>
 								<input class='form-control' name="secretKey" id="secretKey"
 									placeholder="Secret key to edit " type='text'
 									required='required'>
 							</div>
-						</div>
+						</div> -->
 						<div class='col-lg-2 col-md-2 col-sm-4 col-xs-4'>
 							<button class='form-control btn btn-danger submit-button'
 								type='submit'>Post</button>

@@ -29,6 +29,6 @@
 		<div class="page-header">
 			<h2>Communication</h2>
 		</div>
-		<p>For any kind of communication, please write to info@muniyamma.in</p>
+		<p>For any kind of communication, please write to info@muniyamma.com</p>
 	</div>
 </div>

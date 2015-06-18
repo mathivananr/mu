@@ -143,6 +143,8 @@ public final class Constants {
 	public static final String RC_SUCCESS = "success";
 	
 	public static final String RC_FAILED = "failed";
+	
+	public static final String RC_All = "all";
 
 	public static final String SR_OPEN = "open";
 	

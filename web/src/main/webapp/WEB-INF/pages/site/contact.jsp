@@ -1,5 +1,5 @@
 <%@ include file="/common/taglibs.jsp"%>
-<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<section id="contact" class="contact">
 		<div class="container">
 			<div class="row mb50">
@@ -14,7 +14,7 @@
 				</div> -->
 				
 				<!-- contact form -->
-				<div class="text-center col-lg-8 col-md-8 col-sm-8 col-xs-12">
+				<div class="text-center col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="contact-form">
 						<h3>Say hello!</h3>
 						<form action="#" id="contact-form">

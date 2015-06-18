@@ -1,4 +1,10 @@
 
+$(function () {
+	$("#fromDate").datetimepicker({format: 'YYYY-MM-DD hh:mm:ss'});
+	$("#toDate").datetimepicker({format: 'YYYY-MM-DD hh:mm:ss'});
+});
+
+
 // This function is used by the login screen to validate user/pass
 // are entered.
 function validateRequired(form) {

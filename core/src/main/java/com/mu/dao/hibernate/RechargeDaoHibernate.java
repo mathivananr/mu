@@ -1,18 +1,22 @@
 package com.mu.dao.hibernate;
 
+import java.util.Calendar;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mu.Constants;
 import com.mu.common.MUException;
 import com.mu.dao.RechargeDao;
 import com.mu.model.NetworkOperator;
 import com.mu.model.RcErrorCode;
 import com.mu.model.Recharge;
+import com.mu.util.StringUtil;
 
 @Repository("rechargeDao")
 public class RechargeDaoHibernate extends GenericDaoHibernate<Recharge, Long>
@@ -53,6 +57,34 @@ public class RechargeDaoHibernate extends GenericDaoHibernate<Recharge, Long>
 		} catch (HibernateException e) {
 			throw new MUException(e.getMessage(), e);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws MUException
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Recharge> getRecharges(Calendar from, Calendar to,
+			String email, String phoneNumber, String status) throws MUException {
+		Criteria criteria = getSession().createCriteria(Recharge.class);
+		if (from != null) {
+			criteria.add(Restrictions.ge("createdOn", from));
+		}
+		if (to != null) {
+			criteria.add(Restrictions.le("updatedOn", to));
+		}
+		if (!StringUtil.isEmptyString(email)) {
+			criteria.add(Restrictions.eq("email", email));
+		}
+		if (!StringUtil.isEmptyString(phoneNumber)) {
+			criteria.add(Restrictions.eq("phoneNumber", phoneNumber));
+		}
+		if (!StringUtil.isEmptyString(status)
+				&& !Constants.RC_All.equalsIgnoreCase(status)) {
+			criteria.add(Restrictions.eq("status", status));
+		}
+		return criteria.list();
 	}
 
 	/**
