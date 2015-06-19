@@ -77,8 +77,10 @@ public class AdviseController extends BaseFormController {
 			Calendar now = new GregorianCalendar();
 			if (StringUtil.isEmptyString(advise.getId())) {
 				advise.setCreatedOn(now);
+				advise.setCreatedIpAddress(request.getRemoteAddr());
 			}
 			advise.setUpdatedOn(now);
+			advise.setUpdatedIpAddress(request.getRemoteAddr());
 			advise.setEnabled(true);
 			adviseManager.saveAdvise(advise);
 			model.addAttribute("activeMenu", "advise-link");

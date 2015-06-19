@@ -13,7 +13,7 @@
               <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>Trying to become farmer, each extra 1Rs of your recharge and each purchase via shopping link will help me to become farmer.this website will run next 99 days.</p>
+              <p>Trying to become farmer.</p>
             </div>
           </div>
         </li>
@@ -24,7 +24,7 @@
               <h4 class="timeline-title"></h4>
             </div>
             <div class="timeline-body">
-              <p>Entering in software industry. Started my career as software engineer.</p>
+              <p>Started my career as software engineer.</p>
             </div>
           </div>
         </li>
@@ -36,7 +36,7 @@
               <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>Done my engineering.</p>
+              <p>Done computer science engineering.</p>
             </div>
           </div>
         </li>
@@ -47,7 +47,7 @@
               <h4 class="timeline-title"></h4>
             </div>
             <div class="timeline-body">
-              <p>Done my schooling and joined in engineering.</p>
+              <p>Done schooling.</p>
             </div>
           </div>
         </li>
@@ -58,7 +58,7 @@
               <h4 class="timeline-title"></h4>
             </div>
             <div class="timeline-body">
-              <p>Born in middle class.</p>
+              <p>Born.</p>
             </div>
           </div>
         </li>

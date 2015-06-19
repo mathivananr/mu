@@ -106,6 +106,42 @@ public class Advise extends BaseObject implements Serializable {
 		this.updatedOn = updatedOn;
 	}
 
+	@Column(name = "created_ip_address")
+	public String getCreatedIpAddress() {
+		return createdIpAddress;
+	}
+
+	public void setCreatedIpAddress(String createdIpAddress) {
+		this.createdIpAddress = createdIpAddress;
+	}
+
+	@Column(name = "created_mac_address")
+	public String getCreatedMacAddress() {
+		return createdMacAddress;
+	}
+
+	public void setCreatedMacAddress(String createdMacAddress) {
+		this.createdMacAddress = createdMacAddress;
+	}
+
+	@Column(name = "updated_ip_address")
+	public String getUpdatedIpAddress() {
+		return updatedIpAddress;
+	}
+
+	public void setUpdatedIpAddress(String updatedIpAddress) {
+		this.updatedIpAddress = updatedIpAddress;
+	}
+
+	@Column(name = "updated_mac_address")
+	public String getUpdatedMacAddress() {
+		return updatedMacAddress;
+	}
+
+	public void setUpdatedMacAddress(String updatedMacAddress) {
+		this.updatedMacAddress = updatedMacAddress;
+	}
+
 	@Column(name = "secret_key")
 	public String getSecretKey() {
 		return secretKey;

@@ -100,7 +100,6 @@
 		<section id="works" class="works clearfix">
 			<div class="container">
 				<div class="row">
-				
 					<div class="sec-title text-center">
 						<h2><span id="clock">Coming Soon</span></h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
@@ -142,7 +141,7 @@
 						<div class="footer-single">
 							<!-- <img src="images/core/footer-logo.png" alt=""> -->
 							<h2><a href="/">Muniyamma</a></h2>
-							<p class="col-md-8 col-sm-9 col-xs-9 pull-right">Define Soon.</p>
+							<!-- <p class="col-md-8 col-sm-9 col-xs-9 pull-right">Define Soon.</p> -->
 						</div>
 					</div>
 				
@@ -163,7 +162,8 @@
 							<a href="/site/about">About</a> |
 							<a href="/site/contact">Contact</a> |
 							<a href="/site/termsAndConditions">Terms and Conditions</a> |
-							<a href="/site/privacyPolicy">Privacy Policy</a>
+							<a href="/site/privacyPolicy">Privacy Policy</a> |
+							<a href="/site/supportRequest">Recharge Complaints</a>
 							<!-- <ul>
 								<li><a href="/site/contact">Contact Us</a></li>
 								<li><a href="/site/termsAndConditions">Terms and Conditions</a></li>

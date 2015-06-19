@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-@Entity
 public class Payment extends BaseObject implements Serializable {
 
 	private static final long serialVersionUID = 3832626162173359411L;

@@ -36,7 +36,7 @@
 
     <display:table name="supportRequestList" cellspacing="0" cellpadding="0" requestURI=""
                    defaultsort="1" id="supportRequests" pagesize="25" class="table table-condensed table-striped table-hover" export="true">
-        <display:column property="id" escapeXml="true" sortable="true" titleKey="supportRequests.supportRequestId" style="width: 10%"/>
+        <display:column property="id" escapeXml="true" sortable="true" titleKey="supportRequests.supportRequestId" style="width: 10%" url="/admin/supportRequest?from=list" paramId="id" paramProperty="id"/>
         <display:column property="email" escapeXml="true" sortable="true" titleKey="supportRequests.email"
         style="width: 15%"/>
         <display:column property="rechargeId" escapeXml="true" sortable="true" titleKey="supportRequests.orderId"

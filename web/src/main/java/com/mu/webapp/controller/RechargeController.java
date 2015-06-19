@@ -69,6 +69,7 @@ public class RechargeController extends BaseFormController {
 		Calendar now = new GregorianCalendar();
 		if (StringUtil.isEmptyString(recharge.getId())) {
 			recharge.setCreatedOn(now);
+			recharge.setIpAddress(request.getRemoteAddr());
 		}
 		recharge.setUpdatedOn(now);
 		recharge = rechargeManager.saveRecharge(recharge);

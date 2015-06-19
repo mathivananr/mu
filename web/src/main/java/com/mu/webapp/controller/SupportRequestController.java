@@ -36,9 +36,8 @@ public class SupportRequestController extends BaseFormController {
 		this.supportRequestManager = supportRequestManager;
 	}
 
-	@ModelAttribute
-	@RequestMapping(value = "/supportRequest", method = RequestMethod.GET)
-	public ModelAndView showAdvisePage(final HttpServletRequest request,
+	@RequestMapping(value = "/admin/supportRequest", method = RequestMethod.GET)
+	public ModelAndView supportRequestPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
 		model.addAttribute("activeMenu", "recharge-link");
@@ -52,6 +51,21 @@ public class SupportRequestController extends BaseFormController {
 		return new ModelAndView("/mu/supportRequest", model.asMap());
 	}
 
+	@RequestMapping(value = "/site/supportRequest", method = RequestMethod.GET)
+	public ModelAndView showSupportRequestPage(final HttpServletRequest request,
+			final HttpServletResponse response) throws MUException {
+		Model model = new ExtendedModelMap();
+		model.addAttribute("activeMenu", "recharge-link");
+		String id = request.getParameter("id");
+		if (!StringUtil.isEmptyString(id) && !id.equals("undefined")) {
+			model.addAttribute("supportRequest",
+					supportRequestManager.get(Long.parseLong(id)));
+		} else {
+			model.addAttribute("supportRequest", new SupportRequest());
+		}
+		return new ModelAndView("/mu/supportRequest", model.asMap());
+	}
+	
 	@RequestMapping(value = "/riseSupportRequest", method = RequestMethod.POST)
 	public ModelAndView addUser(SupportRequest supportRequest,
 			BindingResult errors, HttpServletRequest request) {
