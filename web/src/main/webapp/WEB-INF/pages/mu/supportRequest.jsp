@@ -58,7 +58,7 @@
 							<div class='form-row'>
 								<div class='form-group'>
 									<label class="form-control" for="note" id="description"><b>Note:</b>
-										Giving maximum details of recharge may help fastest process.</label>
+										Provide sufficient recharge details to ensure fastest process.</label>
 								</div>
 							</div>
 							<div class='form-row'>

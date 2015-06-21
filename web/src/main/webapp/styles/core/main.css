@@ -750,3 +750,7 @@ label.error {
   color: #337ab7;
   text-decoration: none;
 }
+
+.margin-bottom10 {
+	margin-bottom : 10px;
+}

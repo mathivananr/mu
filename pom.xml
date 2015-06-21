@@ -84,7 +84,7 @@
 		    <![CDATA[jdbc:mysql://localhost/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]>
 		</jdbc.url>
     	<jdbc.username>root</jdbc.username>
-    	<jdbc.password>root</jdbc.password>
+    	<jdbc.password></jdbc.password>
         <amp.genericCore>true</amp.genericCore>
         <amp.fullSource>false</amp.fullSource>
         <dao.framework>hibernate</dao.framework>

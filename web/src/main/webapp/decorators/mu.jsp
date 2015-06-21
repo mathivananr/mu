@@ -106,7 +106,7 @@
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p>Your regular expense may change someone life</p>
+						<p>Your regular expense may change someone's life</p>
 					</div>
 					
 					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">

@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<div class="span12 sec-sub-title">
-		<p>Muniyamma.com is one of India's recharge portal.</p>
+		<p>muniyamma.com is one of India's recharge portal.</p>
 		<div class="page-header">
 			<h3>We Do</h3>
 		</div>
@@ -20,5 +20,5 @@
 			</ul>
 		</div>
 	</div>
-	<p>We try to give fast and easy recharge services to our users.</p>
+	<p>We do best for give fast and easy recharge services to our users.</p>
 </div>
