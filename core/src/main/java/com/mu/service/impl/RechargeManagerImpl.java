@@ -15,6 +15,7 @@ import com.mu.Constants;
 import com.mu.common.MUException;
 import com.mu.dao.RechargeDao;
 import com.mu.model.NetworkOperator;
+import com.mu.model.Payment;
 import com.mu.model.RcErrorCode;
 import com.mu.model.Recharge;
 import com.mu.service.MailEngine;
@@ -164,31 +165,73 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 	/**
 	 * {@inheritDoc}
 	 */
-	public Recharge completeRecharge(String rechargeId) throws MUException {
-		Recharge recharge = getRechargeById(Long.parseLong(rechargeId));
-		Map<String, Object> response = ApiUtil.getRequest(recharge);
-		if (response.get("status").toString()
-				.equalsIgnoreCase(Constants.STATUS_SUCCESS)) {
-			if (response.get("response").toString().split(",")[0]
-					.equalsIgnoreCase(Constants.STATUS_FAILED)) {
-				recharge.setStatus(Constants.FAILED);
-				recharge.setRechargeSummary(getRcErrorByCode(
-						response.get("response").toString().split(",")[1])
-						.getDescription());
-			} else {
-				recharge.setStatus(Constants.SUCCESS);
-				recharge.setRechargeSummary("Recharged Succesully!");
-				recharge.setReferenceId(response.get("response").toString()
-						.split(",")[0]);
-			}
-			recharge.setReferenceDetail(response.get("response").toString());
+	public Recharge initiatePayment(Recharge recharge) throws MUException {
+		recharge.setStatus(Constants.RC_OPEN);
+		Calendar now = new GregorianCalendar();
+		if (StringUtil.isEmptyString(recharge.getId())) {
+			recharge.setCreatedOn(now);
+		}
+		recharge.setUpdatedOn(now);
+		recharge = saveRecharge(recharge);
+		Payment payment = new Payment();
+		if (Constants.IS_TEST_APP) {
+			payment.setKey(Constants.PY_TEST_KEY);
+		} else {
+			payment.setKey(Constants.PY_LIVE_KEY);
+		}
+		payment.setTxnid(recharge.getId().toString());
+		payment.setFirstname(Constants.PY_FIRST_NAME);
+		payment.setEmail(recharge.getEmail());
+		payment.setPhone(recharge.getPhoneNumber());
+		int amount = Integer.parseInt(recharge.getAmount()) + 1;
+		payment.setAmount(amount + "");
+		payment.setProductinfo(Constants.PY_PRODUCT_INFO);
+		payment.setService_provider(Constants.PY_SERVICE_PROVIDER);
+		if (Constants.IS_TEST_APP) {
+			payment.setSurl(Constants.PY_TEST_SURL);
+			payment.setFurl(Constants.PY_TEST_FURL);
+			payment.setCurl(Constants.PY_TEST_CURL);
+		} else {
+			payment.setSurl(Constants.PY_LIVE_SURL);
+			payment.setFurl(Constants.PY_LIVE_FURL);
+			payment.setCurl(Constants.PY_LIVE_CURL);
+		}
+		payment.setHash(StringUtil.generateHash(payment));
+		recharge.setPayment(payment);
+		return recharge;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Recharge handlePaymentResponse(Payment payment) throws MUException {
+		log.info("mihpayid :: " + payment.getMihpayid() + " txnid :: "
+				+ payment.getTxnid());
+		Recharge recharge = rechargeDao.getRechargeById(Long.parseLong(payment
+				.getTxnid()));
+		if (payment.getStatus().equalsIgnoreCase(Constants.STATUS_SUCCESS)) {
 			Calendar now = new GregorianCalendar();
 			recharge.setUpdatedOn(now);
-			saveRecharge(recharge);
+			recharge.setPayment(payment);
+			Double amount = Double.parseDouble(payment.getAmount());
+			if (amount.intValue() >= (Integer
+							.parseInt(recharge.getAmount()) + 1)) {
+				recharge.setStatus(Constants.RC_PAYMENT_SUCCESS);
+				recharge = saveRecharge(recharge);
+				recharge = completeRecharge(recharge.getId());
+			} else {
+				recharge.setStatus(Constants.RC_PAYMENT_FAILED);
+				recharge.setRechargeSummary("Recharged failed! full payment not received");
+				recharge = saveRecharge(recharge);
+			}
+
 		} else {
-			recharge.setStatus(Constants.FAILED);
-			recharge.setRechargeSummary(response.get("response").toString());
-			saveRecharge(recharge);
+			Calendar now = new GregorianCalendar();
+			recharge.setUpdatedOn(now);
+			recharge.setPayment(payment);
+			recharge.setStatus(Constants.RC_PAYMENT_FAILED);
+			recharge.setRechargeSummary("Recharged failed! payment not received");
+			recharge = saveRecharge(recharge);
 		}
 		return recharge;
 	}
@@ -196,21 +239,48 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 	/**
 	 * {@inheritDoc}
 	 */
-	public Recharge proceedPayment(String rechargeId) throws MUException {
-		Recharge recharge = completeRecharge(rechargeId);
-		/*if (recharge.getStatus().equalsIgnoreCase(Constants.SUCCESS)) {
-			sendRechargeEmail(recharge, "rechargeSuccess.vm", "Recharge Done");
-		}*/
-		return recharge;
+	public Recharge completeRecharge(Long rechargeId) throws MUException {
+		Recharge recharge = getRechargeById(rechargeId);
+		Map<String, Object> response = ApiUtil.getRequest(recharge);
+		Calendar now = new GregorianCalendar();
+		recharge.setUpdatedOn(now);
+		if (response.get("status").toString()
+				.equalsIgnoreCase(Constants.STATUS_SUCCESS)) {
+			if (response.get("response").toString().split(",")[0]
+					.equalsIgnoreCase(Constants.STATUS_FAILED)) {
+				recharge.setStatus(Constants.RC_FAILED);
+				if (response.get("response").toString().split(",")[1]
+						.contains("your ip")) {
+					recharge.setRechargeSummary(response.get("response")
+							.toString().split(",")[1]);
+				} else {
+					recharge.setRechargeSummary(getRcErrorByCode(
+							response.get("response").toString().split(",")[1])
+							.getDescription());
+				}
+			} else {
+				recharge.setStatus(Constants.RC_SUCCESS);
+				recharge.setRechargeSummary("Recharged Succesully!");
+				recharge.setReferenceId(response.get("response").toString()
+						.split(",")[0]);
+			}
+			recharge.setReferenceDetail(response.get("response").toString());
+		} else {
+			recharge.setStatus(Constants.RC_FAILED);
+			recharge.setRechargeSummary(response.get("response").toString());
+		}
+		return saveRecharge(recharge);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<Recharge> getRecharges(Calendar from, Calendar to, String email, String phoneNumber, String status) throws MUException{
+	public List<Recharge> getRecharges(Calendar from, Calendar to,
+			String email, String phoneNumber, String status) throws MUException {
 		return rechargeDao.getRecharges(from, to, email, phoneNumber, status);
 	}
-	
+
+	@SuppressWarnings("unused")
 	private void sendRechargeEmail(final Recharge recharge,
 			final String template, final String subject) {
 		message.setTo(recharge.getEmail());

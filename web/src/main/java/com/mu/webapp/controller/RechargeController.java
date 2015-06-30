@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,10 +25,10 @@ import com.mu.Constants;
 import com.mu.common.MUException;
 import com.mu.model.JsonResponse;
 import com.mu.model.NetworkOperator;
+import com.mu.model.Payment;
 import com.mu.model.RcErrorCode;
 import com.mu.model.Recharge;
 import com.mu.service.RechargeManager;
-import com.mu.util.ApiUtil;
 import com.mu.util.StringUtil;
 
 @Controller
@@ -48,6 +46,9 @@ public class RechargeController extends BaseFormController {
 			final HttpServletRequest request, final HttpServletResponse response)
 			throws MUException {
 		Model model = new ExtendedModelMap();
+		Recharge recharge = new Recharge();
+		recharge.setAmount("10");
+		model.addAttribute("recharge", recharge);
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
 	}
@@ -56,29 +57,76 @@ public class RechargeController extends BaseFormController {
 	public ModelAndView showRechargeForm(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
+		Recharge recharge = new Recharge();
+		recharge.setAmount("10");
+		model.addAttribute("recharge", recharge);
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
 	}
 
-	@RequestMapping(value = "/proceedRecharge", method = RequestMethod.POST)
-	public ModelAndView proceedRecharge(Recharge recharge,
+	/*@RequestMapping(value = "/paymentForm", method = RequestMethod.GET)
+	public ModelAndView showPaymentForm(Recharge recharge,
 			BindingResult errors, HttpServletRequest request)
 			throws MUException {
 		Model model = new ExtendedModelMap();
-		recharge.setStatus(Constants.RC_OPEN);
-		Calendar now = new GregorianCalendar();
-		if (StringUtil.isEmptyString(recharge.getId())) {
-			recharge.setCreatedOn(now);
-			recharge.setIpAddress(request.getRemoteAddr());
-		}
-		recharge.setUpdatedOn(now);
-		recharge = rechargeManager.saveRecharge(recharge);
+		model.addAttribute("activeMenu", "recharge-link");
+		return new ModelAndView("/mu/paymentForm", model.asMap());
+	}*/
+
+	@RequestMapping(value = "/initiatePayment", method = RequestMethod.POST)
+	public ModelAndView initiatePayment(Recharge recharge,
+			BindingResult errors, HttpServletRequest request)
+			throws MUException {
+		Model model = new ExtendedModelMap();
+		recharge = rechargeManager.initiatePayment(recharge);
 		model.addAttribute("recharge", recharge);
+		model.addAttribute("payment", recharge.getPayment());
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/paymentForm", model.asMap());
 	}
 
-	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "/paymentResponse", method = RequestMethod.POST)
+	public ModelAndView handlePaymentResponse(Payment payment,
+			BindingResult errors, HttpServletRequest request)
+			throws MUException {
+		Model model = new ExtendedModelMap();
+		try {
+			Recharge recharge = rechargeManager.handlePaymentResponse(payment);
+			if (recharge.getStatus().equalsIgnoreCase(Constants.RC_SUCCESS)) {
+				saveMessage(request,
+						"Your recharge " + recharge.getRechargeId() + " done.");
+			} else {
+				log.error("recharge failed " + recharge.getRechargeSummary());
+				saveError(request, "Your recharge" + recharge.getRechargeId()
+						+ "failed.");
+			}
+		} catch (MUException e) {
+			saveMessage(request,
+					"Your recharge failed. please try after some time");
+		}
+		model.addAttribute("activeMenu", "recharge-link");
+		return new ModelAndView("/mu/rechargeForm", model.asMap());
+	}
+
+	@RequestMapping(value = "/admin/completeRecharge", method = RequestMethod.POST)
+	public @ResponseBody
+	JsonResponse completeRecharge(@RequestParam("id") String rechargeId) {
+		JsonResponse res = new JsonResponse();
+		try {
+			if (!StringUtil.isEmptyString(rechargeId)) {
+				rechargeManager.completeRecharge(Long.parseLong(rechargeId));
+				res.setStatus(Constants.SUCCESS);
+				return res;
+			} else {
+				res.setStatus(Constants.FAIL);
+				return res;
+			}
+		} catch (MUException e) {
+			res.setStatus(Constants.FAIL);
+			return res;
+		}
+	}
+
 	@RequestMapping(value = "/admin/recharges", method = RequestMethod.GET)
 	public ModelAndView showRecharges(final HttpServletRequest request,
 			final HttpServletResponse response) {
@@ -124,47 +172,6 @@ public class RechargeController extends BaseFormController {
 					new ArrayList<Recharge>());
 		}
 		return new ModelAndView("/admin/rechargeList", model.asMap());
-	}
-
-	@RequestMapping(value = "/admin/completeRecharge", method = RequestMethod.POST)
-	public @ResponseBody
-	JsonResponse completeRecharge(@RequestParam("id") String rechargeId) {
-		JsonResponse res = new JsonResponse();
-		try {
-			if (!StringUtil.isEmptyString(rechargeId)) {
-				rechargeManager.completeRecharge(rechargeId);
-				res.setStatus(Constants.SUCCESS);
-				return res;
-			} else {
-				res.setStatus(Constants.FAIL);
-				return res;
-			}
-		} catch (MUException e) {
-			res.setStatus(Constants.FAIL);
-			return res;
-		}
-	}
-
-	@RequestMapping(value = "/proceedPayment", method = RequestMethod.POST)
-	public ModelAndView proceedPayment(final HttpServletRequest request,
-			final HttpServletResponse response) {
-		Model model = new ExtendedModelMap();
-		String rechargeId = request.getParameter("rechargeId");
-		try {
-			Recharge recharge = rechargeManager.proceedPayment(rechargeId);
-			if (recharge.getStatus().equalsIgnoreCase(Constants.SUCCESS)) {
-				saveMessage(request,
-						"Your recharge " + recharge.getRechargeId() + " done.");
-			} else {
-				log.error("recharge failed " + recharge.getRechargeSummary());
-				saveError(request, "something went wrong...");
-			}
-		} catch (MUException e) {
-			saveMessage(request,
-					"Your recharge failed. please try after some time");
-		}
-		model.addAttribute("activeMenu", "recharge-link");
-		return new ModelAndView("/mu/rechargeForm", model.asMap());
 	}
 
 	@RequestMapping(value = "/admin/networkOperator", method = RequestMethod.GET)

@@ -136,7 +136,9 @@ public final class Constants {
 	
 	public static final String RC_OPEN = "open";
 	
-	public static final String RC_PAYMENT_RECEIVED = "payment received";
+	public static final String RC_PAYMENT_SUCCESS = "payment success";
+	
+	public static final String RC_PAYMENT_FAILED = "payment failed";
 	
 	public static final String RC_PENDING = "pending";
 	
@@ -149,6 +151,34 @@ public final class Constants {
 	public static final String SR_OPEN = "open";
 	
 	public static final String SR_CLOSE = "close";
+	
+	public static final String PY_TEST_KEY = "JBZaLc";
+	
+	public static final String PY_TEST_SALT = "GQs7yium";
+	
+	public static final String PY_LIVE_KEY = "UOgXBC";
+	
+	public static final String PY_LIVE_SALT = "EtD9495O";
+	
+	public static final String PY_SERVICE_PROVIDER = "payu_paisa";
+	
+	public static final String PY_FIRST_NAME = "MU user";
+	
+	public static final String PY_PRODUCT_INFO = "MU recharge";
+	
+	public static final String PY_ENCRYPT_TYPE = "SHA-512"; 
+	
+	public static final String PY_TEST_SURL = "http://demo.muniyamma.com/paymentResponse";
+	
+	public static final String PY_TEST_FURL = "http://demo.muniyamma.com/paymentResponse";
+	
+	public static final String PY_TEST_CURL = "http://demo.muniyamma.com/paymentResponse";
+	
+	public static final String PY_LIVE_SURL = "http://demo.muniyamma.com/paymentResponse";
+
+	public static final String PY_LIVE_FURL = "http://demo.muniyamma.com/paymentResponse";
+	
+	public static final String PY_LIVE_CURL = "http://demo.muniyamma.com/paymentResponse";
 	
 	/**
 	 * The name of the CSS Theme setting.
@@ -172,4 +202,6 @@ public final class Constants {
 	public static final int JOLO_MODE_TEST = 0;
 	
 	public static final int JOLO_MODE_LIVE = 1;
+	
+	public static final boolean IS_TEST_APP = false; 
 }

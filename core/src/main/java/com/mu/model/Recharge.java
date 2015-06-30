@@ -3,20 +3,22 @@ package com.mu.model;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Indexed;
 
 @Entity
 @Table(name = "mu_recharge")
@@ -32,6 +34,7 @@ public class Recharge extends BaseObject implements Serializable {
 	private String operator;
 	private String phoneNumber;
 	private String amount;
+	private Payment payment;
 	private Integer version;
 	private String status;
 	private Calendar createdOn;
@@ -119,6 +122,17 @@ public class Recharge extends BaseObject implements Serializable {
 
 	public void setAmount(String amount) {
 		this.amount = amount;
+	}
+
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "payment")
+	@JsonIgnore
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
 
 	@Version

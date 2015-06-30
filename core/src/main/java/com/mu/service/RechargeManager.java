@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.mu.common.MUException;
 import com.mu.model.NetworkOperator;
+import com.mu.model.Payment;
 import com.mu.model.RcErrorCode;
 import com.mu.model.Recharge;
 
@@ -46,7 +47,9 @@ public interface RechargeManager extends GenericManager<Recharge, Long> {
 
 	List<RcErrorCode> getAllRcErrorCodes() throws MUException;
 	
-	Recharge completeRecharge(String rechargeId) throws MUException;
+	Recharge completeRecharge(Long rechargeId) throws MUException;
 	
-	Recharge proceedPayment(String rechargeId) throws MUException;
+	Recharge initiatePayment(Recharge recharge) throws MUException;
+	
+	Recharge handlePaymentResponse(Payment payment) throws MUException;
 }

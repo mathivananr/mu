@@ -18,7 +18,7 @@ public class ApiUtil {
 
 	public static Map<String, Object> getRequest(Recharge recharge) {
 		String url = "http://joloapi.com/api/recharge.php?mode="
-				+ Constants.JOLO_MODE_TEST + "&userid="
+				+ Constants.JOLO_MODE_LIVE + "&userid="
 				+ Constants.JOLO_USER_ID + "&key=" + Constants.JOLO_KEY
 				+ "&operator=" + recharge.getOperator() + "&service="
 				+ recharge.getPhoneNumber() + "&amount=" + recharge.getAmount()

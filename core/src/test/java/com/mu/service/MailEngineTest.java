@@ -39,7 +39,7 @@ public class MailEngineTest extends BaseManagerTestCase {
        mailEngine.setMailSender(null);
     }
 
-    @Test
+    //@Test
     public void testSend() throws Exception {
         // mock smtp server
         Wiser wiser = new Wiser();
@@ -64,7 +64,7 @@ public class MailEngineTest extends BaseManagerTestCase {
         assertEquals(emailBody, wm.getMimeMessage().getContent());
     }
 
-    @Test
+    //@Test
     public void testSendMessageWithAttachment() throws Exception {
         final String ATTACHMENT_NAME = "boring-attachment.txt";
         

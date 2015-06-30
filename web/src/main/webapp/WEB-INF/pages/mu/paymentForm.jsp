@@ -1,141 +1,89 @@
 <%@ include file="/common/taglibs.jsp"%>
-<br>
 <div class="panel panel-danger"></div>
 <div class="container">
 	<div class="row">
-		<!-- Navigation Buttons -->
-		<div class="col-md-2">
-			<ul class="nav nav-pills nav-stacked" id="paymentTabs">
-				<li class="active"><a class="payment-link-text" href="#cc">Credit
-						Card</a></li>
-				<li><a class="payment-link-text" href="#nb">Net Banking</a></li>
-				<li><a class="payment-link-text" href="#dc">Debit Card</a></li>
-			</ul>
-		</div>
-
-		<!-- Content -->
-		<div class="col-md-10">
-			<div class="tab-content">
-				<div class="tab-pane active" id="cc">
-					<form accept-charset="UTF-8" action="/proceedPayment"
-						class="require-validation" data-cc-on-file="false"
-						id="payment-form" method="post">
-						<input type="hidden" id="rechargeId" name="rechargeId" value="${recharge.id}">
-						<div class='form-row'>
-							<div class='col-xs-12 form-group required'>
-								<label class='control-label'>Name on Card</label> <input
-									class='form-control' size='4' type='text'>
-							</div>
-						</div>
-						<div class='form-row'>
-							<div class='col-xs-12 form-group card required'>
-								<label class='control-label'>Card Number</label> <input
-									autocomplete='off' class='form-control card-number' size='20'
-									type='text'>
-							</div>
-						</div>
-						<div class='form-row'>
-							<div class='col-xs-4 form-group cvc required'>
-								<label class='control-label'>CVV</label> <input
-									autocomplete='off' class='form-control card-cvc'
-									placeholder='ex. 311' size='4' type='text'>
-							</div>
-							<div class='col-xs-4 form-group expiration required'>
-								<label class='control-label'>Expiration</label> <input
-									class='form-control card-expiry-month' placeholder='MM'
-									size='2' type='text'>
-							</div>
-							<div class='col-xs-4 form-group expiration required'>
-								<label class='control-label'> </label> <input
-									class='form-control card-expiry-year' placeholder='YYYY'
-									size='4' type='text'>
-							</div>
-						</div>
-
-
-						<div class='form-row'>
-							<div class='col-md-12 form-group'>
-								<hr class="featurette-divider"></hr>
-								<button class='form-control btn btn-success submit-button'
-									disabled>
-									<span class="badge">Your total today: $300</span>
-								</button>
-								<button class='form-control btn btn-primary submit-button'
-									type='submit'>Pay »</button>
-
-							</div>
-						</div>
-
-						<div class='form-row'>
-							<div class='col-md-12 error form-group hide'>
-								<div class='alert-danger alert'>Please correct the errors
-									and try again.</div>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="tab-pane" id="nb">nb</div>
-				<div class="tab-pane" id="dc">
-					<form accept-charset="UTF-8" action="/proceedPayment"
-						class="require-validation" data-cc-on-file="false"
-						id="payment-form" method="post">
-						<input type="hidden" id="rechargeId" name="rechargeId" value="${recharge.id}">
-						<div class='form-row'>
-							<div class='col-xs-12 form-group required'>
-								<label class='control-label'>Name on Card</label> <input
-									class='form-control' size='4' type='text'>
-							</div>
-						</div>
-						<div class='form-row'>
-							<div class='col-xs-12 form-group card required'>
-								<label class='control-label'>Card Number</label> <input
-									autocomplete='off' class='form-control card-number' size='20'
-									type='text'>
-							</div>
-						</div>
-						<div class='form-row'>
-							<div class='col-xs-4 form-group cvc required'>
-								<label class='control-label'>CVV</label> <input
-									autocomplete='off' class='form-control card-cvc'
-									placeholder='ex. 311' size='4' type='text'>
-							</div>
-							<div class='col-xs-4 form-group expiration required'>
-								<label class='control-label'>Expiration</label> <input
-									class='form-control card-expiry-month' placeholder='MM'
-									size='2' type='text'>
-							</div>
-							<div class='col-xs-4 form-group expiration required'>
-								<label class='control-label'> </label> <input
-									class='form-control card-expiry-year' placeholder='YYYY'
-									size='4' type='text'>
-							</div>
-						</div>
-
-
-						<div class='form-row'>
-							<div class='col-md-12 form-group'>
-								<hr class="featurette-divider"></hr>
-								<button class='form-control btn btn-success submit-button'
-									disabled>
-									<span class="badge">Your total today: $300</span>
-								</button>
-								<button class='form-control btn btn-primary submit-button'
-									type='submit'>Pay »</button>
-
-							</div>
-						</div>
-
-						<div class='form-row'>
-							<div class='col-md-12 error form-group hide'>
-								<div class='alert-danger alert'>Please correct the errors
-									and try again.</div>
-							</div>
-						</div>
-					</form>
+		<form action="https://secure.payu.in/_payment"
+			class="require-validation" id="payment-form" method="post">
+			<input type="hidden" name="key" value="${payment.key}" /> <input
+				type="hidden" name="txnid" value="${payment.txnid}" /> <input
+				type="hidden" name="amount" value="${payment.amount}" />
+			<%-- <input type="hidden" name="firstname" value="${payment.firstname}" /> --%>
+			<input type="hidden" name="productinfo"
+				value="${payment.productinfo}" /> <input type="hidden" name="email"
+				value="${payment.email}" /> <input type="hidden" name="phone"
+				value="${payment.phone}" /> <input type="hidden" name="surl"
+				value="${payment.surl}" /> <input type="hidden" name="furl"
+				value="${payment.furl}" /> <input type="hidden" name="hash"
+				value="${payment.hash}" /> <input type="hidden"
+				name="service_provider" value="${payment.service_provider}" />
+			<div class='form-row'>
+				<div class='col-xs-12 form-group required'>
+					<!-- <label class='control-label'>Name on Card</label> <input
+								class='form-control' size='4' type='text'> -->
 				</div>
 			</div>
-		</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="text-center">
+								<strong>Order summary</strong>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-condensed">
+									<thead>
+										<tr>
+											<td class="text-center"><strong>Order No</strong></td>
+											<td class="text-center"><strong>Number</strong></td>
+											<td class="text-center"><strong>Amount</strong></td>
+											<td class="text-center"><strong>MU Charge</strong></td>
+											<td class="text-right"><strong>Total</strong></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="text-center">${recharge.rechargeId}</td>
+											<td class="text-center">${recharge.phoneNumber}</td>
+											<td class="text-center">Rs ${recharge.amount}</td>
+											<td class="text-center">Rs 1</td>
+											<td class="text-right"><strong>Rs ${payment.amount}</strong></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='form-row'>
+				<div
+					class='col-md-offset-lg col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12 form-group'>
+					<hr class="featurette-divider"></hr>
+					<button class='form-control btn btn-primary submit-button'
+						type='submit'>Pay »</button>
 
+				</div>
+			</div>
+		</form>
+
+		<%-- <form action="https://secure.payu.in/_payment" method="post"
+			name="payuForm">
+			<input type="hidden" name="key" value="UOgXBC" /> 
+			<input type="hidden" name="txnid" value="60470852" />
+			<input type="hidden" name="amount" value="1" />
+			<input type="hidden" name="productinfo" value="test recharge" />
+			<input type="hidden" name="firstname" value="mathivanan" />
+			<input type="hidden" name="email" value="mathivanan18@gmail.com" />
+			<input type="hidden" name="phone" value="9894317212" />
+			<input type="hidden" name="surl" value="http://demo.muniyamma.com" />
+			<input type="hidden" name="furl" value="http://demo.muniyamma.com" />
+			<input type="hidden" name="hash" value="<%=hash%>" />
+			<!-- <input type="hidden" name="udf2" value="MU1" /> -->
+			<input type="hidden" name="service_provider" value="payu_paisa" />
+			<input type="submit" value="Submit" />
+		</form> --%>
 	</div>
 </div>
 <br>

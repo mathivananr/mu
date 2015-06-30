@@ -17,5 +17,6 @@
 		<mapping class="com.mu.model.Advise" />
 		<mapping class="com.mu.model.MerchantType" />
 		<mapping class="com.mu.model.Merchant" />
+		<mapping class="com.mu.model.Payment" />
 	</session-factory>
 </hibernate-configuration>

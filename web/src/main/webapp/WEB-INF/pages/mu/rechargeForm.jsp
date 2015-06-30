@@ -22,8 +22,9 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="mobile">
-					<form action="/proceedRecharge" class="require-validation"
+					<form action="/initiatePayment" class="require-validation"
 						id="rechargeForm" method="post">
+						<input type="hidden" name="rechargeType" value="mobile"/>
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="email" id="email"
@@ -46,7 +47,7 @@
 							</div>
 							<div class='form-group'>
 								<input type="text" name="amount" id="amount"
-									placeholder="Amount" class="form-control" required="required">
+									placeholder="Amount" class="form-control" value="${recharge.amount}" readonly required="required">
 							</div>
 						</div>
 						<div class='form-row'>
@@ -58,8 +59,9 @@
 					</form>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="dataCard">
-					<form action="/proceedRecharge" class="require-validation"
+					<form action="/initiatePayment" class="require-validation"
 						id="rechargeForm" method="post">
+						<input type="hidden" name="rechargeType" value="dataCard"/>
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="email" id="email"
@@ -83,7 +85,7 @@
 							</div>
 							<div class='form-group'>
 								<input type="text" name="amount" id="amount"
-									placeholder="Amount" class="form-control" required="required">
+									placeholder="Amount" class="form-control" value="${recharge.amount}" readonly required="required">
 							</div>
 						</div>
 						<div class='form-row'>
@@ -95,8 +97,9 @@
 					</form>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="dth">
-					<form action="/proceedRecharge" class="require-validation"
+					<form action="/initiatePayment" class="require-validation"
 						id="rechargeForm" method="post">
+						<input type="hidden" name="rechargeType" value="dth"/>
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="email" id="email"
@@ -119,7 +122,7 @@
 							</div>
 							<div class='form-group'>
 								<input type="text" name="amount" id="amount"
-									placeholder="Amount" class="form-control" required="required">
+									placeholder="Amount" class="form-control" value="${recharge.amount}" readonly required="required">
 							</div>
 						</div>
 						<div class='form-row'>
