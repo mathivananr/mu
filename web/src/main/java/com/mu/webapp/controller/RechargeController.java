@@ -4,8 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,14 +65,14 @@ public class RechargeController extends BaseFormController {
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
 	}
 
-	/*@RequestMapping(value = "/paymentForm", method = RequestMethod.GET)
-	public ModelAndView showPaymentForm(Recharge recharge,
-			BindingResult errors, HttpServletRequest request)
-			throws MUException {
-		Model model = new ExtendedModelMap();
-		model.addAttribute("activeMenu", "recharge-link");
-		return new ModelAndView("/mu/paymentForm", model.asMap());
-	}*/
+	/*
+	 * @RequestMapping(value = "/paymentForm", method = RequestMethod.GET)
+	 * public ModelAndView showPaymentForm(Recharge recharge, BindingResult
+	 * errors, HttpServletRequest request) throws MUException { Model model =
+	 * new ExtendedModelMap(); model.addAttribute("activeMenu",
+	 * "recharge-link"); return new ModelAndView("/mu/paymentForm",
+	 * model.asMap()); }
+	 */
 
 	@RequestMapping(value = "/initiatePayment", method = RequestMethod.POST)
 	public ModelAndView initiatePayment(Recharge recharge,
@@ -137,8 +138,7 @@ public class RechargeController extends BaseFormController {
 		String phoneNumber = request.getParameter("phoneNumber");
 		String to = request.getParameter("toDate");
 		String status = request.getParameter("status");
-		Date fromDate = new Date();
-		Date toDate = new Date();
+		String operator = request.getParameter("operator");
 		Calendar fromCal = null;
 		Calendar toCal = null;
 		try {
@@ -159,7 +159,8 @@ public class RechargeController extends BaseFormController {
 				}
 			}
 			model.addAttribute(Constants.RECHARGE_LIST, rechargeManager
-					.getRecharges(fromCal, toCal, email, phoneNumber, status));
+					.getRecharges(fromCal, toCal, email, phoneNumber, status,
+							operator));
 		} catch (MUException e) {
 			saveError(request, "problem in getting recharges");
 			log.error(e.getMessage(), e);
@@ -172,6 +173,72 @@ public class RechargeController extends BaseFormController {
 					new ArrayList<Recharge>());
 		}
 		return new ModelAndView("/admin/rechargeList", model.asMap());
+	}
+
+	@RequestMapping(value = "/admin/rechargeSummaryReport", method = RequestMethod.GET)
+	public ModelAndView showRechargeSummaryReport(
+			final HttpServletRequest request, final HttpServletResponse response) {
+		Model model = new ExtendedModelMap();
+		String fromMenu = request.getParameter("fromMenu");
+		String from = request.getParameter("fromDate");
+		String to = request.getParameter("toDate");
+		String status = request.getParameter("status");
+		Calendar fromCal = null;
+		Calendar toCal = null;
+		try {
+			if (!StringUtil.isEmptyString(fromMenu)
+					|| (StringUtil.isEmptyString(from) && StringUtil
+							.isEmptyString(to))) {
+				fromCal = new GregorianCalendar();
+				toCal = new GregorianCalendar();
+				fromCal.set(Calendar.HOUR_OF_DAY, 0);
+				fromCal.set(Calendar.MINUTE, 0);
+			} else {
+				SimpleDateFormat sdf = new SimpleDateFormat(
+						"yyyy-MM-dd hh:mm:ss");
+				if (!StringUtil.isEmptyString(from)) {
+					fromCal = new GregorianCalendar();
+					fromCal.setTime(sdf.parse(from));
+				} else {
+					fromCal = new GregorianCalendar();
+					fromCal.set(Calendar.HOUR_OF_DAY, 0);
+					fromCal.set(Calendar.MINUTE, 0);
+				}
+				if (!StringUtil.isEmptyString(to)) {
+					toCal = new GregorianCalendar();
+					fromCal.setTime(sdf.parse(to));
+				} else {
+					toCal = new GregorianCalendar();
+					fromCal.set(Calendar.HOUR_OF_DAY, 23);
+					fromCal.set(Calendar.MINUTE, 59);
+				}
+			}
+
+			if (StringUtil.isEmptyString(status)) {
+				status = Constants.RC_SUCCESS;
+			}
+
+			List<Map<String, String>> summaries = rechargeManager.getRecharges(
+					fromCal, toCal, status);
+			int totalAmount = 0;
+			for (Map<String, String> summary : summaries) {
+				totalAmount = totalAmount
+						+ Integer.parseInt(summary.get("amount"));
+			}
+			model.addAttribute(Constants.RECHARGE_SUMMARIES, summaries);
+			model.addAttribute(Constants.TOTAL_AMOUNT, totalAmount);
+		} catch (MUException e) {
+			saveError(request, "problem in getting recharges");
+			log.error(e.getMessage(), e);
+			model.addAttribute(Constants.RECHARGE_SUMMARIES,
+					new ArrayList<Recharge>());
+		} catch (ParseException e) {
+			saveError(request, "problem in getting recharges");
+			log.error(e.getMessage(), e);
+			model.addAttribute(Constants.RECHARGE_SUMMARIES,
+					new ArrayList<Recharge>());
+		}
+		return new ModelAndView("/admin/rechargeSummaryReport", model.asMap());
 	}
 
 	@RequestMapping(value = "/admin/networkOperator", method = RequestMethod.GET)

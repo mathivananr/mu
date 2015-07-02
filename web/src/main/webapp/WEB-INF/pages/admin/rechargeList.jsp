@@ -42,6 +42,11 @@
 					type="text" name="email" id="email" placeholder="Email">
 					<input class="form-control input-sm"
 					type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+					<select name="operator" id="mobileOperator" class="form-control" required="required">
+						<c:forEach items="${mobileOperators}" var="operator">
+							<option value="${operator.value}">${operator.label}</option>
+						</c:forEach>
+					</select>
 					<select
 					class="form-control input-sm" id="status" name="status">
 					<option value="all">All</option>

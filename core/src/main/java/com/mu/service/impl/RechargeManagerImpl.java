@@ -214,8 +214,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 			recharge.setUpdatedOn(now);
 			recharge.setPayment(payment);
 			Double amount = Double.parseDouble(payment.getAmount());
-			if (amount.intValue() >= (Integer
-							.parseInt(recharge.getAmount()) + 1)) {
+			if (amount.intValue() >= (Integer.parseInt(recharge.getAmount()) + 1)) {
 				recharge.setStatus(Constants.RC_PAYMENT_SUCCESS);
 				recharge = saveRecharge(recharge);
 				recharge = completeRecharge(recharge.getId());
@@ -276,8 +275,18 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 	 * {@inheritDoc}
 	 */
 	public List<Recharge> getRecharges(Calendar from, Calendar to,
-			String email, String phoneNumber, String status) throws MUException {
-		return rechargeDao.getRecharges(from, to, email, phoneNumber, status);
+			String email, String phoneNumber, String status, String operator)
+			throws MUException {
+		return rechargeDao.getRecharges(from, to, email, phoneNumber, status,
+				operator);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public List<Map<String, String>> getRecharges(Calendar from, Calendar to,
+			String status) throws MUException {
+		return rechargeDao.getRecharges(from, to, status);
 	}
 
 	@SuppressWarnings("unused")

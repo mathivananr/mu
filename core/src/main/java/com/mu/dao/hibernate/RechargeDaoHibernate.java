@@ -1,10 +1,13 @@
 package com.mu.dao.hibernate;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -66,10 +69,11 @@ public class RechargeDaoHibernate extends GenericDaoHibernate<Recharge, Long>
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Recharge> getRecharges(Calendar from, Calendar to,
-			String email, String phoneNumber, String status) throws MUException {
+			String email, String phoneNumber, String status, String operator)
+			throws MUException {
 		Criteria criteria = getSession().createCriteria(Recharge.class);
 		if (from != null) {
-			criteria.add(Restrictions.ge("createdOn", from));
+			criteria.add(Restrictions.ge("updatedOn", from));
 		}
 		if (to != null) {
 			criteria.add(Restrictions.le("updatedOn", to));
@@ -84,7 +88,42 @@ public class RechargeDaoHibernate extends GenericDaoHibernate<Recharge, Long>
 				&& !Constants.RC_All.equalsIgnoreCase(status)) {
 			criteria.add(Restrictions.eq("status", status));
 		}
+		if (!StringUtil.isEmptyString(operator)
+				&& !Constants.RC_All.equalsIgnoreCase(operator)) {
+			criteria.add(Restrictions.eq("operator", operator));
+		}
+		criteria.addOrder(Order.desc("updatedOn"));
 		return criteria.list();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws MUException
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Map<String, String>> getRecharges(Calendar from, Calendar to,
+			String status) throws MUException {
+		List<Map<String, String>> rechargeList = new ArrayList<Map<String, String>>();
+		try {
+			if (!StringUtil.isEmptyString(status)
+					&& !status.equals(Constants.RC_All)) {
+				String HQL_QUERY = "select new map(networkOperator.operatorName as operatorName, count(recharge.operator) as rechargeCount, sum(recharge.amount) as amount) from Recharge as recharge, NetworkOperator as networkOperator where networkOperator.operatorCode = recharge.operator and status = :status and recharge.updatedOn BETWEEN :stDate AND :edDate group by recharge.operator";
+				rechargeList = getSession().createQuery(HQL_QUERY)
+						.setParameter("stDate", from)
+						.setParameter("edDate", to)
+						.setParameter("status", status).list();
+			} else {
+				String HQL_QUERY = "select new map(networkOperator.operatorName as operatorName, count(recharge.operator) as rechargeCount, sum(recharge.amount) as amount) from Recharge as recharge, NetworkOperator as networkOperator where networkOperator.operatorCode = recharge.operator and recharge.updatedOn BETWEEN :stDate AND :edDate group by recharge.operator";
+				rechargeList = getSession().createQuery(HQL_QUERY)
+						.setParameter("stDate", from)
+						.setParameter("edDate", to).list();
+			}
+			return rechargeList;
+		} catch (HibernateException e) {
+			log.error("Problem in getting recharge details", e);
+			throw new MUException("Problem in getting recharge details", e);
+		}
 	}
 
 	/**

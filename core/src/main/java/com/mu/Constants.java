@@ -19,7 +19,7 @@ public final class Constants {
 	public static final String ERROR = "error";
 
 	public static final String FAIL = "fail";
-	
+
 	public static final String FAILED = "failed";
 
 	/**
@@ -68,7 +68,7 @@ public final class Constants {
 	 * The request scope attribute that holds the merchant list
 	 */
 	public static final String MERCHANT = "merchant";
-	
+
 	/**
 	 * The request scope attribute that holds the merchant list
 	 */
@@ -78,27 +78,37 @@ public final class Constants {
 	 * The request scope attribute that holds the merchant list
 	 */
 	public static final String MERCHANT_TYPE_LIST = "merchantTypeList";
-	
+
 	/**
 	 * The request scope attribute that holds the network operator list
 	 */
 	public static final String NETWORK_OPERATOR_LIST = "networkOperatorList";
-	
+
 	/**
 	 * The request scope attribute that holds the recharge list
 	 */
 	public static final String RECHARGE_LIST = "rechargeList";
-	
+
+	/**
+	 * The request scope attribute that holds the recharge summaries
+	 */
+	public static final String RECHARGE_SUMMARIES = "rechargeSummaries";
+
+	/**
+	 * The request scope attribute that holds the total amount
+	 */
+	public static final String TOTAL_AMOUNT = "totalAmount";
+
 	/**
 	 * The request scope attribute that holds the support request list
 	 */
 	public static final String SUPPORT_REQUEST_LIST = "supportRequestList";
-	
+
 	/**
 	 * The request scope attribute that holds the recharge error code list
 	 */
 	public static final String RC_ERROR_CODE_LIST = "rcErrorCodeList";
-	
+
 	/**
 	 * The request scope attribute for indicating a newly-registered user
 	 */
@@ -133,75 +143,75 @@ public final class Constants {
 	public static final String DTH_OPERATORS = "dthOperators";
 
 	public static final String DATACARD_OPERATORS = "datacardOperators";
-	
+
 	public static final String RC_OPEN = "open";
-	
+
 	public static final String RC_PAYMENT_SUCCESS = "payment success";
-	
+
 	public static final String RC_PAYMENT_FAILED = "payment failed";
-	
+
 	public static final String RC_PENDING = "pending";
-	
+
 	public static final String RC_SUCCESS = "success";
-	
+
 	public static final String RC_FAILED = "failed";
-	
+
 	public static final String RC_All = "all";
 
 	public static final String SR_OPEN = "open";
-	
+
 	public static final String SR_CLOSE = "close";
-	
+
 	public static final String PY_TEST_KEY = "JBZaLc";
-	
+
 	public static final String PY_TEST_SALT = "GQs7yium";
-	
+
 	public static final String PY_LIVE_KEY = "UOgXBC";
-	
+
 	public static final String PY_LIVE_SALT = "EtD9495O";
-	
+
 	public static final String PY_SERVICE_PROVIDER = "payu_paisa";
-	
+
 	public static final String PY_FIRST_NAME = "MU user";
-	
+
 	public static final String PY_PRODUCT_INFO = "MU recharge";
-	
-	public static final String PY_ENCRYPT_TYPE = "SHA-512"; 
-	
+
+	public static final String PY_ENCRYPT_TYPE = "SHA-512";
+
 	public static final String PY_TEST_SURL = "http://demo.muniyamma.com/paymentResponse";
-	
+
 	public static final String PY_TEST_FURL = "http://demo.muniyamma.com/paymentResponse";
-	
+
 	public static final String PY_TEST_CURL = "http://demo.muniyamma.com/paymentResponse";
-	
+
 	public static final String PY_LIVE_SURL = "http://demo.muniyamma.com/paymentResponse";
 
 	public static final String PY_LIVE_FURL = "http://demo.muniyamma.com/paymentResponse";
-	
+
 	public static final String PY_LIVE_CURL = "http://demo.muniyamma.com/paymentResponse";
-	
+
 	/**
 	 * The name of the CSS Theme setting.
 	 * 
 	 * @deprecated No longer used to set themes.
 	 */
 	public static final String CSS_THEME = "csstheme";
-	
+
 	public static final String GET = "GET";
-	
+
 	public static final String POST = "POST";
-	
+
 	public static final String STATUS_SUCCESS = "SUCCESS";
-	
+
 	public static final String STATUS_FAILED = "FAILED";
-	
+
 	public static final String JOLO_USER_ID = "mathivanan";
-	
+
 	public static final String JOLO_KEY = "222654834793126";
-	
+
 	public static final int JOLO_MODE_TEST = 0;
-	
+
 	public static final int JOLO_MODE_LIVE = 1;
-	
-	public static final boolean IS_TEST_APP = false; 
+
+	public static final boolean IS_TEST_APP = false;
 }
