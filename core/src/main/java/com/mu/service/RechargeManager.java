@@ -55,7 +55,8 @@ public interface RechargeManager extends GenericManager<Recharge, Long> {
 
 	Recharge completeRecharge(Long rechargeId) throws MUException;
 
-	Recharge initiatePayment(Recharge recharge) throws MUException;
+	Recharge initiatePayment(Recharge recharge)
+			throws MUException;
 
 	Recharge handlePaymentResponse(Payment payment) throws MUException;
 }

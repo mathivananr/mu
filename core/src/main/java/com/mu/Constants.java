@@ -48,6 +48,11 @@ public final class Constants {
 	public static final String CONFIG = "appConfig";
 
 	/**
+	 * The name of the configuration hashmap stored in application scope.
+	 */
+	public static final String MU_CONFIG = "muConfig";
+	
+	/**
 	 * Session scope attribute that holds the locale set by the user. By setting
 	 * this key to the same one that Struts uses, we get synchronization in
 	 * Struts w/o having to do extra work or have two session-level variables.
@@ -88,6 +93,11 @@ public final class Constants {
 	 * The request scope attribute that holds the recharge list
 	 */
 	public static final String RECHARGE_LIST = "rechargeList";
+	
+	/**
+	 * The request scope attribute that holds the vote list
+	 */
+	public static final String VOTE_LIST = "voteList";
 
 	/**
 	 * The request scope attribute that holds the recharge summaries
@@ -162,33 +172,39 @@ public final class Constants {
 
 	public static final String SR_CLOSE = "close";
 
-	public static final String PY_TEST_KEY = "JBZaLc";
+	public static final String PY_URL = "paymentURL";
+	
+	public static final String PY_TEST_URL = "py.test.URL";
+	
+	public static final String PY_LIVE_URL = "py.live.URL";
+	
+	public static final String PY_TEST_KEY = "py.test.key";
 
-	public static final String PY_TEST_SALT = "GQs7yium";
+	public static final String PY_TEST_SALT = "py.test.salt";
 
-	public static final String PY_LIVE_KEY = "UOgXBC";
+	public static final String PY_LIVE_KEY = "py.live.key";
 
-	public static final String PY_LIVE_SALT = "EtD9495O";
+	public static final String PY_LIVE_SALT = "py.live.salt";
 
-	public static final String PY_SERVICE_PROVIDER = "payu_paisa";
+	public static final String PY_SERVICE_PROVIDER = "py.serviceProvider";
 
-	public static final String PY_FIRST_NAME = "MU user";
+	public static final String PY_FIRST_NAME = "py.firstName";
 
-	public static final String PY_PRODUCT_INFO = "MU recharge";
+	public static final String PY_PRODUCT_INFO = "py.productInfo";
 
-	public static final String PY_ENCRYPT_TYPE = "SHA-512";
+	public static final String PY_ENCRYPT_TYPE = "py.encryptType";
 
-	public static final String PY_TEST_SURL = "http://demo.muniyamma.com/paymentResponse";
+	public static final String PY_TEST_SURL = "py.test.SURL";
 
-	public static final String PY_TEST_FURL = "http://demo.muniyamma.com/paymentResponse";
+	public static final String PY_TEST_FURL = "py.test.FURL";
 
-	public static final String PY_TEST_CURL = "http://demo.muniyamma.com/paymentResponse";
+	public static final String PY_TEST_CURL = "py.test.CURL";
 
-	public static final String PY_LIVE_SURL = "http://demo.muniyamma.com/paymentResponse";
+	public static final String PY_LIVE_SURL = "py.live.SURL";
 
-	public static final String PY_LIVE_FURL = "http://demo.muniyamma.com/paymentResponse";
+	public static final String PY_LIVE_FURL = "py.live.FURL";
 
-	public static final String PY_LIVE_CURL = "http://demo.muniyamma.com/paymentResponse";
+	public static final String PY_LIVE_CURL = "py.live.CURL";
 
 	/**
 	 * The name of the CSS Theme setting.
@@ -205,13 +221,15 @@ public final class Constants {
 
 	public static final String STATUS_FAILED = "FAILED";
 
-	public static final String JOLO_USER_ID = "mathivanan";
+	public static final String JOLO_URL = "jolo.url"; 
+	
+	public static final String JOLO_USER_ID = "jolo.userId";
 
-	public static final String JOLO_KEY = "222654834793126";
+	public static final String JOLO_KEY = "jolo.key";
 
-	public static final int JOLO_MODE_TEST = 0;
+	public static final String JOLO_MODE = "jolo.mode";
 
-	public static final int JOLO_MODE_LIVE = 1;
-
-	public static final boolean IS_TEST_APP = false;
+	public static final String APP_MODE = "app.mode";
+	
+	public static final String DATA_TYPE_STRING = "String";
 }

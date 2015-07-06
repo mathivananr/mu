@@ -6,12 +6,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mu.dao.LookupDao;
+import com.mu.model.Config;
 import com.mu.model.MerchantType;
 import com.mu.model.NetworkOperator;
 import com.mu.model.Role;
@@ -94,5 +97,37 @@ public class LookupDaoHibernate implements LookupDao {
 				.add(Restrictions.eq("operatorType", "DTH"))
 				.add(Restrictions.eq("enabled", true))
 				.addOrder(Order.asc("operatorName")).list();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Config> getConfigs() {
+		log.debug("Retrieving mu configs...");
+		Session session = sessionFactory.getCurrentSession();
+		return session.createCriteria(Config.class).list();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	public List<String> getAppConfigTypes() {
+		log.debug("Retrieving mu config types...");
+		Session session = sessionFactory.getCurrentSession();
+		return session
+				.createCriteria(Config.class)
+				.setProjection(
+						Projections.distinct(Projections.property("dataType")))
+				.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Config> getAppConfigsByType(String type) {
+		log.debug("Retrieving all Configs...");
+		Session session = sessionFactory.getCurrentSession();
+		return session.createCriteria(Config.class)
+				.add((Criterion) Restrictions.eq("dataType", type)).list();
 	}
 }

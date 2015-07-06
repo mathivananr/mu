@@ -21,6 +21,7 @@ import com.mu.model.Recharge;
 import com.mu.service.MailEngine;
 import com.mu.service.RechargeManager;
 import com.mu.util.ApiUtil;
+import com.mu.util.PropertyReader;
 import com.mu.util.StringUtil;
 
 @Service("rechargeManager")
@@ -166,6 +167,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 	 * {@inheritDoc}
 	 */
 	public Recharge initiatePayment(Recharge recharge) throws MUException {
+		PropertyReader reader = PropertyReader.getInstance();
 		recharge.setStatus(Constants.RC_OPEN);
 		Calendar now = new GregorianCalendar();
 		if (StringUtil.isEmptyString(recharge.getId())) {
@@ -174,29 +176,66 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 		recharge.setUpdatedOn(now);
 		recharge = saveRecharge(recharge);
 		Payment payment = new Payment();
-		if (Constants.IS_TEST_APP) {
-			payment.setKey(Constants.PY_TEST_KEY);
+		if (reader
+				.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.APP_MODE).toString().equalsIgnoreCase("0")) {
+			payment.setKey(reader.getPropertyFromFile(
+					Constants.DATA_TYPE_STRING, Constants.PY_TEST_KEY)
+					.toString());
 		} else {
-			payment.setKey(Constants.PY_LIVE_KEY);
+			payment.setKey(reader.getPropertyFromFile(
+					Constants.DATA_TYPE_STRING, Constants.PY_LIVE_KEY)
+					.toString());
 		}
 		payment.setTxnid(recharge.getId().toString());
-		payment.setFirstname(Constants.PY_FIRST_NAME);
+		payment.setFirstname(reader.getPropertyFromFile(
+				Constants.DATA_TYPE_STRING, Constants.PY_FIRST_NAME).toString());
 		payment.setEmail(recharge.getEmail());
 		payment.setPhone(recharge.getPhoneNumber());
 		int amount = Integer.parseInt(recharge.getAmount()) + 1;
 		payment.setAmount(amount + "");
-		payment.setProductinfo(Constants.PY_PRODUCT_INFO);
-		payment.setService_provider(Constants.PY_SERVICE_PROVIDER);
-		if (Constants.IS_TEST_APP) {
-			payment.setSurl(Constants.PY_TEST_SURL);
-			payment.setFurl(Constants.PY_TEST_FURL);
+		payment.setProductinfo(reader.getPropertyFromFile(
+				Constants.DATA_TYPE_STRING, Constants.PY_PRODUCT_INFO)
+				.toString());
+		payment.setService_provider(reader.getPropertyFromFile(
+				Constants.DATA_TYPE_STRING, Constants.PY_SERVICE_PROVIDER)
+				.toString());
+		if (reader
+				.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.APP_MODE).toString().equalsIgnoreCase("0")) {
+			payment.setSurl(reader.getPropertyFromFile(
+					Constants.DATA_TYPE_STRING, Constants.PY_TEST_SURL)
+					.toString());
+			payment.setFurl(reader.getPropertyFromFile(
+					Constants.DATA_TYPE_STRING, Constants.PY_TEST_FURL)
+					.toString());
 			payment.setCurl(Constants.PY_TEST_CURL);
 		} else {
-			payment.setSurl(Constants.PY_LIVE_SURL);
-			payment.setFurl(Constants.PY_LIVE_FURL);
-			payment.setCurl(Constants.PY_LIVE_CURL);
+			payment.setSurl(reader.getPropertyFromFile(
+					Constants.DATA_TYPE_STRING, Constants.PY_LIVE_SURL)
+					.toString());
+			payment.setFurl(reader.getPropertyFromFile(
+					Constants.DATA_TYPE_STRING, Constants.PY_LIVE_FURL)
+					.toString());
+			payment.setCurl(reader.getPropertyFromFile(
+					Constants.DATA_TYPE_STRING, Constants.PY_LIVE_CURL)
+					.toString());
 		}
-		payment.setHash(StringUtil.generateHash(payment));
+		if (reader
+				.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.APP_MODE).toString().equalsIgnoreCase("0")) {
+			payment.setHash(StringUtil.generateHash(
+					reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.PY_TEST_SALT).toString(),
+					reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.PY_ENCRYPT_TYPE).toString(), payment));
+		} else {
+			payment.setHash(StringUtil.generateHash(
+					reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.PY_LIVE_SALT).toString(),
+					reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.PY_ENCRYPT_TYPE).toString(), payment));
+		}
 		recharge.setPayment(payment);
 		return recharge;
 	}
@@ -239,8 +278,17 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 	 * {@inheritDoc}
 	 */
 	public Recharge completeRecharge(Long rechargeId) throws MUException {
+		PropertyReader reader = PropertyReader.getInstance();
 		Recharge recharge = getRechargeById(rechargeId);
-		Map<String, Object> response = ApiUtil.getRequest(recharge);
+		Map<String, Object> response = ApiUtil.getRequest(
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.JOLO_URL).toString(),
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.JOLO_MODE).toString(),
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.JOLO_USER_ID).toString(),
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.JOLO_KEY).toString(), recharge);
 		Calendar now = new GregorianCalendar();
 		recharge.setUpdatedOn(now);
 		if (response.get("status").toString()

@@ -1,29 +1,35 @@
 package com.mu.webapp.listener;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Random;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import com.mu.Constants;
-import com.mu.service.GenericManager;
-import com.mu.service.LookupManager;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.RememberMeAuthenticationProvider;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.jar.Attributes;
-import java.util.jar.Manifest;
+import com.mu.Constants;
+import com.mu.model.Config;
+import com.mu.service.GenericManager;
+import com.mu.service.LookupManager;
+import com.mu.util.PropertyReader;
+import com.mu.util.StringUtil;
 
 /**
  * <p>
@@ -154,6 +160,8 @@ public class StartupListener implements ServletContextListener {
 				mgr.getDataCardOperators());
 		log.debug("Drop-down datacard Operators initialization complete [OK]");
 
+		loadAppConfigs(mgr);
+
 		// Any manager extending GenericManager will do:
 		GenericManager manager = (GenericManager) ctx.getBean("userManager");
 		doReindexing(manager);
@@ -178,5 +186,27 @@ public class StartupListener implements ServletContextListener {
 		// org.apache.commons.logging.impl.SLF4JLogFactory#release() was
 		// invoked.
 		// WARN: Please see http://www.slf4j.org/codes.html for an explanation.
+	}
+
+	public static void loadAppConfigs(LookupManager mgr) {
+		Properties properties;
+		PropertyReader reader = PropertyReader.getInstance();
+		List<String> configTypeList = mgr.getAppConfigTypes();
+
+		if (configTypeList != null && configTypeList.size() > 0) {
+			for (String configType : configTypeList) {
+				log.info("================App Config================="
+						+ configType);
+				properties = new Properties();
+				if (configType != null) {
+					List<Config> configs = mgr.getAppConfigsByType(configType);
+					for (Config config : configs) {
+						properties.put(config.getKeyName(),
+								config.getKeyValue());
+					}
+				}
+				reader.setProperties(configType, properties);
+			}
+		}
 	}
 }

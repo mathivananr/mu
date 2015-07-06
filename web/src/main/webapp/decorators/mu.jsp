@@ -115,6 +115,7 @@
 							<li><a id="shopping-link" href="/shopping" class="filter">Shopping</a></li>
 							<li><a id="advise-link" href="/advise" class="filter">Advise</a></li>
 							<!-- <li><a id="video-link" href="/video" class="filter">Video</a></li> -->
+							<li><a id="vote-link" href="/vote" class="filter">Vote</a></li>
 							<li><a id="about-link" href="/about" class="filter">Story</a></li>
 						</ul>
 					</div>

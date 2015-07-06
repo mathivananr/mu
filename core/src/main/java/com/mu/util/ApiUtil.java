@@ -16,13 +16,13 @@ public class ApiUtil {
 	public ApiUtil() {
 	}
 
-	public static Map<String, Object> getRequest(Recharge recharge) {
-		String url = "http://joloapi.com/api/recharge.php?mode="
-				+ Constants.JOLO_MODE_LIVE + "&userid="
-				+ Constants.JOLO_USER_ID + "&key=" + Constants.JOLO_KEY
-				+ "&operator=" + recharge.getOperator() + "&service="
-				+ recharge.getPhoneNumber() + "&amount=" + recharge.getAmount()
-				+ "&orderid=" + recharge.getId();
+	public static Map<String, Object> getRequest(String joloUrl,
+			String joloMode, String joloUserId, String joloKey,
+			Recharge recharge) {
+		String url = joloUrl + "?mode=" + joloMode + "&userid=" + joloUserId
+				+ "&key=" + joloKey + "&operator=" + recharge.getOperator()
+				+ "&service=" + recharge.getPhoneNumber() + "&amount="
+				+ recharge.getAmount() + "&orderid=" + recharge.getId();
 		Map<String, Object> responseMap = new HashMap<String, Object>();
 		responseMap.put("status", Constants.STATUS_FAILED);
 		URL obj;

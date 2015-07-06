@@ -30,6 +30,7 @@ import com.mu.model.Payment;
 import com.mu.model.RcErrorCode;
 import com.mu.model.Recharge;
 import com.mu.service.RechargeManager;
+import com.mu.util.PropertyReader;
 import com.mu.util.StringUtil;
 
 @Controller
@@ -79,9 +80,23 @@ public class RechargeController extends BaseFormController {
 			BindingResult errors, HttpServletRequest request)
 			throws MUException {
 		Model model = new ExtendedModelMap();
+		PropertyReader reader = PropertyReader.getInstance();
 		recharge = rechargeManager.initiatePayment(recharge);
 		model.addAttribute("recharge", recharge);
 		model.addAttribute("payment", recharge.getPayment());
+		if (reader
+				.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.APP_MODE).toString().equalsIgnoreCase("0")) {
+			model.addAttribute(
+					Constants.PY_URL,
+					reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.PY_TEST_URL).toString());
+		} else {
+			model.addAttribute(
+					Constants.PY_URL,
+					reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.PY_LIVE_URL).toString());
+		}
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/paymentForm", model.asMap());
 	}

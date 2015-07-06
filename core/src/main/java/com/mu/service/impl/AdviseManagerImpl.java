@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mu.common.MUException;
 import com.mu.dao.AdviseDao;
 import com.mu.model.Advise;
+import com.mu.model.Vote;
 import com.mu.service.AdviseManager;
 
 @Service("adviseManager")
@@ -37,5 +38,12 @@ public class AdviseManagerImpl extends GenericManagerImpl<Advise, Long>
 	public Advise getAdviseById(Long adviseId) throws MUException {
 		return adviseDao.getAdviseById(adviseId);
 	}
+	
+	public Vote saveVote(Vote vote) throws MUException{
+		return adviseDao.saveVote(vote);
+	}
 
+	public List<Vote> getVotes() throws MUException{
+		return adviseDao.getVotes();
+	}
 }

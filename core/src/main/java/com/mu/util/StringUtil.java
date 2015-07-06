@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import com.mu.Constants;
 import com.mu.common.MUException;
 import com.mu.model.Payment;
@@ -163,7 +165,8 @@ public final class StringUtil {
 	 * @return
 	 * @throws MUException
 	 */
-	public static String generateHash(Payment payment) throws MUException {
+	public static String generateHash(String salt, String encryptType, Payment payment)
+			throws MUException {
 		StringBuffer hashString = new StringBuffer();
 		hashString.append(payment.getKey());
 		hashString.append("|");
@@ -173,17 +176,12 @@ public final class StringUtil {
 		hashString.append("|");
 		hashString.append(payment.getProductinfo());
 		hashString.append("|");
-		//hashString.append(payment.getFirstname());
+		// hashString.append(payment.getFirstname());
 		hashString.append("|");
 		hashString.append(payment.getEmail());
 		hashString.append("|||||||||||");
-		if (Constants.IS_TEST_APP) {
-			hashString.append(Constants.PY_TEST_SALT);
-		} else {
-			hashString.append(Constants.PY_LIVE_SALT);
-		}
-		System.out.println("hash string =========="+ hashString.toString());
-		return hashCal(Constants.PY_ENCRYPT_TYPE, hashString.toString());
+		hashString.append(salt);
+		return hashCal(encryptType, hashString.toString());
 	}
 
 	/**

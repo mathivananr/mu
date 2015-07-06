@@ -1,12 +1,15 @@
 package com.mu.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mu.dao.LookupDao;
+import com.mu.model.Config;
 import com.mu.model.LabelValue;
 import com.mu.model.MerchantType;
 import com.mu.model.NetworkOperator;
@@ -76,5 +79,24 @@ public class LookupManagerImpl implements LookupManager {
 					.getOperatorName()));
 		}
 		return list;
+	}
+
+	public Map<String, String> getConfigs() {
+		Map<String, String> configs = new HashMap<String, String>();
+		for (Config config : dao.getConfigs()) {
+			configs.put(config.getKeyName(), config.getKeyValue());
+		}
+		return configs;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public List<String> getAppConfigTypes() {
+		return dao.getAppConfigTypes();
+	}
+
+	public List<Config> getAppConfigsByType(String type) {
+		return dao.getAppConfigsByType(type);
 	}
 }

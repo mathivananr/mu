@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mu.common.MUException;
 import com.mu.dao.AdviseDao;
 import com.mu.model.Advise;
+import com.mu.model.Vote;
 
 @Repository("adviseDao")
 public class AdviseDaoHibernate extends GenericDaoHibernate<Advise, Long>
@@ -86,6 +87,35 @@ public class AdviseDaoHibernate extends GenericDaoHibernate<Advise, Long>
 			} else {
 				throw new MUException("No Advise foud for id " + adviseId);
 			}
+		} catch (HibernateException e) {
+			throw new MUException(e.getMessage(), e);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws MUException
+	 */
+	@Transactional
+	public Vote saveVote(Vote vote) throws MUException {
+		try {
+			return (Vote) getSession().merge(vote);
+		} catch (HibernateException e) {
+			throw new MUException(e.getMessage(), e);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws MUException
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Vote> getVotes() throws MUException {
+		try {
+			return getSession().createCriteria(Vote.class).list();
 		} catch (HibernateException e) {
 			throw new MUException(e.getMessage(), e);
 		}

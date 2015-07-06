@@ -11,16 +11,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mu.Constants;
 import com.mu.common.MUException;
 import com.mu.model.Advise;
 import com.mu.model.JsonResponse;
+import com.mu.model.Vote;
 import com.mu.service.AdviseManager;
 import com.mu.util.StringUtil;
 
@@ -34,7 +35,6 @@ public class AdviseController extends BaseFormController {
 		this.adviseManager = adviseManager;
 	}
 
-	@ModelAttribute
 	@RequestMapping(value = "/advise", method = RequestMethod.GET)
 	public ModelAndView showAdvisePage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
@@ -54,7 +54,8 @@ public class AdviseController extends BaseFormController {
 		JsonResponse res = new JsonResponse();
 		try {
 			res.setStatus("SUCCESS");
-			if (!StringUtil.isEmptyString(adviseId) && !adviseId.equals("undefined")) {
+			if (!StringUtil.isEmptyString(adviseId)
+					&& !adviseId.equals("undefined")) {
 				res.setResult(adviseManager.getAdviseById(Long
 						.parseLong(adviseId)));
 			} else {
@@ -70,7 +71,7 @@ public class AdviseController extends BaseFormController {
 	}
 
 	@RequestMapping(value = "/postAdvise", method = RequestMethod.POST)
-	public ModelAndView addUser(Advise advise, BindingResult errors,
+	public ModelAndView postAdvise(Advise advise, BindingResult errors,
 			HttpServletRequest request) {
 		Model model = new ExtendedModelMap();
 		try {
@@ -89,6 +90,42 @@ public class AdviseController extends BaseFormController {
 			log.error(e.getMessage(), e);
 		}
 		return new ModelAndView("/mu/advise", model.asMap());
+	}
+
+	@RequestMapping(value = "/vote", method = RequestMethod.GET)
+	public ModelAndView showVotePage(final HttpServletRequest request,
+			final HttpServletResponse response) throws MUException {
+		Model model = new ExtendedModelMap();
+		model.addAttribute("activeMenu", "vote-link");
+		return new ModelAndView("/mu/vote", model.asMap());
+	}
+
+	@RequestMapping(value = "/admin/votes", method = RequestMethod.GET)
+	public ModelAndView showVoteListPage(final HttpServletRequest request,
+			final HttpServletResponse response) throws MUException {
+		Model model = new ExtendedModelMap();
+		model.addAttribute(Constants.VOTE_LIST, adviseManager.getVotes());
+		return new ModelAndView("/mu/voteList", model.asMap());
+	}
+	
+	@RequestMapping(value = "/vote", method = RequestMethod.POST)
+	public ModelAndView vote(Vote vote, BindingResult errors,
+			HttpServletRequest request) {
+		Model model = new ExtendedModelMap();
+		try {
+			Calendar now = new GregorianCalendar();
+			if (StringUtil.isEmptyString(vote.getId())) {
+				vote.setCreatedOn(now);
+				vote.setCreatedIpAddress(request.getRemoteAddr());
+			}
+			adviseManager.saveVote(vote);
+			model.addAttribute("activeMenu", "vote-link");
+			saveMessage(request, "Thank you, voted successfully.");
+		} catch (MUException e) {
+			log.error(e.getMessage(), e);
+			saveError(request, "problem in voting");
+		}
+		return new ModelAndView("/mu/vote", model.asMap());
 	}
 
 	/*

@@ -18,5 +18,7 @@
 		<mapping class="com.mu.model.MerchantType" />
 		<mapping class="com.mu.model.Merchant" />
 		<mapping class="com.mu.model.Payment" />
+		<mapping class="com.mu.model.Vote" />
+		<mapping class="com.mu.model.Config" />
 	</session-factory>
 </hibernate-configuration>

@@ -2,7 +2,7 @@
 <div class="panel panel-danger"></div>
 <div class="container">
 	<div class="row">
-		<form action="https://secure.payu.in/_payment"
+		<form action="${paymentURL}"
 			class="require-validation" id="payment-form" method="post">
 			<input type="hidden" name="key" value="${payment.key}" /> <input
 				type="hidden" name="txnid" value="${payment.txnid}" /> <input

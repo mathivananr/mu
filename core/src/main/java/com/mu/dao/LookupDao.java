@@ -1,5 +1,6 @@
 package com.mu.dao;
 
+import com.mu.model.Config;
 import com.mu.model.MerchantType;
 import com.mu.model.NetworkOperator;
 import com.mu.model.Role;
@@ -31,4 +32,10 @@ public interface LookupDao {
     List<NetworkOperator> getDataCardOperators();
 	
 	List<NetworkOperator> getDTHOperators();
+	
+	List<Config> getConfigs();
+	
+	List<String> getAppConfigTypes();
+	
+	List<Config> getAppConfigsByType(String type);
 }
