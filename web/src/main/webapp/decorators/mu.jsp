@@ -92,7 +92,7 @@
 					</div>
 					<div class="row text-center">
 						<!-- Facebook -->
-						<a href="https://www.facebook.com/sharer/sharer.php?u=Support a software engineer to become formar. @one_of_your_friend #muniyamma http://muniyamma.com/story" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=http://muniyamma.com/story&title=Support a software engineer to become formar. @one_of_your_frien #muniyamma " title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
 						<!-- Twitter -->
 						<a href="http://twitter.com/home?status=Support a software engineer to become formar. @one_of_your_friend #muniyamma http://muniyamma.com/story" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
 						<!-- Google+ -->
