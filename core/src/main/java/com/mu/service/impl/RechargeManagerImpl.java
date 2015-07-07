@@ -284,7 +284,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
 						Constants.JOLO_URL).toString(),
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
-						Constants.JOLO_MODE).toString(),
+						Constants.APP_MODE).toString(),
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
 						Constants.JOLO_USER_ID).toString(),
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,

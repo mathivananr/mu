@@ -23,4 +23,12 @@ public class AboutController extends BaseFormController {
 		model.addAttribute("activeMenu", "about-link");
 		return new ModelAndView("/mu/about", model.asMap());
 	}
+	
+	@RequestMapping(value = "/story", method = RequestMethod.GET)
+	public ModelAndView showStoryPage(final HttpServletRequest request,
+			final HttpServletResponse response) throws MUException {
+		Model model = new ExtendedModelMap();
+		model.addAttribute("activeMenu", "about-link");
+		return new ModelAndView("/mu/about", model.asMap());
+	}
 }

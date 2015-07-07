@@ -16,33 +16,14 @@
         <meta name="description" content="Your Regular expense will change someone life. Make someone dream true via Online Recharge of Prepaid Mobile, Datacard, DTH and online shopping referral">
         <meta name="keywords" content="muniyamma, munima, muniyama, online, recharge, online recharge, online shopping, shopping referral, farmer, agriculture">
         <meta name="author" content="Muniyamma">
+        <!-- <meta property="og:url" content="https://www.mathnuggets.com/" />
+		<meta property="og:image" content="https://www.mathnuggets.com/images/fb-logo.jpg" />
+		<meta property="og:title" content="Support a software engineer become formar" />
+		<meta property="og:description" content="Support a software engineer become formar by recharge or shopping" /> -->
 		<!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<!-- Google Font -->
-		
-		<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'> -->
-
-		<!-- CSS
-		================================================== -->
-		<!-- Fontawesome Icon font -->
-        <link rel="stylesheet" href="/styles/core/font-awesome.min.css">
-		<!-- Twitter Bootstrap css -->
-        <link rel="stylesheet" href="/styles/core/bootstrap.min.css">
-		<!-- jquery.fancybox  -->
-        <link rel="stylesheet" href="/styles/core/jquery.fancybox.css">
-		<!-- animate -->
-        <link rel="stylesheet" href="/styles/core/animate.css">
-		<!-- Main Stylesheet -->
-        <link rel="stylesheet" href="/styles/core/main.css">
-        <!-- timeline Stylesheet -->
-        <link rel="stylesheet" href="/styles/core/timeline.css">
-		<!-- media-queries -->
-        <link rel="stylesheet" href="/styles/core/media-queries.css">
-
-		<!-- Modernizer Script for old Browsers -->
-        <script src="/scripts/core/modernizr-2.6.2.min.js"></script>
-
+        <link rel="icon" href="/images/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/v/${applicationScope.assetsVersion}/mu.css"/>
     </head>
 	
     <body id="body">
@@ -92,11 +73,12 @@
         <!--
         End Fixed Navigation
         ==================================== -->
-				
+		<div class="pull-right">
+			<img alt="beta version" src="/images/beta.png" height="70" width="70"></img>	
+		</div>		
         <!--
         Our Works
         ==================================== -->
-		
 		<section id="works" class="works clearfix">
 			<div class="container">
 				<div class="row">
@@ -108,7 +90,15 @@
 					<div class="sec-sub-title text-center">
 						<p>Your regular expense may change someone's life</p>
 					</div>
-					
+					<div class="row text-center">
+						<!-- Facebook -->
+						<a href="https://www.facebook.com/sharer/sharer.php?u=Support a software engineer to become formar. @one_of_your_friend #muniyamma http://muniyamma.com/story" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+						<!-- Twitter -->
+						<a href="http://twitter.com/home?status=Support a software engineer to become formar. @one_of_your_friend #muniyamma http://muniyamma.com/story" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+						<!-- Google+ -->
+						<a href="https://plus.google.com/share?url=http://muniyamma.com/story" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+					</div>
+					<hr/>
 					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
 						<ul class="text-center">
 							<li><a id="recharge-link" href="/rechargeForm" class="active filter">Recharge</a></li>
@@ -116,7 +106,7 @@
 							<li><a id="advise-link" href="/advise" class="filter">Advise</a></li>
 							<!-- <li><a id="video-link" href="/video" class="filter">Video</a></li> -->
 							<li><a id="vote-link" href="/vote" class="filter">Vote</a></li>
-							<li><a id="about-link" href="/about" class="filter">Story</a></li>
+							<li><a id="about-link" href="/story" class="filter">Story</a></li>
 						</ul>
 					</div>
 				</div>
@@ -130,7 +120,6 @@
 				</div>
 			</div>
 		</section>
-		
         <!--
         End Our Works
         ==================================== -->
@@ -164,6 +153,7 @@
 							<a href="/site/contact">Contact</a> |
 							<a href="/site/termsAndConditions">Terms and Conditions</a> |
 							<a href="/site/privacyPolicy">Privacy Policy</a> |
+							<a href="/site/faq">FAQ</a> |
 							<a href="/site/supportRequest">Recharge Complaints</a>
 							<!-- <ul>
 								<li><a href="/site/contact">Contact Us</a></li>
@@ -174,7 +164,7 @@
 					</div>
 					<div class="row">
 						<p class="text-center">
-							Copyright © 2015 <a href="http://muniyamma.com/">Muniyamma</a>. All rights reserved. Designed & developed by <a href="http://muniyamma.com/">Muniyamma</a>
+							Copyright <i class="fa fa-copyright"></i> 2015 <a href="http://muniyamma.com/">Muniyamma</a>. All rights reserved. Designed & developed by <a href="http://muniyamma.com/">Muniyamma</a>
 						</p>
 					</div>
 				</div>
@@ -185,32 +175,7 @@
 
 		<!-- Essential jQuery Plugins
 		================================================== -->
-		<!-- Main jQuery -->
-        <script src="/scripts/core/jquery-1.11.1.min.js"></script>
-		<!-- Single Page Nav -->
-        <script src="/scripts/core/jquery.singlePageNav.min.js"></script>
-		<!-- Twitter Bootstrap -->
-        <script src="/scripts/core/bootstrap.min.js"></script>
-		<!-- jquery.fancybox.pack -->
-        <script src="/scripts/core/jquery.fancybox.pack.js"></script>
-		<!-- jquery.mixitup.min -->
-        <script src="/scripts/core/jquery.mixitup.min.js"></script>
-		<!-- jquery.parallax -->
-        <script src="/scripts/core/jquery.parallax-1.1.3.js"></script>
-		<!-- jquery.countTo -->
-        <script src="/scripts/core/jquery-countTo.js"></script>
-		<!-- jquery.appear -->
-        <script src="/scripts/core/jquery.appear.js"></script>
-		<!-- Contact form validation -->
-		<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script> -->
-		<!-- Google Map -->
-        <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
-		<!-- jquery easing -->
-        <script src="/scripts/core/jquery.easing.min.js"></script>
-		<!-- jquery easing -->
-        <script src="/scripts/core/wow.min.js"></script>
-        <script src="/scripts/core/jquery.countdown.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/assets/v/${applicationScope.assetsVersion}/mu.js"></script>
 		<script>
 			var wow = new WOW ({
 				boxClass:     'wow',      // animated element css class (default is wow)
@@ -222,7 +187,5 @@
 			);
 			wow.init();
 		</script> 
-		<!-- Custom Functions -->
-        <script src="/scripts/core/custom.js"></script>
     </body>
 </html>

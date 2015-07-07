@@ -14,4 +14,46 @@
         <js>/scripts/core/bootstrap-datetimepicker.min.js</js>
         <js>/scripts/script.js</js>
     </group>
+    <group name="mu">
+    	<!-- Fontawesome Icon font -->
+        <css>/styles/core/font-awesome.min.css</css>
+		<!-- Twitter Bootstrap css -->
+        <css>/styles/core/bootstrap.min.css</css>
+		<!-- jquery.fancybox  -->
+        <css>/styles/core/jquery.fancybox.css</css>
+		<!-- animate -->
+        <css>/styles/core/animate.css</css>
+		<!-- Main Stylesheet -->
+        <css>/styles/core/main.css</css>
+        <!-- timeline Stylesheet -->
+        <css>/styles/core/timeline.css</css>
+		<!-- media-queries -->
+        <css>/styles/core/media-queries.css</css>
+
+		<!-- Modernizer Script for old Browsers -->
+        <js>/scripts/core/modernizr-2.6.2.min.js</js>
+		<!-- Main jQuery -->
+        <js>/scripts/core/jquery-1.11.1.min.js</js>
+		<!-- Single Page Nav -->
+        <js>/scripts/core/jquery.singlePageNav.min.js</js>
+		<!-- Twitter Bootstrap -->
+        <js>/scripts/core/bootstrap.min.js</js>
+		<!-- jquery.fancybox.pack -->
+        <js>/scripts/core/jquery.fancybox.pack.js</js>
+		<!-- jquery.mixitup.min -->
+        <js>/scripts/core/jquery.mixitup.min.js</js>
+		<!-- jquery.parallax -->
+        <js>/scripts/core/jquery.parallax-1.1.3.js</js>
+		<!-- jquery.countTo -->
+        <js>/scripts/core/jquery-countTo.js</js>
+		<!-- jquery.appear -->
+        <js>/scripts/core/jquery.appear.js</js>
+		<!-- jquery easing -->
+        <js>/scripts/core/jquery.easing.min.js</js>
+		<!-- jquery easing -->
+        <js>/scripts/core/wow.min.js</js>
+        <js>/scripts/core/jquery.countdown.js</js>    
+        <!-- Custom Functions -->    
+        <js>/scripts/core/custom.js</js>
+    </group>
 </groups>

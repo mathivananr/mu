@@ -13,15 +13,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mu.common.MUException;
 
 @Controller
-public class CommonController extends BaseFormController{
-	
+public class CommonController extends BaseFormController {
+
 	@RequestMapping(value = "/site/termsAndConditions", method = RequestMethod.GET)
 	public ModelAndView showTACPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
 		return new ModelAndView("/site/termsAndConditions", model.asMap());
 	}
-	
+
 	@RequestMapping(value = "/site/privacyPolicy", method = RequestMethod.GET)
 	public ModelAndView showPrivacyPolicyPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
@@ -35,11 +35,18 @@ public class CommonController extends BaseFormController{
 		Model model = new ExtendedModelMap();
 		return new ModelAndView("/site/about", model.asMap());
 	}
-	
+
 	@RequestMapping(value = "/site/contact", method = RequestMethod.GET)
 	public ModelAndView showContactPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
 		return new ModelAndView("/site/contact", model.asMap());
+	}
+
+	@RequestMapping(value = "/site/faq", method = RequestMethod.GET)
+	public ModelAndView showFAQPage(final HttpServletRequest request,
+			final HttpServletResponse response) throws MUException {
+		Model model = new ExtendedModelMap();
+		return new ModelAndView("/site/faq", model.asMap());
 	}
 }

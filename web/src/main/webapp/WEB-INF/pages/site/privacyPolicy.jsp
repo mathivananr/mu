@@ -33,6 +33,6 @@
 		<div class="page-header">
 			<h2>Contact Us</h2>
 		</div>
-		<p>If there are any questions regarding this privacy policy please write to info@muniyamma.com</p>
+		<p>If there are any questions regarding this privacy policy please write to <a class="link-color" href="mailto:contact@muniyamma.com">contact@muniyamma.com</a> </p>
 	</div>
 </div>
