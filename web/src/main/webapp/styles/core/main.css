@@ -153,6 +153,12 @@ body > section,
 			transition: background-color 800ms linear;
 }
 
+.right-strap {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
 .navbar-toggle i {
 	color: #fff;
 }
