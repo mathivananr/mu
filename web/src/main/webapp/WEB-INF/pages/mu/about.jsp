@@ -30,16 +30,15 @@
 			these questions, Yes he don't know how to do agriculture but he have
 			confident that he will do. But for next questions are money matters.
 			If he start to save money for all of these then he get old and he
-			compromise himself to live same life. Again some people,
-			speech, video and post reminds him that there is so many people may
-			help each other in day to day life and why not they? Most of the
-			people may think like him and drop their ideas because of money or
-			some reason.</p>
+			compromise himself to live same life. Again some people, speech,
+			video and post reminds him that there is so many people may help each
+			other in day to day life and why not they? Most of the people may
+			think like him and drop their ideas because of money or some reason.</p>
 		<br />
 		<p>
 			Now he decides to start <a href="http://muniyamma.com"
 				class="link-color">http://muniyamma.com</a>, It will be live 180
-			days and in this 180 days every recharge 1 Rs extra, from this 1 Rs
+			days and in this 180 days every recharge pay 1 Rs extra, from this 1 Rs
 			he get some amount, and every shopping your doing via this site, he
 			get some referral commission from the merchants. He never mean that
 			going to change the world or making revolution. He want to do this
@@ -51,12 +50,38 @@
 			<strong>How to contribute? </strong>
 		</p>
 		<ol class="pad-10">
-			<li><strong>1. Recharge in this site.</strong></li>
-			<li><strong>2. Shopping from this site links.</strong></li>
+			<li><strong>1. Recharge from <a class="link-color"
+					href="http://muniyamma.com/recharge">http://muniyamma.com/recharge</a>.
+			</strong></li>
+			<li><strong>2. Shopping from <a class="link-color"
+					href="http://muniyamma.com/shopping">http://muniyamma.com/shopping</a>
+					.
+			</strong></li>
 			<li><strong>3. Share the site in social media like <span
 					class="share-text-color">@one_of_your_friend </span> and <span
-					class="share-text-color">#muniyamma</span></strong></li>
+					class="share-text-color">#muniyamma</span></strong>
+				<div class="row text-center">
+					<!-- Facebook -->
+					<a
+						href="https://www.facebook.com/sharer/sharer.php?u=http://muniyamma.com/story&title=Support a software engineer to become formar. @one_of_your_frien #muniyamma "
+						title="Share on Facebook" target="_blank" class="btn btn-facebook"><i
+						class="fa fa-facebook"></i> Facebook</a>
+					<!-- Twitter -->
+					<a
+						href="http://twitter.com/home?status=Support a software engineer to become formar. http://muniyamma.com/story @one_of_your_friend #muniyamma"
+						title="Share on Twitter" target="_blank" class="btn btn-twitter"><i
+						class="fa fa-twitter"></i> Twitter</a>
+					<!-- Google+ -->
+					<a
+						href="https://plus.google.com/share?url=http://muniyamma.com/story"
+						title="Share on Google+" target="_blank"
+						class="btn btn-googleplus"><i class="fa fa-google-plus"></i>
+						Google+</a>
+				</div></li>
 		</ol>
+		<p>
+			Read FAQ <a class="link-color" href="http://muniyamma.com/site/faq"> here </a> or write your queries to contact@muniyamma.com
+		</p>
 	</div>
 	<div class="page-header">
 		<h1 id="timeline">Timeline</h1>

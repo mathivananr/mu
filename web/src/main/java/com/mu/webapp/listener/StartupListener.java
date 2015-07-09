@@ -3,6 +3,7 @@ package com.mu.webapp.listener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -26,6 +27,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.mu.Constants;
 import com.mu.model.Config;
+import com.mu.model.LabelValue;
 import com.mu.service.GenericManager;
 import com.mu.service.LookupManager;
 import com.mu.util.PropertyReader;
@@ -146,7 +148,8 @@ public class StartupListener implements ServletContextListener {
 		context.setAttribute(Constants.AVAILABLE_ROLES, mgr.getAllRoles());
 		log.debug("Drop-down initialization complete [OK]");
 
-		context.setAttribute(Constants.MERCHANT_TYPES, mgr.getMerchantTypes());
+		context.setAttribute(Constants.MERCHANT_TYPES, new HashSet<LabelValue>(
+				mgr.getMerchantTypes()));
 		log.debug("Drop-down merchant type initialization complete [OK]");
 
 		context.setAttribute(Constants.MOBILE_OPERATORS,

@@ -232,4 +232,7 @@ public final class Constants {
 	public static final String APP_MODE = "app.mode";
 	
 	public static final String DATA_TYPE_STRING = "String";
+	
+	public static final String MERCHANT_TYPE_RECHARGE = "Recharge";
+	
 }

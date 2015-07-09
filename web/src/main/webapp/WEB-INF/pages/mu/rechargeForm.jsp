@@ -3,10 +3,11 @@
 <div class='row'>
 	<div
 		class='col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1 col-lg-4 col-md-4 col-sm-6 col-xs-10'>
-<!-- 		<div class="col-lg-offset-3 col-md-offset-3">
+		<!-- 		<div class="col-lg-offset-3 col-md-offset-3">
 			<p>For every recharge Rs.1 extra.</p>
 		</div>
- -->		<div role="tabpanel">
+ -->
+		<div role="tabpanel">
 
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs margin-bottom10" role="tablist">
@@ -24,7 +25,7 @@
 				<div role="tabpanel" class="tab-pane active" id="mobile">
 					<form action="/initiatePayment" class="require-validation"
 						id="rechargeForm" method="post">
-						<input type="hidden" name="rechargeType" value="mobile"/>
+						<input type="hidden" name="rechargeType" value="mobile" />
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="email" id="email"
@@ -39,7 +40,8 @@
 						</div>
 						<div class='form-row'>
 							<div class='form-group'>
-								<select name="operator" id="mobileOperator" class="form-control" required="required">
+								<select name="operator" id="mobileOperator" class="form-control"
+									required="required">
 									<c:forEach items="${mobileOperators}" var="operator">
 										<option value="${operator.value}">${operator.label}</option>
 									</c:forEach>
@@ -47,7 +49,8 @@
 							</div>
 							<div class='form-group'>
 								<input type="text" name="amount" id="amount"
-									placeholder="Amount" class="form-control" value="${recharge.amount}" readonly required="required">
+									placeholder="Amount" class="form-control"
+									value="${recharge.amount}" readonly required="required">
 							</div>
 						</div>
 						<div class='form-row'>
@@ -61,7 +64,7 @@
 				<div role="tabpanel" class="tab-pane" id="dataCard">
 					<form action="/initiatePayment" class="require-validation"
 						id="rechargeForm" method="post">
-						<input type="hidden" name="rechargeType" value="dataCard"/>
+						<input type="hidden" name="rechargeType" value="dataCard" />
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="email" id="email"
@@ -85,7 +88,8 @@
 							</div>
 							<div class='form-group'>
 								<input type="text" name="amount" id="amount"
-									placeholder="Amount" class="form-control" value="${recharge.amount}" readonly required="required">
+									placeholder="Amount" class="form-control"
+									value="${recharge.amount}" readonly required="required">
 							</div>
 						</div>
 						<div class='form-row'>
@@ -99,7 +103,7 @@
 				<div role="tabpanel" class="tab-pane" id="dth">
 					<form action="/initiatePayment" class="require-validation"
 						id="rechargeForm" method="post">
-						<input type="hidden" name="rechargeType" value="dth"/>
+						<input type="hidden" name="rechargeType" value="dth" />
 						<div class='form-row'>
 							<div class='form-group'>
 								<input class='form-control' name="email" id="email"
@@ -114,7 +118,8 @@
 						</div>
 						<div class='form-row'>
 							<div class='form-group'>
-								<select name="operator" id="dthOperator" class="form-control" required="required">
+								<select name="operator" id="dthOperator" class="form-control"
+									required="required">
 									<c:forEach items="${dthOperators}" var="operator">
 										<option value="${operator.value}">${operator.label}</option>
 									</c:forEach>
@@ -122,7 +127,8 @@
 							</div>
 							<div class='form-group'>
 								<input type="text" name="amount" id="amount"
-									placeholder="Amount" class="form-control" value="${recharge.amount}" readonly required="required">
+									placeholder="Amount" class="form-control"
+									value="${recharge.amount}" readonly required="required">
 							</div>
 						</div>
 						<div class='form-row'>
@@ -136,6 +142,26 @@
 			</div>
 
 		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="row text-center">
+				<strong> ( or ) </strong>
+			</div>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="row text-center">
+				<small>click you favorite site on follows and continue
+				your recharge</small>
+			</div>
+		</div>
+		<c:forEach var="merchant" items="${merchantType.merchants}">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="thumbnail">
+					<a href="${merchant.targetLink}"><img
+						src="${merchant.logoPath}" alt="${merchant.merchantName}"
+						width="100%" class="slider-store-image"> </a>
+				</div>
+			</div>
+		</c:forEach>
 	</div>
 </div>
 <!-- end recharge form -->

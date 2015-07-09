@@ -83,6 +83,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="sec-title text-center">
+						<small> support 180 days from start </small>
 						<h2><span id="clock">Coming Soon</span></h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
@@ -94,7 +95,7 @@
 						<!-- Facebook -->
 						<a href="https://www.facebook.com/sharer/sharer.php?u=http://muniyamma.com/story&title=Support a software engineer to become formar. @one_of_your_frien #muniyamma " title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
 						<!-- Twitter -->
-						<a href="http://twitter.com/home?status=Support a software engineer to become formar. @one_of_your_friend #muniyamma http://muniyamma.com/story" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+						<a href="http://twitter.com/home?status=Support a software engineer to become formar. http://muniyamma.com/story @one_of_your_friend #muniyamma" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
 						<!-- Google+ -->
 						<a href="https://plus.google.com/share?url=http://muniyamma.com/story" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
 					</div>

@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,8 +48,9 @@ public class ShoppingController extends BaseFormController {
 	public ModelAndView showShoppingPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
-		model.addAttribute(Constants.MERCHANT_TYPE_LIST,
+		Set<MerchantType> merchantTypes = new HashSet<MerchantType>(
 				shoppingManager.getAllMerchantTypes());
+		model.addAttribute(Constants.MERCHANT_TYPE_LIST, merchantTypes);
 		model.addAttribute("activeMenu", "shopping-link");
 		return new ModelAndView("/mu/shopping", model.asMap());
 	}
@@ -58,8 +61,9 @@ public class ShoppingController extends BaseFormController {
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
 		String merchantId = request.getParameter("id");
-		model.addAttribute(Constants.MERCHANT_TYPE_LIST,
+		Set<MerchantType> merchantTypes = new HashSet<MerchantType>(
 				shoppingManager.getAllMerchantTypes());
+		model.addAttribute(Constants.MERCHANT_TYPE_LIST, merchantTypes);
 		if (!StringUtil.isEmptyString(merchantId)) {
 			model.addAttribute("merchant",
 					shoppingManager.getMerchantById(Long.parseLong(merchantId)));
@@ -99,8 +103,9 @@ public class ShoppingController extends BaseFormController {
 	public ModelAndView showMerchantTypes(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
 		Model model = new ExtendedModelMap();
-		model.addAttribute(Constants.MERCHANT_TYPE_LIST,
+		Set<MerchantType> merchantTypes = new HashSet<MerchantType>(
 				shoppingManager.getAllMerchantTypes());
+		model.addAttribute(Constants.MERCHANT_TYPE_LIST, merchantTypes);
 		return new ModelAndView("/admin/merchantTypeList", model.asMap());
 	}
 

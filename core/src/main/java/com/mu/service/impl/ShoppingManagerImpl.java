@@ -14,7 +14,7 @@ import com.mu.service.ShoppingManager;
 @Service("shoppingManager")
 public class ShoppingManagerImpl extends GenericManagerImpl<Merchant, Long>
 		implements ShoppingManager {
-	
+
 	private ShoppingDao shoppingDao;
 
 	@Autowired
@@ -31,31 +31,37 @@ public class ShoppingManagerImpl extends GenericManagerImpl<Merchant, Long>
 		return shoppingDao.getAllMerchant();
 	}
 
-	public Merchant getMerchantById(Long merchantId) throws MUException{
+	public Merchant getMerchantById(Long merchantId) throws MUException {
 		return shoppingDao.getMerchantById(merchantId);
 	}
 
-	public Merchant getMerchantByName(String merchantName) throws MUException{
+	public Merchant getMerchantByName(String merchantName) throws MUException {
 		return shoppingDao.getMerchantByName(merchantName);
 	}
 
-	public MerchantType saveMerchantType(MerchantType merchantType){
+	public MerchantType saveMerchantType(MerchantType merchantType) {
 		return shoppingDao.saveMerchantType(merchantType);
 	}
-	
-	public List<MerchantType> getAllMerchantTypes(){
+
+	public List<MerchantType> getAllMerchantTypes() {
 		return shoppingDao.getAllMerchantTypes();
 	}
-	
-	public MerchantType getMerchantTypeById(Long merchantTypeId) throws MUException{
+
+	public MerchantType getMerchantTypeById(Long merchantTypeId)
+			throws MUException {
 		return shoppingDao.getMerchantTypeById(merchantTypeId);
 	}
-	
+
 	public List<Merchant> getMerchantByType(String merchantType) {
 		return shoppingDao.getMerchantByType(merchantType);
 	}
 
 	public List<Merchant> getMerchantByTypes(List<String> merchantTypes) {
 		return shoppingDao.getMerchantByTypes(merchantTypes);
+	}
+
+	public MerchantType getMerchantTypeByName(String merchantTypeName)
+			throws MUException {
+		return shoppingDao.getMerchantTypeByName(merchantTypeName);
 	}
 }

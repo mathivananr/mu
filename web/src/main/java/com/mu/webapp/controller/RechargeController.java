@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -25,11 +26,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mu.Constants;
 import com.mu.common.MUException;
 import com.mu.model.JsonResponse;
+import com.mu.model.Merchant;
 import com.mu.model.NetworkOperator;
 import com.mu.model.Payment;
 import com.mu.model.RcErrorCode;
 import com.mu.model.Recharge;
 import com.mu.service.RechargeManager;
+import com.mu.service.ShoppingManager;
 import com.mu.util.PropertyReader;
 import com.mu.util.StringUtil;
 
@@ -38,9 +41,16 @@ public class RechargeController extends BaseFormController {
 
 	private RechargeManager rechargeManager;
 
+	private ShoppingManager shoppingManager;
+
 	@Autowired
 	public void setRechargeManager(RechargeManager rechargeManager) {
 		this.rechargeManager = rechargeManager;
+	}
+
+	@Autowired
+	public void setShoppingManager(ShoppingManager shoppingManager) {
+		this.shoppingManager = shoppingManager;
 	}
 
 	@RequestMapping(value = "/recharge", method = RequestMethod.GET)
@@ -50,6 +60,8 @@ public class RechargeController extends BaseFormController {
 		Model model = new ExtendedModelMap();
 		Recharge recharge = new Recharge();
 		recharge.setAmount("10");
+		model.addAttribute("merchantType", shoppingManager
+				.getMerchantTypeByName(Constants.MERCHANT_TYPE_RECHARGE));
 		model.addAttribute("recharge", recharge);
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
@@ -61,6 +73,8 @@ public class RechargeController extends BaseFormController {
 		Model model = new ExtendedModelMap();
 		Recharge recharge = new Recharge();
 		recharge.setAmount("10");
+		model.addAttribute("merchantType", shoppingManager
+				.getMerchantTypeByName(Constants.MERCHANT_TYPE_RECHARGE));
 		model.addAttribute("recharge", recharge);
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
