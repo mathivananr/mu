@@ -17,8 +17,8 @@
 			<div class='form-group'>
 				<div class="checkbox">
 					<label><input type="checkbox" name="likeToDoAgri"
-						value="true">I don't know about agriculture, but if i get
-						chance am ready to do agriculture with guidance.</label>
+						value="true">I don't know about agriculture, but if I get
+						chance I'm ready to do agriculture with expert guidance.</label>
 				</div>
 			</div>
 		</div>
@@ -26,9 +26,9 @@
 			<div class='form-group'>
 				<div class="checkbox">
 					<label><input type="checkbox" name="supportFinancially"
-						value="true">I support agriculture, but i can't or not
-						interest to do agriculture in field but am ready to support
-						financially. (daily 1 Rs also financial support)</label>
+						value="true">I support agriculture, but I can't/not
+						interest to do agriculture in field but I'm ready to support
+						financially. (spending daily 1 Re also a big support)</label>
 				</div>
 			</div>
 		</div>
@@ -36,8 +36,8 @@
 			<div class='form-group'>
 				<div class="checkbox">
 					<label><input type="checkbox" name="supportByLand"
-						value="true">I Have some land and am ready to give that
-						land for agriculture in lease basis.</label>
+						value="true">I have some land and I'm ready to give that
+						land to agriculture for lease.</label>
 				</div>
 			</div>
 		</div>
@@ -45,15 +45,15 @@
 			<div class='form-group'>
 				<div class="checkbox">
 					<label><input type="checkbox" name="supportTechnically"
-						value="true">Am ready to support agriculture technically
+						value="true">I'm ready to support agriculture technically
 						like R&D, mechanical, electrical, software, transport etc.</label>
 				</div>
 				<div class='form-row'>
 					<div class='form-group'>
 						<div class="checkbox">
 							<label><input type="checkbox" name="partTimeSupport"
-								value="true">Am ready to support agriculture in my free
-								time either technically or man power. (Part time basis)</label>
+								value="true">I'm ready to support agriculture in my free
+								time either technically or man power.</label>
 						</div>
 					</div>
 				</div>
@@ -61,7 +61,7 @@
 					<div class='form-group'>
 						<div class="checkbox">
 							<label><input type="checkbox" name="monthlySalariedAgri"
-								value="true">If i get promising monthly income from
+								value="true">If I get promising monthly income from
 								agriculture am ready to take agriculture as my profession.
 								(monthly salary for agriculture)</label>
 						</div>

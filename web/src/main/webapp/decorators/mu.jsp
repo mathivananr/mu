@@ -73,8 +73,8 @@
         <!--
         End Fixed Navigation
         ==================================== -->
-		<div class="pull-right">
-			<img alt="beta version" src="/images/beta.png" height="70" width="70"></img>	
+		<div class="pull-right right-strap">
+			<img alt="beta version" src="/images/beta.png" height="70" width="70"/>
 		</div>		
         <!--
         Our Works
