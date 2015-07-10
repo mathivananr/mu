@@ -28,7 +28,7 @@
 					<label><input type="checkbox" name="supportFinancially"
 						value="true">I support agriculture, but I can't/not
 						interest to do agriculture in field but I'm ready to support
-						financially. (spending daily 1 Re also a big support)</label>
+						financially. (spending daily 1 Rs also a big support)</label>
 				</div>
 			</div>
 		</div>

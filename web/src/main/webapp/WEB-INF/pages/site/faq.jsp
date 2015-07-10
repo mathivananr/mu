@@ -30,7 +30,7 @@
 						payment options on Muniyamma.com?</a>
 				</h4>
 			</div>
-			<div id="collapseTen" class="panel-collapse collapse">
+			<div id="collapseTen" class="panel-collapse collapse in">
 				<div class="panel-body">Our payment partner in PayUMoney. You
 					will earn 1 rupee for every 10 rupees spent on PayuMoney as points
 					then you can redeem and use it.</div>
@@ -44,7 +44,7 @@
 						payment options available to me?</a>
 				</h4>
 			</div>
-			<div id="collapse1" class="panel-collapse collapse in">
+			<div id="collapse1" class="panel-collapse collapse">
 				<div class="panel-body">You can pay via debit card, credit
 					card, net banking, ATM card and IMPS.</div>
 			</div>
@@ -128,8 +128,8 @@
 				</h4>
 			</div>
 			<div id="collapse6" class="panel-collapse collapse">
-				<div class="panel-body">Now it's beta verson of muniyamma.
-					Complete website coming soon.</div>
+				<div class="panel-body">Now it's beta version of muniyamma so
+					only 10 Rs recharge are available. Complete website coming soon.</div>
 			</div>
 		</div>
 		<div class="panel panel-default">

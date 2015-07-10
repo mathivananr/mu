@@ -14,7 +14,7 @@
         <title>MU</title>		
 		<!-- Meta Description -->
         <meta name="description" content="Your Regular expense will change someone life. Make someone dream true via Online Recharge of Prepaid Mobile, Datacard, DTH and online shopping referral">
-        <meta name="keywords" content="muniyamma, munima, muniyama, online, recharge, online recharge, online shopping, shopping referral, farmer, agriculture">
+        <meta name="keywords" content="muniyamma, munima, muniyama, online, recharge, online recharge, online shopping, shopping referral, farmer, agriculture, muniyamma recharge">
         <meta name="author" content="Muniyamma">
         <!-- <meta property="og:url" content="https://www.mathnuggets.com/" />
 		<meta property="og:image" content="https://www.mathnuggets.com/images/fb-logo.jpg" />
@@ -24,6 +24,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/images/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/v/${applicationScope.assetsVersion}/mu.css"/>
+        <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+		  ga('create', 'UA-64946971-1', 'auto');
+		  ga('send', 'pageview');
+	
+		</script>
     </head>
 	
     <body id="body">
@@ -89,7 +99,7 @@
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p>Your regular expense may change someone's life</p>
+						<p>Your regular expense may change someone's life. <a class="link-color" href="http://muniyamma.com/story">How?</a></p>
 					</div>
 					<div class="row text-center">
 						<!-- Facebook -->

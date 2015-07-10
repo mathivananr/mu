@@ -1,6 +1,9 @@
 <%@ include file="/common/taglibs.jsp"%>
 
 <div class="container">
+	<div class="sec-sub-title text-center">
+		<p>Software engineer trying to become farmer. Are you ready to support?</p>
+	</div>
 	<div class="span12 story-text">
 		<p>A man, who always stand safe and secure in middle of crowd,
 			born in a small town in south of south India. He had grown up with
@@ -79,6 +82,9 @@
 						Google+</a>
 				</div></li>
 		</ol>
+		<p>
+			Show your interest <a class="link-color" href="http://muniyamma.com/vote"> here </a>.
+		</p>
 		<p>
 			Read FAQ <a class="link-color" href="http://muniyamma.com/site/faq"> here </a> or write your queries to contact@muniyamma.com
 		</p>
