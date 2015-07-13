@@ -14,7 +14,7 @@
         <title>MU</title>		
 		<!-- Meta Description -->
         <meta property="og:title" content="Support a software engineer tp become farmer" />
-        <meta property="og:image" content="http://muniyamma.com/images/favicon.ico" />
+        <meta property="og:image" content="http://www.muniyamma.com/images/favicon.ico" />
         <meta property="og:description" content="Your Regular expense will change someone life. Make someone dream true via Online Recharge of Prepaid Mobile, Datacard, DTH and online shopping referral" />
 
         <meta name="description" content="Your Regular expense will change someone life. Make someone dream true via Online Recharge of Prepaid Mobile, Datacard, DTH and online shopping referral">
@@ -103,12 +103,12 @@
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p>Your regular expense may change someone's life. <a class="link-color" href="http://muniyamma.com/story">How?</a></p>
+						<p>Your regular expense may change someone's life. <a class="link-color" href="http://www.muniyamma.com/story">How?</a></p>
 					</div>
 					<div class="row text-center">
 						<!-- Facebook -->
                         <a href="javascript:void(0);" onclick="return window.open(
-        'http://www.facebook.com/sharer.php?s=100&p[title]=Muniyamma&p[summary]=Support a software engineer become farmer by recharge or shopping &p[url]=http://muniyamma.com/story&p[images][0]=http://muniyamma.com/images/favicon.ico',
+        'http://www.facebook.com/sharer.php?s=100&p[title]=Muniyamma&p[summary]=Support a software engineer become farmer by recharge or shopping &p[url]=http://www.muniyamma.com/story&p[images][0]=http://www.muniyamma.com/images/favicon.ico',
         'facebook-share-dialog',
         'width=626,height=436');" title="Share on Facebook"
                            class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
@@ -116,7 +116,7 @@
 						<a href="javascript:tweetWindow()" title="Share on Twitter" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
 						<!-- Google+ -->
 
-						<a onclick="javascript:window.open('https://plus.google.com/share?url=http://muniyamma.com/story','',
+						<a onclick="javascript:window.open('https://plus.google.com/share?url=http://www.muniyamma.com/story','',
   'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
   return false;" title="Share on Google+" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
 					</div>
@@ -186,7 +186,7 @@
 					</div>
 					<div class="row">
 						<p class="text-center">
-							Copyright <i class="fa fa-copyright"></i> 2015 <a href="http://muniyamma.com/">Muniyamma</a>. All rights reserved. Designed & developed by <a href="http://muniyamma.com/">Muniyamma</a>
+							Copyright <i class="fa fa-copyright"></i> 2015 <a href="http://www.muniyamma.com/">Muniyamma</a>. All rights reserved. Designed & developed by <a href="http://www.muniyamma.com/">Muniyamma</a>
 						</p>
 					</div>
 				</div>

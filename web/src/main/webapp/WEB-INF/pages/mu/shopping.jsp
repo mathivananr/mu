@@ -7,10 +7,10 @@
 	<c:forEach var="merchantType" items="${merchantTypeList}">
 		<div class="row">
 			<div class="page-header">
-				<h1>${merchantType.typeName}</h1>
+				<h3>${merchantType.typeName}</h3>
 			</div>
 			<c:forEach var="merchant" items="${merchantType.merchants}">
-				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
 					<div class="thumbnail">
 						<a href="${merchant.targetLink}"><img
 							src="${merchant.logoPath}"
@@ -22,7 +22,7 @@
 		 </div>
 		 <br/>
 	 </c:forEach>
-	<!-- <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+	<!-- <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
 		<div class="thumbnail">
 			<a href="http://www.coupondunia.in/jabong?src=most_popular"><img
 				src="http://cdn01.coupondunia.in/sitespecific/media/generated/merchantlogos/logo_2741ba5_395.jpg?v=1413531813"

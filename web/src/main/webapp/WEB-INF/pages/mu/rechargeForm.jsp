@@ -10,8 +10,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="row text-center">
-					<small>click you favorite site on follows and continue your
-						recharge</small>
+					<small>Click your favorite site and continue your recharge</small>
 				</div>
 			</div>
 
@@ -33,20 +32,23 @@
 				</div>
 			</div>
 		</div>
-
+		<div class="row text-center">
+			<small> Recharge here </small>
+		</div>
 		<div class="row">
 			<div role="tabpanel">
 
 				<!-- Nav tabs -->
-				<ul class="nav nav-tabs margin-bottom10" role="tablist">
+				<ul class="nav nav-tabs margin-bottom10 sec-sub-title"
+					role="tablist">
 					<li role="presentation" class="active"><a href="#mobile"
 						class="link-color" aria-controls="mobile" role="tab"
-						data-toggle="tab">Mobile</a></li>
+						data-toggle="tab"><p>Mobile</p></a></li>
 					<li role="presentation"><a href="#dataCard" class="link-color"
-						aria-controls="dataCard" role="tab" data-toggle="tab">Data
-							Card</a></li>
+						aria-controls="dataCard" role="tab" data-toggle="tab"><p>Data
+								Card</p></a></li>
 					<li role="presentation"><a href="#dth" class="link-color"
-						aria-controls="dth" role="tab" data-toggle="tab">DTH</a></li>
+						aria-controls="dth" role="tab" data-toggle="tab"><p>DTH</p></a></li>
 				</ul>
 
 				<!-- Tab panes -->
@@ -57,20 +59,21 @@
 							<input type="hidden" name="rechargeType" value="mobile" />
 							<div class='form-row'>
 								<div class='form-group'>
-									<input class='form-control' name="email" id="email"
+									<input class='form-control input-lg' name="email" id="email"
 										placeholder="Email" type='email' required="required">
 								</div>
 							</div>
 							<div class='form-row'>
 								<div class='form-group'>
-									<input class='form-control' name="phoneNumber" id="phoneNumber"
-										placeholder="Phone Number" type='text' required="required">
+									<input class='form-control input-lg' name="phoneNumber"
+										id="phoneNumber" placeholder="Phone Number" type='text'
+										required="required">
 								</div>
 							</div>
 							<div class='form-row'>
 								<div class='form-group'>
 									<select name="operator" id="mobileOperator"
-										class="form-control" required="required">
+										class="form-control input-lg" required="required">
 										<c:forEach items="${mobileOperators}" var="operator">
 											<option value="${operator.value}">${operator.label}</option>
 										</c:forEach>
@@ -78,7 +81,7 @@
 								</div>
 								<div class='form-group'>
 									<input type="text" name="amount" id="amount"
-										placeholder="Amount" class="form-control"
+										placeholder="Amount" class="input-lg form-control"
 										value="${recharge.amount}" readonly required="required">
 								</div>
 							</div>
@@ -96,20 +99,21 @@
 							<input type="hidden" name="rechargeType" value="dataCard" />
 							<div class='form-row'>
 								<div class='form-group'>
-									<input class='form-control' name="email" id="email"
+									<input class='form-control input-lg' name="email" id="email"
 										placeholder="Email" type='email' required="required">
 								</div>
 							</div>
 							<div class='form-row'>
 								<div class='form-group'>
-									<input class='form-control' name="phoneNumber" id="phoneNumber"
-										placeholder="Data Card Number" type='text' required="required">
+									<input class='form-control input-lg' name="phoneNumber"
+										id="phoneNumber" placeholder="Data Card Number" type='text'
+										required="required">
 								</div>
 							</div>
 							<div class='form-row'>
 								<div class='form-group'>
 									<select name="operator" id="dataCarOperator"
-										class="form-control" required="required">
+										class="form-control input-lg" required="required">
 										<c:forEach items="${datacardOperators}" var="operator">
 											<option value="${operator.value}">${operator.label}</option>
 										</c:forEach>
@@ -117,7 +121,7 @@
 								</div>
 								<div class='form-group'>
 									<input type="text" name="amount" id="amount"
-										placeholder="Amount" class="form-control"
+										placeholder="Amount" class="input-lg form-control"
 										value="${recharge.amount}" readonly required="required">
 								</div>
 							</div>
@@ -135,20 +139,21 @@
 							<input type="hidden" name="rechargeType" value="dth" />
 							<div class='form-row'>
 								<div class='form-group'>
-									<input class='form-control' name="email" id="email"
+									<input class='form-control input-lg' name="email" id="email"
 										placeholder="Email" type='email' required="required">
 								</div>
 							</div>
 							<div class='form-row'>
 								<div class='form-group'>
-									<input class='form-control' name="phoneNumber" id="phoneNumber"
-										placeholder="DTH Number" type='text' required="required">
+									<input class='form-control input-lg' name="phoneNumber"
+										id="phoneNumber" placeholder="DTH Number" type='text'
+										required="required">
 								</div>
 							</div>
 							<div class='form-row'>
 								<div class='form-group'>
-									<select name="operator" id="dthOperator" class="form-control"
-										required="required">
+									<select name="operator" id="dthOperator"
+										class="input-lg form-control" required="required">
 										<c:forEach items="${dthOperators}" var="operator">
 											<option value="${operator.value}">${operator.label}</option>
 										</c:forEach>
@@ -156,7 +161,7 @@
 								</div>
 								<div class='form-group'>
 									<input type="text" name="amount" id="amount"
-										placeholder="Amount" class="form-control"
+										placeholder="Amount" class="form-control input-lg"
 										value="${recharge.amount}" readonly required="required">
 								</div>
 							</div>

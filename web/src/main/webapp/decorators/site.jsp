@@ -91,7 +91,7 @@
 					</div>
 					<div class="row">
 						<p class="text-center">
-							Copyright <i class="fa fa-copyright"></i> 2015 <a href="http://muniyamma.com/">Muniyamma</a>. All rights reserved. Designed & developed by <a href="http://muniyamma.com/">Muniyamma</a>
+							Copyright <i class="fa fa-copyright"></i> 2015 <a href="http://www.muniyamma.com/">Muniyamma</a>. All rights reserved. Designed & developed by <a href="http://www.muniyamma.com/">Muniyamma</a>
 						</p>
 					</div>
 				</div>

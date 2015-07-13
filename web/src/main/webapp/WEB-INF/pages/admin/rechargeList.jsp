@@ -63,7 +63,7 @@
 	</div>
 	<br />
 	<display:table name="rechargeList" cellspacing="0" cellpadding="0"
-		requestURI="" defaultsort="1" id="recharges" pagesize="25"
+		requestURI="" defaultsort="9" id="recharges" pagesize="25"
 		class="table table-condensed table-striped table-hover" export="true">
 		<display:column property="rechargeId" escapeXml="true" sortable="true"
 			titleKey="recharges.rechargeId" style="width: 10%" />

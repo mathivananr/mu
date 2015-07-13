@@ -261,7 +261,7 @@ function getAdvise(adviseId) {
 
 var tweetWindow = function() {
     window.open( "http://twitter.com/share?url=" +
-        encodeURIComponent("http://muniyamma.com/story") + "&text=" +
+        encodeURIComponent("http://www.muniyamma.com/story") + "&text=" +
         encodeURIComponent("Support a software engineer to become farmer.  @wemuniyamma #muniyamma") + "&count=none/",
         "tweet", "height=300,width=550,resizable=1" )
 }
