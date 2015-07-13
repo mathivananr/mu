@@ -3,8 +3,8 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<div class="collapse-group">
 		<div class="row" id="writeButton">
-			<div class="col-lg-offset-2 col-md-offset-2">
-				<p>Write your advise here.</p>
+			<div class="col-lg-offset-2 col-md-offset-2 ">
+				<p>Place where you recommend your thoughts. Click "Write Advise" on the right and start advising.</p>
 			</div>
 			<div
 				class="col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10 col-sm-12 col-xs-12">
@@ -86,9 +86,13 @@
 					<div class='form-row'>
 						<div class='col-lg-10 col-md-10 col-sm-8 col-xs-8'>
 							<div class='col-lg-6 col-md-6 col-sm-10 col-xs-12 pull-right'>
-								<input class='form-control' name="secretKey" id="secretKey"
-									placeholder="Secret key to edit " type='text'
-									required='required'>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <a data-toggle="popover" title="Why Secret Key?" data-content="Secret Key will help you to edit added comments"><span class="glyphicon glyphicon-question-sign"></span></a></span>
+                                    <input class='form-control' name="secretKey" id="secretKey"
+                                           placeholder="Secret key to edit" type='text'
+                                           required='required'/>
+                                </div>
 							</div>
 						</div>
 						<div class='col-lg-2 col-md-2 col-sm-4 col-xs-4'>
@@ -120,7 +124,7 @@
 					</ul>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<pre class="pad-10 advise-content">${advise.description}</pre>
+					<pre class="pad-10 advise-content lead">${advise.description}</pre>
 				</div>
 			</div>
 		</div>

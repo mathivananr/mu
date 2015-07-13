@@ -13,6 +13,10 @@
 		<!-- Page Title -->
         <title>MU</title>		
 		<!-- Meta Description -->
+        <meta property="og:title" content="Support a software engineer tp become farmer" />
+        <meta property="og:image" content="http://muniyamma.com/images/favicon.ico" />
+        <meta property="og:description" content="Your Regular expense will change someone life. Make someone dream true via Online Recharge of Prepaid Mobile, Datacard, DTH and online shopping referral" />
+
         <meta name="description" content="Your Regular expense will change someone life. Make someone dream true via Online Recharge of Prepaid Mobile, Datacard, DTH and online shopping referral">
         <meta name="keywords" content="muniyamma, munima, muniyama, online, recharge, online recharge, online shopping, shopping referral, farmer, agriculture, muniyamma recharge">
         <meta name="author" content="Muniyamma">
@@ -103,11 +107,18 @@
 					</div>
 					<div class="row text-center">
 						<!-- Facebook -->
-						<a href="https://www.facebook.com/sharer/sharer.php?u=http://muniyamma.com/story&title=Support a software engineer to become formar. @one_of_your_frien #muniyamma " title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+                        <a href="javascript:void(0);" onclick="return window.open(
+        'http://www.facebook.com/sharer.php?s=100&p[title]=Muniyamma&p[summary]=Support a software engineer become farmer by recharge or shopping &p[url]=http://muniyamma.com/story&p[images][0]=http://muniyamma.com/images/favicon.ico',
+        'facebook-share-dialog',
+        'width=626,height=436');" title="Share on Facebook"
+                           class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
 						<!-- Twitter -->
-						<a href="http://twitter.com/home?status=Support a software engineer to become formar. http://muniyamma.com/story @one_of_your_friend #muniyamma" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+						<a href="javascript:tweetWindow()" title="Share on Twitter" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
 						<!-- Google+ -->
-						<a href="https://plus.google.com/share?url=http://muniyamma.com/story" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+
+						<a onclick="javascript:window.open('https://plus.google.com/share?url=http://muniyamma.com/story','',
+  'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+  return false;" title="Share on Google+" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
 					</div>
 					<hr/>
 					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
