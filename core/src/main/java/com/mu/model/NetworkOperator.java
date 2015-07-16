@@ -28,6 +28,8 @@ public class NetworkOperator extends BaseObject implements Serializable {
 	private String operatorName;
 	private String operatorType;
 	private String operatorCode;
+	private String operatorFinderCode;
+	private String specialAvailable;
 	private boolean enabled;
 	private Calendar createdOn;
 	private Calendar updatedOn;
@@ -81,6 +83,24 @@ public class NetworkOperator extends BaseObject implements Serializable {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	@Column(name = "operator_finder_code")
+	public String getOperatorFinderCode() {
+		return operatorFinderCode;
+	}
+
+	public void setOperatorFinderCode(String operatorFinderCode) {
+		this.operatorFinderCode = operatorFinderCode;
+	}
+
+	@Column(name = "is_special_available", columnDefinition = "boolean default false", nullable = false)
+	public String getSpecialAvailable() {
+		return specialAvailable;
+	}
+
+	public void setSpecialAvailable(String specialAvailable) {
+		this.specialAvailable = specialAvailable;
 	}
 
 	@Column(name = "created_on")

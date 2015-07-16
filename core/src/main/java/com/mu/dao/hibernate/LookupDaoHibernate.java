@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mu.dao.LookupDao;
-import com.mu.model.Config;
+import com.mu.model.AppConfig;
 import com.mu.model.MerchantType;
 import com.mu.model.NetworkOperator;
 import com.mu.model.Role;
@@ -103,10 +103,10 @@ public class LookupDaoHibernate implements LookupDao {
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Config> getConfigs() {
+	public List<AppConfig> getConfigs() {
 		log.debug("Retrieving mu configs...");
 		Session session = sessionFactory.getCurrentSession();
-		return session.createCriteria(Config.class).list();
+		return session.createCriteria(AppConfig.class).list();
 	}
 
 	/**
@@ -117,17 +117,17 @@ public class LookupDaoHibernate implements LookupDao {
 		log.debug("Retrieving mu config types...");
 		Session session = sessionFactory.getCurrentSession();
 		return session
-				.createCriteria(Config.class)
+				.createCriteria(AppConfig.class)
 				.setProjection(
 						Projections.distinct(Projections.property("dataType")))
 				.list();
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Config> getAppConfigsByType(String type) {
+	public List<AppConfig> getAppConfigsByType(String type) {
 		log.debug("Retrieving all Configs...");
 		Session session = sessionFactory.getCurrentSession();
-		return session.createCriteria(Config.class)
+		return session.createCriteria(AppConfig.class)
 				.add((Criterion) Restrictions.eq("dataType", type)).list();
 	}
 }

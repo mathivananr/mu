@@ -39,6 +39,9 @@ public interface RechargeManager extends GenericManager<Recharge, Long> {
 
 	NetworkOperator getNetworkOperatorById(Long id) throws MUException;
 
+	List<NetworkOperator> getOperators(String operatorFinderCode)
+			throws MUException;
+
 	List<NetworkOperator> getMobileOperators() throws MUException;
 
 	List<NetworkOperator> getDataCardOperators() throws MUException;
@@ -55,8 +58,9 @@ public interface RechargeManager extends GenericManager<Recharge, Long> {
 
 	Recharge completeRecharge(Long rechargeId) throws MUException;
 
-	Recharge initiatePayment(Recharge recharge)
-			throws MUException;
+	Recharge initiatePayment(Recharge recharge) throws MUException;
 
 	Recharge handlePaymentResponse(Payment payment) throws MUException;
+	
+	Map<String, Object> getOperator(String number) throws MUException;
 }

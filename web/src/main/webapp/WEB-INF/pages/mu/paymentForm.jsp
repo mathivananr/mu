@@ -38,7 +38,7 @@
 											<td class="text-center"><strong>Order No</strong></td>
 											<td class="text-center"><strong>Number</strong></td>
 											<td class="text-center"><strong>Amount</strong></td>
-											<td class="text-center"><strong>MU Charge</strong></td>
+											<td class="text-center"><strong>Contribution</strong></td>
 											<td class="text-right"><strong>Total</strong></td>
 										</tr>
 									</thead>
@@ -47,7 +47,7 @@
 											<td class="text-center">${recharge.rechargeId}</td>
 											<td class="text-center">${recharge.phoneNumber}</td>
 											<td class="text-center">Rs ${recharge.amount}</td>
-											<td class="text-center">Rs 1</td>
+											<td class="text-center">Rs ${contribution} </td>
 											<td class="text-right"><strong>Rs ${payment.amount}</strong></td>
 										</tr>
 									</tbody>

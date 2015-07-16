@@ -166,6 +166,47 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 	/**
 	 * {@inheritDoc}
 	 */
+	public List<NetworkOperator> getOperators(String operatorFinderCode)
+			throws MUException {
+		return rechargeDao.getOperators(operatorFinderCode);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Map<String, Object> getOperator(String number) throws MUException {
+		PropertyReader reader = PropertyReader.getInstance();
+		Map<String, Object> response = new HashMap<String, Object>();
+		response.put("enableSpecial", false);
+		String operatorResponse = ApiUtil.getOperator(
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.JOLO_OPERATOR_URL).toString(),
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.JOLO_USER_ID).toString(),
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.JOLO_KEY).toString(), number);
+		if (!StringUtil.isEmptyString(operatorResponse)
+				&& operatorResponse.contains(",")
+				&& !operatorResponse.equalsIgnoreCase("0,0")
+				&& !operatorResponse.split(",")[0]
+						.equalsIgnoreCase(Constants.STATUS_FAILED)) {
+			List<NetworkOperator> operators = getOperators(operatorResponse
+					.split(",")[0]);
+
+			if (operators != null) {
+				if (operators.size() > 1) {
+					response.put("enableSpecial", true);
+				}
+				response.put("circleCode", operatorResponse.split(",")[1]);
+				response.put("networkOperator", operators.get(0));
+			}
+		}
+		return response;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public Recharge initiatePayment(Recharge recharge) throws MUException {
 		PropertyReader reader = PropertyReader.getInstance();
 		recharge.setStatus(Constants.RC_OPEN);
@@ -193,6 +234,13 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 		payment.setEmail(recharge.getEmail());
 		payment.setPhone(recharge.getPhoneNumber());
 		int amount = Integer.parseInt(recharge.getAmount()) + 1;
+		if (null != reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+				Constants.MU_CONTRIBUTION)) {
+			amount = Integer.parseInt(recharge.getAmount())
+					+ Integer.parseInt(reader.getPropertyFromFile(
+							Constants.DATA_TYPE_STRING,
+							Constants.MU_CONTRIBUTION).toString());
+		}
 		payment.setAmount(amount + "");
 		payment.setProductinfo(reader.getPropertyFromFile(
 				Constants.DATA_TYPE_STRING, Constants.PY_PRODUCT_INFO)
@@ -259,16 +307,48 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 				recharge = completeRecharge(recharge.getId());
 			} else {
 				recharge.setStatus(Constants.RC_PAYMENT_FAILED);
-				recharge.setRechargeSummary("Recharged failed! full payment not received");
+				if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+					recharge.setRechargeSummary("Date :: "
+							+ now.getTime()
+							+ " Summary :: Recharged failed! full payment not received \n");
+				} else {
+					recharge.setRechargeSummary(recharge.getRechargeSummary()
+							+ " Date :: "
+							+ now.getTime()
+							+ "Summary :: Recharged failed! full payment not received \n");
+				}
 				recharge = saveRecharge(recharge);
 			}
 
+		} else if (payment.getStatus().equalsIgnoreCase(Constants.RC_OPEN)) {
+			Calendar now = new GregorianCalendar();
+			recharge.setUpdatedOn(now);
+			recharge.setPayment(payment);
+			recharge.setStatus(Constants.RC_PAYMENT_FAILED);
+			if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+				recharge.setRechargeSummary("Date :: " + now.getTime()
+						+ " Summary :: Recharged failed! payment canceled \n");
+			} else {
+				recharge.setRechargeSummary(recharge.getRechargeSummary()
+						+ " Date :: " + now.getTime()
+						+ "Summary :: Recharged failed! payment canceled \n");
+			}
+			recharge = saveRecharge(recharge);
 		} else {
 			Calendar now = new GregorianCalendar();
 			recharge.setUpdatedOn(now);
 			recharge.setPayment(payment);
 			recharge.setStatus(Constants.RC_PAYMENT_FAILED);
-			recharge.setRechargeSummary("Recharged failed! payment not received");
+			if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+				recharge.setRechargeSummary("Date :: "
+						+ now.getTime()
+						+ " Summary :: Recharged failed! payment not received \n");
+			} else {
+				recharge.setRechargeSummary(recharge.getRechargeSummary()
+						+ " Date :: "
+						+ now.getTime()
+						+ "Summary :: Recharged failed! payment not received \n");
+			}
 			recharge = saveRecharge(recharge);
 		}
 		return recharge;
@@ -280,9 +360,9 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 	public Recharge completeRecharge(Long rechargeId) throws MUException {
 		PropertyReader reader = PropertyReader.getInstance();
 		Recharge recharge = getRechargeById(rechargeId);
-		Map<String, Object> response = ApiUtil.getRequest(
+		Map<String, Object> response = ApiUtil.doRecharge(
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
-						Constants.JOLO_URL).toString(),
+						Constants.JOLO_RECHARGE_URL).toString(),
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
 						Constants.APP_MODE).toString(),
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
@@ -298,23 +378,98 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 				recharge.setStatus(Constants.RC_FAILED);
 				if (response.get("response").toString().split(",")[1]
 						.contains("your ip")) {
-					recharge.setRechargeSummary(response.get("response")
-							.toString().split(",")[1]);
+					if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+						recharge.setRechargeSummary("Date :: "
+								+ now.getTime()
+								+ " Summary :: "
+								+ response.get("response").toString()
+										.split(",")[1] + " \n");
+					} else {
+						recharge.setRechargeSummary(recharge
+								.getRechargeSummary()
+								+ " Date :: "
+								+ now.getTime()
+								+ "Summary :: "
+								+ response.get("response").toString()
+										.split(",")[1] + " \n");
+					}
+
 				} else {
-					recharge.setRechargeSummary(getRcErrorByCode(
-							response.get("response").toString().split(",")[1])
-							.getDescription());
+					if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+						recharge.setRechargeSummary("Date :: "
+								+ now.getTime()
+								+ " Summary :: "
+								+ getRcErrorByCode(
+										response.get("response").toString()
+												.split(",")[1])
+										.getDescription() + " \n");
+					} else {
+						recharge.setRechargeSummary(recharge
+								.getRechargeSummary()
+								+ " Date :: "
+								+ now.getTime()
+								+ "Summary :: "
+								+ getRcErrorByCode(
+										response.get("response").toString()
+												.split(",")[1])
+										.getDescription() + " \n");
+					}
 				}
-			} else {
+			} else if (response.get("response").toString().split(",")[1]
+					.equalsIgnoreCase(Constants.RC_SUCCESS)) {
 				recharge.setStatus(Constants.RC_SUCCESS);
-				recharge.setRechargeSummary("Recharged Succesully!");
+				if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+					recharge.setRechargeSummary("Date :: " + now.getTime()
+							+ " Summary :: Recharged Succesully! \n");
+				} else {
+					recharge.setRechargeSummary(recharge.getRechargeSummary()
+							+ " Date :: " + now.getTime()
+							+ "Summary :: Recharged Succesully! \n");
+				}
 				recharge.setReferenceId(response.get("response").toString()
 						.split(",")[0]);
+			} else {
+				recharge.setStatus(Constants.RC_FAILED);
+				if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+					recharge.setRechargeSummary("Date :: " + now.getTime()
+							+ " Summary :: "
+							+ response.get("response").toString() + " \n");
+				} else {
+					recharge.setRechargeSummary(recharge.getRechargeSummary()
+							+ " Date :: " + now.getTime() + "Summary :: "
+							+ response.get("response").toString() + " \n");
+				}
+
 			}
-			recharge.setReferenceDetail(response.get("response").toString());
+			if (StringUtil.isEmptyString(recharge.getReferenceDetail())) {
+				recharge.setReferenceDetail("Date :: " + now.getTime()
+						+ " Summary :: " + response.get("response").toString()
+						+ " \n");
+			} else {
+				recharge.setReferenceDetail(recharge.getReferenceDetail()
+						+ " Date :: " + now.getTime() + "Summary :: "
+						+ response.get("response").toString() + " \n");
+			}
 		} else {
 			recharge.setStatus(Constants.RC_FAILED);
-			recharge.setRechargeSummary(response.get("response").toString());
+			if (StringUtil.isEmptyString(recharge.getRechargeSummary())) {
+				recharge.setRechargeSummary("Date :: " + now.getTime()
+						+ " Summary :: " + response.get("response").toString()
+						+ " \n");
+			} else {
+				recharge.setRechargeSummary(recharge.getRechargeSummary()
+						+ " Date :: " + now.getTime() + "Summary :: "
+						+ response.get("response").toString() + " \n");
+			}
+			if (StringUtil.isEmptyString(recharge.getReferenceDetail())) {
+				recharge.setReferenceDetail("Date :: " + now.getTime()
+						+ " Summary :: " + response.get("response").toString()
+						+ " \n");
+			} else {
+				recharge.setReferenceDetail(recharge.getReferenceDetail()
+						+ " Date :: " + now.getTime() + "Summary :: "
+						+ response.get("response").toString() + " \n");
+			}
 		}
 		return saveRecharge(recharge);
 	}

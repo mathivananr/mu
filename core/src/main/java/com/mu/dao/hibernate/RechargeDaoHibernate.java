@@ -261,6 +261,21 @@ public class RechargeDaoHibernate extends GenericDaoHibernate<Recharge, Long>
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
+	public List<NetworkOperator> getOperators(String operatorFinderCode)
+			throws MUException {
+		log.debug("Retrieving mobile operators for finder code "
+				+ operatorFinderCode);
+		return getSession().createCriteria(NetworkOperator.class)
+				.add(Restrictions.eq("operatorFinderCode", operatorFinderCode))
+				.add(Restrictions.eq("enabled", true))
+				.addOrder(Order.desc("id")).list();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
 	public NetworkOperator getNetworkOperatorById(Long id) throws MUException {
 		List<NetworkOperator> operators = getSession()
 				.createCriteria(NetworkOperator.class)

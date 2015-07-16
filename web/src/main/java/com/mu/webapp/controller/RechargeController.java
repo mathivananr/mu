@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,7 @@ import com.mu.Constants;
 import com.mu.common.MUException;
 import com.mu.model.JsonResponse;
 import com.mu.model.Merchant;
+import com.mu.model.MerchantType;
 import com.mu.model.NetworkOperator;
 import com.mu.model.Payment;
 import com.mu.model.RcErrorCode;
@@ -57,11 +59,31 @@ public class RechargeController extends BaseFormController {
 	public ModelAndView showRechargeFormAsHome(
 			final HttpServletRequest request, final HttpServletResponse response)
 			throws MUException {
+		PropertyReader reader = PropertyReader.getInstance();
 		Model model = new ExtendedModelMap();
 		Recharge recharge = new Recharge();
-		recharge.setAmount("10");
-		model.addAttribute("merchantType", shoppingManager
-				.getMerchantTypeByName(Constants.MERCHANT_TYPE_RECHARGE));
+		if (null != reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+				Constants.ENABLE_LOCK_BALANCE)
+				&& Boolean.parseBoolean(reader.getPropertyFromFile(
+						Constants.DATA_TYPE_STRING,
+						Constants.ENABLE_LOCK_BALANCE))) {
+			if (null != reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+					Constants.LOCK_AMOUNT)) {
+				recharge.setAmount(reader.getPropertyFromFile(
+						Constants.DATA_TYPE_STRING, Constants.LOCK_AMOUNT)
+						.toString());
+				model.addAttribute("readonly", "readonly");
+			} else {
+				recharge.setAmount("10");
+				model.addAttribute("readonly", "readonly");
+			}
+		}
+		try {
+			model.addAttribute("merchantType", shoppingManager
+					.getMerchantTypeByName(Constants.MERCHANT_TYPE_RECHARGE));
+		} catch (MUException e) {
+			model.addAttribute("merchantType", new MerchantType());
+		}
 		model.addAttribute("recharge", recharge);
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
@@ -70,11 +92,31 @@ public class RechargeController extends BaseFormController {
 	@RequestMapping(value = "/rechargeForm", method = RequestMethod.GET)
 	public ModelAndView showRechargeForm(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
+		PropertyReader reader = PropertyReader.getInstance();
 		Model model = new ExtendedModelMap();
 		Recharge recharge = new Recharge();
-		recharge.setAmount("10");
-		model.addAttribute("merchantType", shoppingManager
-				.getMerchantTypeByName(Constants.MERCHANT_TYPE_RECHARGE));
+		if (null != reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+				Constants.ENABLE_LOCK_BALANCE)
+				&& Boolean.parseBoolean(reader.getPropertyFromFile(
+						Constants.DATA_TYPE_STRING,
+						Constants.ENABLE_LOCK_BALANCE))) {
+			if (null != reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+					Constants.LOCK_AMOUNT)) {
+				recharge.setAmount(reader.getPropertyFromFile(
+						Constants.DATA_TYPE_STRING, Constants.LOCK_AMOUNT)
+						.toString());
+				model.addAttribute("readonly", "readonly");
+			} else {
+				recharge.setAmount("10");
+				model.addAttribute("readonly", "readonly");
+			}
+		}
+		try {
+			model.addAttribute("merchantType", shoppingManager
+					.getMerchantTypeByName(Constants.MERCHANT_TYPE_RECHARGE));
+		} catch (MUException e) {
+			model.addAttribute("merchantType", new MerchantType());
+		}
 		model.addAttribute("recharge", recharge);
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
@@ -95,6 +137,7 @@ public class RechargeController extends BaseFormController {
 			throws MUException {
 		Model model = new ExtendedModelMap();
 		PropertyReader reader = PropertyReader.getInstance();
+		recharge.setIpAddress(request.getRemoteAddr());
 		recharge = rechargeManager.initiatePayment(recharge);
 		model.addAttribute("recharge", recharge);
 		model.addAttribute("payment", recharge.getPayment());
@@ -366,5 +409,15 @@ public class RechargeController extends BaseFormController {
 					new ArrayList<RcErrorCode>());
 		}
 		return new ModelAndView("/admin/rcErrorCodeList", model.asMap());
+	}
+
+	@RequestMapping(value = "/getOperator", method = RequestMethod.GET)
+	public @ResponseBody
+	Map<String, Object> getOperator(@RequestParam("number") String number) {
+		try {
+			return rechargeManager.getOperator(number);
+		} catch (MUException e) {
+			return new HashMap<String, Object>();
+		}
 	}
 }

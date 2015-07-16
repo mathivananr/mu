@@ -3,10 +3,6 @@
 <div class='row'>
 	<div
 		class='col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1 col-lg-4 col-md-4 col-sm-6 col-xs-10'>
-		<!-- 		<div class="col-lg-offset-3 col-md-offset-3">
-			<p>For every recharge Rs.1 extra.</p>
-		</div>
- -->
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="row text-center">
@@ -17,7 +13,7 @@
 			<c:forEach var="merchant" items="${merchantType.merchants}">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<div class="thumbnail">
-						<a href="${merchant.targetLink}"><img
+						<a title="${merchant.description}" href="${merchant.targetLink}"><img
 							src="${merchant.logoPath}" alt="${merchant.merchantName}"
 							width="100%" class="slider-store-image"> </a>
 					</div>
@@ -56,7 +52,10 @@
 					<div role="tabpanel" class="tab-pane active" id="mobile">
 						<form action="/initiatePayment" class="require-validation"
 							id="rechargeForm" method="post">
-							<input type="hidden" name="rechargeType" value="mobile" />
+							<input type="hidden" name="rechargeType" id="rechargeType"
+								value="mobile" /> <input type="hidden"
+								name="operatorFinderCode" id="operatorFinderCode" /> <input
+								type="hidden" name="circleCode" id="circleCode" />
 							<div class='form-row'>
 								<div class='form-group'>
 									<input class='form-control input-lg' name="email" id="email"
@@ -67,7 +66,7 @@
 								<div class='form-group'>
 									<input class='form-control input-lg' name="phoneNumber"
 										id="phoneNumber" placeholder="Phone Number" type='text'
-										required="required">
+										onkeypress="getOperator()" required="required">
 								</div>
 							</div>
 							<div class='form-row'>
@@ -79,10 +78,15 @@
 										</c:forEach>
 									</select>
 								</div>
+								<div class="checkbox hidden" id="specialRechargeDiv">
+									<label> <input type="checkbox" id="isSpecialRecharge">
+										<strong>Special Recharge</strong>
+									</label>
+								</div>
 								<div class='form-group'>
 									<input type="text" name="amount" id="amount"
 										placeholder="Amount" class="input-lg form-control"
-										value="${recharge.amount}" readonly required="required">
+										value="${recharge.amount}" ${readonly} required="required">
 								</div>
 							</div>
 							<div class='form-row'>
@@ -122,7 +126,7 @@
 								<div class='form-group'>
 									<input type="text" name="amount" id="amount"
 										placeholder="Amount" class="input-lg form-control"
-										value="${recharge.amount}" readonly required="required">
+										value="${recharge.amount}" ${readonly} required="required">
 								</div>
 							</div>
 							<div class='form-row'>
@@ -162,7 +166,7 @@
 								<div class='form-group'>
 									<input type="text" name="amount" id="amount"
 										placeholder="Amount" class="form-control input-lg"
-										value="${recharge.amount}" readonly required="required">
+										value="${recharge.amount}" ${readonly} required="required">
 								</div>
 							</div>
 							<div class='form-row'>

@@ -141,11 +141,13 @@ $(document)
 					 * =========================================================================
 					 */
 					$('#' + $('#active-menu').val()).addClass('active');
-                    /***
-                     * Activate Pop over
-                     */
-                    $('[data-toggle="popover"]').popover({trigger: 'hover'})
-                        });
+					/***********************************************************
+					 * Activate Pop over
+					 */
+					$('[data-toggle="popover"]').popover({
+						trigger : 'hover'
+					})
+				});
 
 // ========== START GOOGLE MAP ========== //
 function initialize() {
@@ -211,12 +213,11 @@ function postAdvise() {
 						$('#advise-list').prepend(adviseHtml);
 						$('#adviseModal').modal('hide');
 					} else {
-						alert(JSON.stringify(response));
-						console.log("error");
+						//console.log("Error: " + response);
 					}
 				},
 				error : function(e) {
-					alert('Error: ' + e);
+					//console.log('Error: ' + e);
 				}
 			});
 }
@@ -249,24 +250,128 @@ function getAdvise(adviseId) {
 									response.result.description);
 						}
 					} else {
-						alert(JSON.stringify(response));
-						console.log("error");
+						//console.log("Error: " + response);
 					}
 				},
 				error : function(e) {
-					alert('Error: ' + e);
+					//console.log('Error: ' + e);
 				}
 			});
 }
 
 var tweetWindow = function() {
-    window.open( "http://twitter.com/share?url=" +
-        encodeURIComponent("http://www.muniyamma.com/story") + "&text=" +
-        encodeURIComponent("Support a software engineer to become farmer.  @wemuniyamma #muniyamma") + "&count=none/",
-        "tweet", "height=300,width=550,resizable=1" )
+	window
+			.open(
+					"http://twitter.com/share?url="
+							+ encodeURIComponent("http://www.muniyamma.com/story")
+							+ "&text="
+							+ encodeURIComponent("Support a software engineer to become farmer.  @wemuniyamma #muniyamma")
+							+ "&count=none/", "tweet",
+					"height=300,width=550,resizable=1")
 }
 
-$('#paymentTabs a').click(function (e) {
-    e.preventDefault()
-    $(this).tab('show')
-  });
+$('#paymentTabs a').click(function(e) {
+	e.preventDefault()
+	$(this).tab('show')
+});
+
+function getOperator() {
+	if ($("#rechargeType").val() == "mobile") {
+		var number = $("#phoneNumber").val();
+		if (number.length == 4) {
+			$.ajax({
+				type : "GET",
+				url : "/getOperator",
+				data : "number=" + number,
+				success : function(response) {
+					if (response.networkOperator != undefined
+							&& response.networkOperator != null
+							&& response.networkOperator != '') {
+						$('#mobileOperator').val(
+								response.networkOperator.operatorCode);
+						$('#operatorFinderCode').val(
+								response.networkOperator.operatorFinderCode);
+						$('#circleCode').val(response.circleCode);
+						if (response.enableSpecial != undefined
+								&& response.enableSpecial != null
+								&& response.enableSpecial == true
+								|| response.enableSpecial == 'true') {
+							$('#specialRechargeDiv').removeClass('hidden');
+						} else {
+							$('#isSpecialRecharge').prop('checked', false);
+							$('#specialRechargeDiv').addClass('hidden');
+						}
+					} else {
+						//console.log("Error: " + response);
+					}
+				},
+				error : function(e) {
+					//console.log('Error: ' + e);
+				}
+			});
+		}
+	}
+}
+
+$('#isSpecialRecharge').change(
+	function() {
+		if ($(this).is(":checked")) {
+			var newOperator = $('#mobileOperator').val() + 'S';
+			if ($("#mobileOperator option[value='" + newOperator
+					+ "']").length > 0) {
+				$('#mobileOperator').val(newOperator);
+			}
+		} else {
+			var operator = $('#mobileOperator').val();
+			operator = operator.substring(0, operator.length - 1);
+			if ($("#mobileOperator option[value='" + operator
+					+ "']").length > 0) {
+				$('#mobileOperator').val(operator);
+			}
+		}
+	});
+
+$('#mobileOperator').change(function() {
+	$('#operatorFinderCode').val('');
+	$('#circleCode').val('');
+	var operator = $('#mobileOperator').val();
+	var newOperator = operator + 'S';
+	if(operator.slice(-1) == 'S') {
+		operator = operator.substring(0, operator.length - 1);
+		if ($("#mobileOperator option[value='" + operator
+				+ "']").length > 0) {
+			console.log(1);
+			$('#isSpecialRecharge').prop('checked', true);
+			$('#specialRechargeDiv').removeClass('hidden');
+		}
+	} else if($("#mobileOperator option[value='" + newOperator
+				+ "']").length > 0) {
+			console.log(1);
+			$('#specialRechargeDiv').removeClass('hidden');
+			$('#isSpecialRecharge').prop('checked', false);
+	} else {
+		$('#isSpecialRecharge').prop('checked', false);
+		$('#specialRechargeDiv').addClass('hidden');
+	}
+});
+
+$('a').click(
+		function(e) {
+			var link = $(this).attr('href');
+			var title = $(this).attr('title');
+			//console.log(link + ":: " + title);
+			if (title != undefined && title != null && title != ''
+					&& link != undefined && link != null && link != '') {
+				$.ajax({
+					type : "GET",
+					url : "/log",
+					data : "title=" + title + "&link=" + link,
+					success : function(response) {
+						//console.log("success");
+					},
+					error : function(e) {
+						//console.log('Error: ' + e);
+					}
+				});
+		}
+});

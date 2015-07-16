@@ -43,6 +43,7 @@
 					<input class="form-control input-sm"
 					type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
 					<select name="operator" id="mobileOperator" class="form-control" required="required">
+						<option value="all">All</option>
 						<c:forEach items="${mobileOperators}" var="operator">
 							<option value="${operator.value}">${operator.label}</option>
 						</c:forEach>
@@ -50,6 +51,8 @@
 					<select
 					class="form-control input-sm" id="status" name="status">
 					<option value="all">All</option>
+					<option value="open">Open</option>
+					<option value="payment initiated">Payment Initiated</option>
 					<option value="failed">Failed</option>
 					<option value="success">Success</option>
 				</select>
@@ -63,7 +66,7 @@
 	</div>
 	<br />
 	<display:table name="rechargeList" cellspacing="0" cellpadding="0"
-		requestURI="" defaultsort="9" id="recharges" pagesize="25"
+		requestURI="" id="recharges" pagesize="25"
 		class="table table-condensed table-striped table-hover" export="true">
 		<display:column property="rechargeId" escapeXml="true" sortable="true"
 			titleKey="recharges.rechargeId" style="width: 10%" />

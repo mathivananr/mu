@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mu.dao.LookupDao;
-import com.mu.model.Config;
+import com.mu.model.AppConfig;
 import com.mu.model.LabelValue;
 import com.mu.model.MerchantType;
 import com.mu.model.NetworkOperator;
@@ -83,7 +83,7 @@ public class LookupManagerImpl implements LookupManager {
 
 	public Map<String, String> getConfigs() {
 		Map<String, String> configs = new HashMap<String, String>();
-		for (Config config : dao.getConfigs()) {
+		for (AppConfig config : dao.getConfigs()) {
 			configs.put(config.getKeyName(), config.getKeyValue());
 		}
 		return configs;
@@ -96,7 +96,7 @@ public class LookupManagerImpl implements LookupManager {
 		return dao.getAppConfigTypes();
 	}
 
-	public List<Config> getAppConfigsByType(String type) {
+	public List<AppConfig> getAppConfigsByType(String type) {
 		return dao.getAppConfigsByType(type);
 	}
 }

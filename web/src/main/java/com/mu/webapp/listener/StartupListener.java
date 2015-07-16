@@ -26,7 +26,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.mu.Constants;
-import com.mu.model.Config;
+import com.mu.model.AppConfig;
 import com.mu.model.LabelValue;
 import com.mu.service.GenericManager;
 import com.mu.service.LookupManager;
@@ -165,6 +165,16 @@ public class StartupListener implements ServletContextListener {
 
 		loadAppConfigs(mgr);
 
+		PropertyReader reader = PropertyReader.getInstance();
+		context.setAttribute(
+				Constants.APPLICATION_URL_STRING,
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.APPLICATION_URL).toString());
+		context.setAttribute(
+				Constants.MU_CONTRIBUTION_STRING,
+				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.MU_CONTRIBUTION).toString());
+		log.debug("application url loaded");
 		// Any manager extending GenericManager will do:
 		GenericManager manager = (GenericManager) ctx.getBean("userManager");
 		doReindexing(manager);
@@ -202,8 +212,8 @@ public class StartupListener implements ServletContextListener {
 						+ configType);
 				properties = new Properties();
 				if (configType != null) {
-					List<Config> configs = mgr.getAppConfigsByType(configType);
-					for (Config config : configs) {
+					List<AppConfig> configs = mgr.getAppConfigsByType(configType);
+					for (AppConfig config : configs) {
 						properties.put(config.getKeyName(),
 								config.getKeyValue());
 					}

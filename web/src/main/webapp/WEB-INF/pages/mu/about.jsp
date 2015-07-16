@@ -40,15 +40,15 @@
 			think like him and drop their ideas because of money or some reason.</p>
 		<br />
 		<p>
-			Now he decides to start <a href="http://www.muniyamma.com"
-				class="link-color">http://www.muniyamma.com</a>, It will be live 180
-			days and in this 180 days every recharge have to pay 1 Rs extra, name
-			it as service charge or donate or anything, from this 1 Rs he get some
-			amount, and every shopping your doing via this site, he get some
-			referral commission from the merchants. He never mean that going to
-			change the world or making revolution. He want to do this and still
-			he like computers. Let's see what will going to happen after 180
-			days.
+			Now he decides to start <a title="home from story"
+				href="${applicationUrl}" class="link-color">${applicationUrl}</a>,
+			It will be live 180 days and in this 180 days every recharge have to
+			pay 1 Rs extra, name it as service charge or donate or anything, from
+			this 1 Rs he get some amount, and every shopping your doing via this
+			site, he get some referral commission from the merchants. He never
+			mean that going to change the world or making revolution. He want to
+			do this and still he like computers. Let's see what will going to
+			happen after 180 days.
 		</p>
 		<br />
 		<p>
@@ -56,39 +56,47 @@
 		</p>
 		<ol class="pad-10">
 			<li><strong>1. Recharge from <a class="link-color"
-					href="http://www.muniyamma.com/recharge">here</a>.
+					title="recharge from story"
+					href="${applicationUrl}/recharge">here</a>.
 			</strong></li>
 			<li><strong>2. Shopping from <a class="link-color"
-					href="http://www.muniyamma.com/shopping">here.</a>
-					.
+					title="shopping from story"
+					href="${applicationUrl}/shopping">here.</a> .
 			</strong></li>
-			<li><strong>3. Share the site in social media like follows <span
-					class="share-text-color">@one_of_your_friend </span> and <span
-					class="share-text-color">#muniyamma</span></strong>
+			<li><strong>3. Share the site in social media like
+					follows <span class="share-text-color">@one_of_your_friend </span>
+					and <span class="share-text-color">#muniyamma</span>
+			</strong>
 				<div class="row text-center">
-						<!-- Facebook -->
-                        <a href="javascript:void(0);" onclick="return window.open(
-        'http://www.facebook.com/sharer.php?s=100&p[title]=Muniyamma&p[summary]=Support a software engineer become farmer by recharge or shopping &p[url]=http://www.muniyamma.com/story&p[images][0]=http://www.muniyamma.com/images/favicon.ico',
+					<!-- Facebook -->
+					<a href="javascript:void(0);"
+						onclick="return window.open(
+        'http://www.facebook.com/sharer.php?s=100&p[title]=Muniyamma&p[summary]=Support a software engineer become farmer by recharge or shopping &p[url]=${applicationUrl}/story&p[images][0]=${applicationUrl}/images/favicon.ico',
         'facebook-share-dialog',
-        'width=626,height=436');" title="Share on Facebook"
-                           class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-						<!-- Twitter -->
-						<a href="javascript:tweetWindow()" title="Share on Twitter" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
-						<!-- Google+ -->
+        'width=626,height=436');"
+						title="Share on Facebook" class="btn btn-facebook"><i
+						class="fa fa-facebook"></i> Facebook</a>
+					<!-- Twitter -->
+					<a href="javascript:tweetWindow()" title="Share on Twitter"
+						class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+					<!-- Google+ -->
 
-						<a onclick="javascript:window.open('https://plus.google.com/share?url=http://www.muniyamma.com/story','',
+					<a
+						onclick="javascript:window.open('https://plus.google.com/share?url=${applicationUrl}/story','',
   'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-  return false;" title="Share on Google+" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
-					</div>
-					</li>
+  return false;"
+						title="Share on Google+" class="btn btn-googleplus"><i
+						class="fa fa-google-plus"></i> Google+</a>
+				</div></li>
 		</ol>
 		<p>
-			Show your interest <a class="link-color"
-				href="http://www.muniyamma.com/vote"> here </a>.
+			Show your interest <a class="link-color" title="vote from story"
+				href="${applicationUrl}/vote"> here </a>.
 		</p>
 		<p>
-			Read FAQ <a class="link-color" href="http://www.muniyamma.com/site/faq">
-				here </a> or write your queries to contact@muniyamma.com
+			Read FAQ <a class="link-color" title="faq from story"
+				href="${applicationUrl}/site/faq"> here </a> or write your
+			queries to contact@muniyamma.com
 		</p>
 	</div>
 	<!-- <div class="page-header">

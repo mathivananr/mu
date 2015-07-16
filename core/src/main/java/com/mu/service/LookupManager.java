@@ -3,7 +3,7 @@ package com.mu.service;
 import java.util.List;
 import java.util.Map;
 
-import com.mu.model.Config;
+import com.mu.model.AppConfig;
 import com.mu.model.LabelValue;
 
 /**
@@ -32,5 +32,5 @@ public interface LookupManager {
 
 	List<String> getAppConfigTypes();
 
-	List<Config> getAppConfigsByType(String type);
+	List<AppConfig> getAppConfigsByType(String type);
 }

@@ -79,6 +79,7 @@ function completeRecharge(rechargeId) {
 }
 
 function closeSupportRequest(id){
+	$("#supportRequestDone-"+id).attr("disabled", "disabled");
 	$.ajax({
         type: "POST",
         url: "/admin/closeSupportRequest",
@@ -86,8 +87,9 @@ function closeSupportRequest(id){
         success: function(response) {
             if (response.status == "success") {
             	console.log('success '+response);
-            	$("#supportRequestDone-"+id).attr("disabled", "disabled");
+            	//$("#supportRequestDone-"+id).attr("disabled", "disabled");
             } else {
+            	$("#supportRequestDone-"+id).removeAttr("disabled")
             	console.log('failed '+response);
             }
         },

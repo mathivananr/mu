@@ -217,6 +217,7 @@ public class Recharge extends BaseObject implements Serializable {
 		this.referenceId = referenceId;
 	}
 
+	@Column(name = "reference_detail", columnDefinition = "TEXT")
 	public String getReferenceDetail() {
 		return referenceDetail;
 	}

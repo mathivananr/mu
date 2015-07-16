@@ -221,7 +221,11 @@ public final class Constants {
 
 	public static final String STATUS_FAILED = "FAILED";
 
-	public static final String JOLO_URL = "jolo.url"; 
+	public static final String JOLO_RECHARGE_URL = "jolo.recharge.url"; 
+	
+	public static final String JOLO_OPERATOR_URL = "jolo.operator.url";
+	
+	public static final String JOLO_OPERATOR_PLANS_URL = "jolo.operator.plans.url";
 	
 	public static final String JOLO_USER_ID = "jolo.userId";
 
@@ -235,4 +239,15 @@ public final class Constants {
 	
 	public static final String MERCHANT_TYPE_RECHARGE = "Recharge";
 	
+	public static final String ENABLE_LOCK_BALANCE = "enable.lock.balance";
+	
+	public static final String LOCK_AMOUNT = "lock.amount";
+	
+	public static final String MU_CONTRIBUTION = "mu.contribution";
+	
+	public static final String APPLICATION_URL = "application.url";
+	
+	public static final String APPLICATION_URL_STRING = "applicationUrl";
+	
+	public static final String MU_CONTRIBUTION_STRING = "contribution"; 
 }

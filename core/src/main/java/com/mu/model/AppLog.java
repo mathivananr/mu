@@ -1,6 +1,8 @@
 package com.mu.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,24 +16,29 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import org.hibernate.search.annotations.DocumentId;
 
 @Entity
-@Table(name = "mu_config")
-public class Config extends BaseObject implements Serializable {
+@Table(name = "mu_log")
+public class AppLog extends BaseObject implements Serializable {
 
 	private static final long serialVersionUID = 3832626162173359411L;
 
 	private Long id;
+	private String title;
+	private String appLink;
+	private Calendar createdOn = new GregorianCalendar();
+	private String ipAddress;
 
-	private String dataType;
-	
-	private String KeyName;
-
-	private String KeyValue;
-	
-	private String description;
-
-	public Config() {
+	public AppLog() {
 		super();
 	}
+	
+	public AppLog(String title, String appLink, String ipAddress) {
+		super();
+		this.title = title;
+		this.appLink = appLink;
+		this.ipAddress = ipAddress;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,42 +51,42 @@ public class Config extends BaseObject implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "data_type")
-	public synchronized String getDataType() {
-		return dataType;
+	@Column(name = "title", columnDefinition = "TEXT")
+	public String getTitle() {
+		return title;
 	}
 
-	public synchronized void setDataType(String dataType) {
-		this.dataType = dataType;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	@Column(name = "key_name")
-	public String getKeyName() {
-		return KeyName;
+	@Column(name = "app_link")
+	public String getAppLink() {
+		return appLink;
 	}
 
-	public void setKeyName(String keyName) {
-		KeyName = keyName;
+	public void setAppLink(String appLink) {
+		this.appLink = appLink;
 	}
 
-	@Column(name = "key_value")
-	public String getKeyValue() {
-		return KeyValue;
+	@Column(name = "created_on")
+	public Calendar getCreatedOn() {
+		return createdOn;
 	}
 
-	public void setKeyValue(String keyValue) {
-		KeyValue = keyValue;
+	public void setCreatedOn(Calendar createdOn) {
+		this.createdOn = createdOn;
 	}
 
-	@Column(name = "description", columnDefinition = "LONGTEXT")
-	public String getDescription() {
-		return description;
+	@Column(name = "ip_address")
+	public String getIpAddress() {
+		return ipAddress;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

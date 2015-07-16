@@ -36,6 +36,9 @@ public interface RechargeDao extends GenericDao<Recharge, Long> {
 	List<NetworkOperator> getNetworkOperators(String operatorType)
 			throws MUException;
 
+	List<NetworkOperator> getOperators(String operatorFinderCode)
+			throws MUException;
+			
 	NetworkOperator getNetworkOperatorById(Long id) throws MUException;
 
 	List<NetworkOperator> getMobileOperators() throws MUException;

@@ -6,10 +6,10 @@ import com.mu.dao.SupportRequestDao;
 import com.mu.model.SupportRequest;
 
 @Repository("supportRequestDao")
-public class SupportRequestDaoImpl extends
+public class SupportRequestDaoHibernate extends
 		GenericDaoHibernate<SupportRequest, Long> implements SupportRequestDao {
 
-	public SupportRequestDaoImpl() {
+	public SupportRequestDaoHibernate() {
 		super(SupportRequest.class);
 		// TODO Auto-generated constructor stub
 	}
