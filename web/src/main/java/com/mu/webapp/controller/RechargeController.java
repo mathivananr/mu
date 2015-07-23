@@ -170,8 +170,8 @@ public class RechargeController extends BaseFormController {
 						"Your recharge " + recharge.getRechargeId() + " done.");
 			} else {
 				log.error("recharge failed " + recharge.getRechargeSummary());
-				saveError(request, "Your recharge" + recharge.getRechargeId()
-						+ "failed.");
+				saveError(request, "Your recharge " + recharge.getRechargeId()
+						+ " failed.");
 			}
 		} catch (MUException e) {
 			saveMessage(request,

@@ -315,7 +315,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 					recharge.setRechargeSummary(recharge.getRechargeSummary()
 							+ " Date :: "
 							+ now.getTime()
-							+ "Summary :: Recharged failed! full payment not received \n");
+							+ " Summary :: Recharged failed! full payment not received \n");
 				}
 				recharge = saveRecharge(recharge);
 			}
@@ -347,7 +347,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 				recharge.setRechargeSummary(recharge.getRechargeSummary()
 						+ " Date :: "
 						+ now.getTime()
-						+ "Summary :: Recharged failed! payment not received \n");
+						+ " Summary :: Recharged failed! payment not received \n");
 			}
 			recharge = saveRecharge(recharge);
 		}
@@ -389,7 +389,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 								.getRechargeSummary()
 								+ " Date :: "
 								+ now.getTime()
-								+ "Summary :: "
+								+ " Summary :: "
 								+ response.get("response").toString()
 										.split(",")[1] + " \n");
 					}
@@ -408,7 +408,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 								.getRechargeSummary()
 								+ " Date :: "
 								+ now.getTime()
-								+ "Summary :: "
+								+ " Summary :: "
 								+ getRcErrorByCode(
 										response.get("response").toString()
 												.split(",")[1])
@@ -424,7 +424,7 @@ public class RechargeManagerImpl extends GenericManagerImpl<Recharge, Long>
 				} else {
 					recharge.setRechargeSummary(recharge.getRechargeSummary()
 							+ " Date :: " + now.getTime()
-							+ "Summary :: Recharged Succesully! \n");
+							+ " Summary :: Recharged Succesully! \n");
 				}
 				recharge.setReferenceId(response.get("response").toString()
 						.split(",")[0]);
