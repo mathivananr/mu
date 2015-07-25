@@ -1,4 +1,3 @@
-
 <%@ include file="/common/taglibs.jsp"%>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<div class="sec-title text-center mb50">
@@ -22,7 +21,7 @@
 
 	<div class="panel-group" id="accordion">
 		<!-- <div class="faqHeader">FAQ</div> -->
-		<div class="panel panel-default">
+		<!-- <div class="panel panel-default">
 			<div class="panel-heading">
 				<h4 class="panel-title">
 					<a class="accordion-toggle collapsed" data-toggle="collapse"
@@ -148,6 +147,33 @@
 						class="share-text-color">@one_of_your_friend </span> and <span
 						class="share-text-color">#muniyamma</span>.
 				</div>
+			</div>
+		</div> -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle collapsed" data-toggle="collapse"
+						data-parent="#accordion" href="#collapse8">Why we have to do
+						this?</a>
+				</h4>
+			</div>
+			<div id="collapse8" class="panel-collapse collapse">
+				<div class="panel-body">Are you support agriculture, are you
+					wish to change a software engineer to become farmer then this is
+					one of the way to support.</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle collapsed" data-toggle="collapse"
+						data-parent="#accordion" href="#collapse8">How do we believe
+						that he will do agriculture?</a>
+				</h4>
+			</div>
+			<div id="collapse8" class="panel-collapse collapse">
+				<div class="panel-body">Believe is life. If you guys have
+					suggestions please write as to contact@muniyamma.com</div>
 			</div>
 		</div>
 	</div>

@@ -55,7 +55,7 @@ public class RechargeController extends BaseFormController {
 		this.shoppingManager = shoppingManager;
 	}
 
-	@RequestMapping(value = "/recharge", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/recharge", method = RequestMethod.GET)
 	public ModelAndView showRechargeFormAsHome(
 			final HttpServletRequest request, final HttpServletResponse response)
 			throws MUException {
@@ -87,7 +87,7 @@ public class RechargeController extends BaseFormController {
 		model.addAttribute("recharge", recharge);
 		model.addAttribute("activeMenu", "recharge-link");
 		return new ModelAndView("/mu/rechargeForm", model.asMap());
-	}
+	}*/
 
 	@RequestMapping(value = "/rechargeForm", method = RequestMethod.GET)
 	public ModelAndView showRechargeForm(final HttpServletRequest request,

@@ -239,6 +239,8 @@ public final class Constants {
 	
 	public static final String MERCHANT_TYPE_RECHARGE = "Recharge";
 	
+	public static final String MERCHANT_TYPE_BOOKING = "Booking";
+	
 	public static final String ENABLE_LOCK_BALANCE = "enable.lock.balance";
 	
 	public static final String LOCK_AMOUNT = "lock.amount";

@@ -14,14 +14,14 @@
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<div class="thumbnail">
 						<a title="${merchant.description}" href="${merchant.targetLink}"><img
-							src="${merchant.logoPath}" alt="${merchant.merchantName}"
+							src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your recharge"
 							width="100%" class="slider-store-image"> </a>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
 
-		<div class="row">
+		<%-- <div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="row text-center">
 					<strong> ( or ) </strong>
@@ -180,7 +180,7 @@
 				</div>
 
 			</div>
-		</div>
+		</div> --%>
 	</div>
 </div>
 <!-- end recharge form -->

@@ -8,17 +8,22 @@
 		</div>
 	</div>
 	<div class="span12 sec-sub-title">
-		<p>muniyamma.com is one of India's recharge portal.</p>
+		<p>
+			muniyamma.com - Your regular expense may change someone's life. <a
+				class="link-color" title="how story link"
+				href="${applicationUrl}/story">How?</a>
+		</p>
 		<div class="page-header">
 			<h3>We Do</h3>
 		</div>
 		<div>
 			<ul class="sec-sub-title">
-				<li><strong>* Mobile Recharge</strong></li>
-				<li><strong>* DTH Recharge</strong></li>
-				<li><strong>* DataCard Recharge</strong></li>
+				<li><strong>* Recharge Referral </strong></li>
+				<li><strong>* Booking Referral</strong></li>
+				<li><strong>* Shopping Referral</strong></li>
 			</ul>
 		</div>
 	</div>
-	<p>We do best for give fast and easy recharge services to our users.</p>
+	<p>We do best for give fast and easy recharge services to our
+		users.</p>
 </div>

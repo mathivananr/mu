@@ -120,6 +120,26 @@
 							class="link-color" title="how story link" href="${applicationUrl}/story">How?</a>
 					</p>
 				</div>
+				<hr />
+				<div class="work-filter wow fadeInRight animated"
+					data-wow-duration="500ms">
+					<ul class="text-center">
+						<li><a title="recharge menu" id="recharge-link"
+							href="${applicationUrl}/recharge" class="active filter">Recharge</a></li>
+						<li><a title="booking menu" id="booking-link"
+							href="${applicationUrl}/booking" class="active filter">Booking</a></li>
+						<li><a title="shopping menu" id="shopping-link"
+							href="${applicationUrl}/shopping" class="filter">Shopping</a></li>
+						<li><a title="advise menu" id="advise-link" href="${applicationUrl}/advise"
+							class="filter">Advise</a></li>
+						<!-- <li><a id="video-link" href="/video" class="filter">Video</a></li> -->
+						<li><a title="vote menu" id="vote-link" href="${applicationUrl}/vote"
+							class="filter">Vote</a></li>
+						<li><a title="story menu" id="about-link" href="${applicationUrl}/story"
+							class="filter">Story</a></li>
+					</ul>
+				</div>
+				<hr/>
 				<div class="row text-center">
 					<!-- Facebook -->
 					<a href="javascript:void(0);"
@@ -140,23 +160,6 @@
   return false;"
 						title="Share on Google+" class="btn btn-googleplus"><i
 						class="fa fa-google-plus"></i> Google+</a>
-				</div>
-				<hr />
-				<div class="work-filter wow fadeInRight animated"
-					data-wow-duration="500ms">
-					<ul class="text-center">
-						<li><a title="recharge menu" id="recharge-link"
-							href="${applicationUrl}/rechargeForm" class="active filter">Recharge</a></li>
-						<li><a title="shopping menu" id="shopping-link"
-							href="${applicationUrl}/shopping" class="filter">Shopping</a></li>
-						<li><a title="advise menu" id="advise-link" href="${applicationUrl}/advise"
-							class="filter">Advise</a></li>
-						<!-- <li><a id="video-link" href="/video" class="filter">Video</a></li> -->
-						<li><a title="vote menu" id="vote-link" href="${applicationUrl}/vote"
-							class="filter">Vote</a></li>
-						<li><a title="story menu" id="about-link" href="${applicationUrl}/story"
-							class="filter">Story</a></li>
-					</ul>
 				</div>
 			</div>
 		</div>
@@ -195,10 +198,10 @@
 							href="${applicationUrl}/site/termsAndConditions">Terms and
 							Conditions</a> | <a title="privacy policy menu"
 							href="${applicationUrl}/site/privacyPolicy">Privacy Policy</a> |
-						<a title="faq menu" href="${applicationUrl}/site/faq">FAQ</a> | 
+						<a title="faq menu" href="${applicationUrl}/site/faq">FAQ</a> <%-- | 
 						<a title="recharge complaints menu"
 							href="${applicationUrl}/site/supportRequest">Recharge
-							Complaints</a>
+							Complaints</a> --%>
 					</div>
 				</div>
 				<div class="row">

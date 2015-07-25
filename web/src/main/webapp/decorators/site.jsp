@@ -93,10 +93,10 @@
 							and Conditions</a> | <a title="privacy policy from site"
 							href="${applicationUrl}/site/privacyPolicy">Privacy
 							Policy</a> | <a title="faq from site"
-							href="${applicationUrl}/site/faq">FAQ</a> | <a
+							href="${applicationUrl}/site/faq">FAQ</a> <%-- | <a
 							title="complaints from site"
 							href="${applicationUrl}/site/supportRequest">Recharge
-							Complaints</a>
+							Complaints</a> --%>
 					</div>
 				</div>
 				<div class="row">

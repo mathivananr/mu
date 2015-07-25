@@ -43,7 +43,6 @@ public class ShoppingController extends BaseFormController {
 		this.shoppingManager = shoppingManager;
 	}
 
-	@ModelAttribute
 	@RequestMapping(value = "/shopping", method = RequestMethod.GET)
 	public ModelAndView showShoppingPage(final HttpServletRequest request,
 			final HttpServletResponse response) throws MUException {
@@ -54,7 +53,32 @@ public class ShoppingController extends BaseFormController {
 		model.addAttribute("activeMenu", "shopping-link");
 		return new ModelAndView("/mu/shopping", model.asMap());
 	}
+	
+	@RequestMapping(value = "/booking", method = RequestMethod.GET)
+	public ModelAndView showBookingPage(final HttpServletRequest request,
+			final HttpServletResponse response) throws MUException {
+		Model model = new ExtendedModelMap();
+		Set<MerchantType> merchantTypes = new HashSet<MerchantType>(
+				shoppingManager.getMerchantTypeLikeName(Constants.MERCHANT_TYPE_BOOKING));
+		model.addAttribute(Constants.MERCHANT_TYPE_LIST, merchantTypes);
+		model.addAttribute("activeMenu", "booking-link");
+		return new ModelAndView("/mu/booking", model.asMap());
+	}
 
+	@RequestMapping(value = "/recharge", method = RequestMethod.GET)
+	public ModelAndView showRechargePage(final HttpServletRequest request,
+			final HttpServletResponse response) throws MUException {
+		Model model = new ExtendedModelMap();
+		try {
+			model.addAttribute("merchantType", shoppingManager
+					.getMerchantTypeByName(Constants.MERCHANT_TYPE_RECHARGE));
+		} catch (MUException e) {
+			model.addAttribute("merchantType", new MerchantType());
+		}
+		model.addAttribute("activeMenu", "recharge-link");
+		return new ModelAndView("/mu/rechargeForm", model.asMap());
+	}
+	
 	@ModelAttribute
 	@RequestMapping(value = "/admin/merchant", method = RequestMethod.GET)
 	public ModelAndView showMerchantPage(final HttpServletRequest request,

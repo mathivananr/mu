@@ -166,15 +166,23 @@ public class StartupListener implements ServletContextListener {
 		loadAppConfigs(mgr);
 
 		PropertyReader reader = PropertyReader.getInstance();
-		context.setAttribute(
-				Constants.APPLICATION_URL_STRING,
-				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
-						Constants.APPLICATION_URL).toString());
+		if(!StringUtil.isEmptyString(reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.APPLICATION_URL))) {
+			context.setAttribute(
+					Constants.APPLICATION_URL_STRING,
+					reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+							Constants.APPLICATION_URL).toString());
+			log.debug("application url loaded");
+		}
+		if(!StringUtil.isEmptyString(reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
+						Constants.MU_CONTRIBUTION))){
 		context.setAttribute(
 				Constants.MU_CONTRIBUTION_STRING,
 				reader.getPropertyFromFile(Constants.DATA_TYPE_STRING,
 						Constants.MU_CONTRIBUTION).toString());
-		log.debug("application url loaded");
+			log.debug("contribution loaded");
+		}
+		
 		// Any manager extending GenericManager will do:
 		GenericManager manager = (GenericManager) ctx.getBean("userManager");
 		doReindexing(manager);

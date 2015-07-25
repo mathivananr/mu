@@ -25,6 +25,9 @@ public interface ShoppingManager extends GenericManager<Merchant, Long> {
 	MerchantType getMerchantTypeByName(String merchantTypeName)
 			throws MUException;
 
+	List<MerchantType> getMerchantTypeLikeName(String merchantTypeName)
+			throws MUException;
+	
 	List<Merchant> getMerchantByType(String merchantType);
 
 	List<Merchant> getMerchantByTypes(List<String> merchantTypes);

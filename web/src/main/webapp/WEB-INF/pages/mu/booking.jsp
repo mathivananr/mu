@@ -13,7 +13,7 @@
 				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
 					<div class="thumbnail">
 						<a title="${merchant.description}" href="${merchant.targetLink}"><img
-							src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your shopping"
+							src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your booking"
 							width="100%" class="slider-store-image"> </a>
 					</div>
 				</div>

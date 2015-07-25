@@ -117,7 +117,6 @@ public class ShoppingDaoHibernate extends GenericDaoHibernate<Merchant, Long>
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @throws MUException
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
@@ -129,9 +128,23 @@ public class ShoppingDaoHibernate extends GenericDaoHibernate<Merchant, Long>
 		if (merchantTypes != null && merchantTypes.size() > 0) {
 			return merchantTypes.get(0);
 		} else {
-			throw new MUException("No Merchant type fout for name "
+			throw new MUException("No Merchant type foud for name "
 					+ merchantTypeName);
 		}
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<MerchantType> getMerchantTypeLikeName(String merchantTypeName)
+			throws MUException {
+		return getSession()
+				.createCriteria(MerchantType.class)
+				.add(Restrictions.like("typeName", merchantTypeName+"%")).list();
+		
 	}
 
 	/**

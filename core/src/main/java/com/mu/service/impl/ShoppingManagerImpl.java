@@ -64,4 +64,9 @@ public class ShoppingManagerImpl extends GenericManagerImpl<Merchant, Long>
 			throws MUException {
 		return shoppingDao.getMerchantTypeByName(merchantTypeName);
 	}
+	
+	public List<MerchantType> getMerchantTypeLikeName(String merchantTypeName)
+			throws MUException{
+		return shoppingDao.getMerchantTypeLikeName(merchantTypeName);
+	}
 }
