@@ -43,8 +43,8 @@
 			Now he decides to start <a title="home from story"
 				href="${applicationUrl}" class="link-color">${applicationUrl}</a>,
 			It will be live 180 days and in this 180 days every recharge, shopping, 
-			booking your doing via this	site, he get some referral commission from 
-			the merchants. He never mean that going to change the world or making 
+			ticket booking, etc your doing via this	site, he get some referral commission 
+			from the merchants. He never mean that going to change the world or making 
 			revolution. He want to do this and still he like computers. Let's see 
 			what will going to happen after 180 days.
 		</p>
@@ -53,19 +53,26 @@
 			<strong>How to contribute? </strong>
 		</p>
 		<ol class="pad-10">
-			<li><strong>1. Recharge from <a class="link-color"
+			<%-- <li><strong>1. Recharge from <a class="link-color"
 					title="recharge from story"
 					href="${applicationUrl}/recharge">here</a>.
 			</strong></li>
-			<li><strong>1. Booking from <a class="link-color"
+			<li><strong>2. Booking from <a class="link-color"
 					title="booking from story"
 					href="${applicationUrl}/booking">here</a>.
 			</strong></li>
 			<li><strong>3. Shopping from <a class="link-color"
 					title="shopping from story"
 					href="${applicationUrl}/shopping">here.</a> .
-			</strong></li>
-			<li><strong>4. Share the site in social media like
+			</strong></li> --%>
+			<li><strong>1. Click one of your favorite site and continue your recharge, shopping, etc from <a class="link-color"
+					title="recharge from story"
+					href="${applicationUrl}/recharge">here</a>
+			</strong>
+			<p>	&nbsp;&nbsp;&nbsp;&nbsp;(Note : your offers are never affect. it will work as usual.)</p>
+			<br/>
+			</li>
+			<li><strong>2. Share the site in social media like
 					follows <span class="share-text-color">@one_of_your_friend </span>
 					and <span class="share-text-color">#muniyamma</span>
 			</strong>

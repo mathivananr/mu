@@ -124,12 +124,12 @@
 				<div class="work-filter wow fadeInRight animated"
 					data-wow-duration="500ms">
 					<ul class="text-center">
-						<li><a title="recharge menu" id="recharge-link"
+						<%-- <li><a title="recharge menu" id="recharge-link"
 							href="${applicationUrl}/recharge" class="active filter">Recharge</a></li>
 						<li><a title="booking menu" id="booking-link"
-							href="${applicationUrl}/booking" class="active filter">Booking</a></li>
-						<li><a title="shopping menu" id="shopping-link"
-							href="${applicationUrl}/shopping" class="filter">Shopping</a></li>
+							href="${applicationUrl}/booking" class="active filter">Booking</a></li> --%>
+						<li><a title="contribute menu" id="shopping-link"
+							href="${applicationUrl}/contribute" class="filter">Contribute</a></li>
 						<li><a title="advise menu" id="advise-link" href="${applicationUrl}/advise"
 							class="filter">Advise</a></li>
 						<!-- <li><a id="video-link" href="/video" class="filter">Video</a></li> -->
