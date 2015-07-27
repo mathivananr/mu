@@ -844,3 +844,52 @@ label.error {
     background-color: #000;
     color: #fff
 }
+
+.nopadding {
+   padding: 0 !important;
+}
+
+.tabs-left > .nav-tabs > li > a,
+.tabs-right > .nav-tabs > li > a {
+  min-width: 74px;
+  margin-right: 0;
+  margin-bottom: 3px;
+}
+
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+}
+
+.tabs-left > .nav-tabs > li > a {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0 0 4px;
+     -moz-border-radius: 4px 0 0 4px;
+          border-radius: 4px 0 0 4px;
+       background-color: #ffffff;
+}
+
+.tabs-left > .nav-tabs > li > a:hover,
+.tabs-left > .nav-tabs > li > a:focus {
+	background-color: #0eb493;
+  	border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+}
+
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus {
+  background-color: #0eb493;
+  color: #ffffff !important;
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff;
+}
+
+.tabs-left > .nav-tabs .active > a p,
+.tabs-left > .nav-tabs .active > a:hover p,
+.tabs-left > .nav-tabs .active > a:focus p{
+  background-color: #0eb493;
+  color: #ffffff !important;
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff;
+}

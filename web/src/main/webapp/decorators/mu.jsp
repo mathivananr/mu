@@ -105,9 +105,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="sec-title text-center">
-					<small> support 180 days from start </small>
+					<small> support 180 days from </small>
 					<h2>
-						<span id="clock">Coming Soon</span>
+						<span id="clock">August 15</span>
 					</h2>
 					<div class="devider">
 						<i class="fa fa-heart-o fa-lg"></i>
