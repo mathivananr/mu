@@ -354,8 +354,16 @@ top: -8px;
   text-transform: capitalize;
 }
 
-.work-filter ul li a:hover,
+/* .work-filter ul li a:hover,
 .work-filter ul li a.active {
+  background-color: #0eb493;
+  border-radius: 6px;
+  color: #fff;
+  padding: 5px 17px;
+} */
+
+.work-filter ul li a:hover p,
+.work-filter ul li a.active p{
   background-color: #0eb493;
   border-radius: 6px;
   color: #fff;

@@ -66,8 +66,8 @@
 						<c:forEach var="merchant" items="${merchantType.merchants}">
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="thumbnail">
-									<a title="${merchant.description}" href="${merchant.targetLink}"><img
-										src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your shopping"
+									<a title="click ${merchant.merchantName} and start your shopping" href="${merchant.targetLink}"><img
+										src="${merchant.logoPath}" alt="${merchant.description}"
 										width="100%" class="slider-store-image"> </a>
 								</div>
 							</div>
@@ -83,8 +83,8 @@
 					<c:forEach var="merchant" items="${merchantType.merchants}">
 						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 							<div class="thumbnail">
-								<a title="${merchant.description}" href="${merchant.targetLink}"><img
-									src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your shopping"
+								<a title="click ${merchant.merchantName} and start your shopping" href="${merchant.targetLink}"><img
+									src="${merchant.logoPath}" alt="${merchant.description}"
 									width="100%" class="slider-store-image"> </a>
 							</div>
 						</div>
