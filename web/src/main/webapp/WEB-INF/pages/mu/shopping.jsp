@@ -59,10 +59,12 @@
 		<div class="tab-content col-lg-9 col-md-9 col-sm-8 col-xs-8 nopadding">
 			<div class="tab-pane active col-lg-12 col-md-12 col-sm-12 col-xs-12" id="all">
 				<c:forEach var="merchantType" items="${merchantTypeList}">
-					<div class="row sec-sub-title">
-						<p>${merchantType.typeName}</p>
+					<div class="row">
+						<div class="page-header">
+							<h2>${merchantType.typeName}</h2>
+						</div>
 						<c:forEach var="merchant" items="${merchantType.merchants}">
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="thumbnail">
 									<a title="${merchant.description}" href="${merchant.targetLink}"><img
 										src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your shopping"
@@ -75,18 +77,18 @@
 			</div>
 			<c:forEach var="merchantType" items="${merchantTypeList}">
 				<div class="tab-pane col-lg-12 col-md-12 col-sm-12 col-xs-12" id="${merchantType.id}">
-					<div class="row sec-sub-title">
-						<p>${merchantType.typeName}</p>
-						<c:forEach var="merchant" items="${merchantType.merchants}">
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-								<div class="thumbnail">
-									<a title="${merchant.description}" href="${merchant.targetLink}"><img
-										src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your shopping"
-										width="100%" class="slider-store-image"> </a>
-								</div>
-							</div>
-						</c:forEach>
+					<div class="page-header">
+						<h2>${merchantType.typeName}</h2>
 					</div>
+					<c:forEach var="merchant" items="${merchantType.merchants}">
+						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+							<div class="thumbnail">
+								<a title="${merchant.description}" href="${merchant.targetLink}"><img
+									src="${merchant.logoPath}" alt="click ${merchant.merchantName} and start your shopping"
+									width="100%" class="slider-store-image"> </a>
+							</div>
+						</div>
+					</c:forEach>
 				</div>
 			</c:forEach>
 	
