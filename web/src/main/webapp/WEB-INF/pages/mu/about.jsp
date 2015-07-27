@@ -67,7 +67,7 @@
 			</strong></li> --%>
 			<li><strong>1. Click one of your favorite site and continue your recharge, shopping, etc from <a class="link-color"
 					title="recharge from story"
-					href="${applicationUrl}/recharge">here</a>
+					href="${applicationUrl}/contribute">here</a>
 			</strong>
 			<p>	&nbsp;&nbsp;&nbsp;&nbsp;(Note : your offers are never affect. it will work as usual.)</p>
 			<br/>
