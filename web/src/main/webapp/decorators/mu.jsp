@@ -157,10 +157,10 @@
       'http://www.facebook.com/sharer.php?s=100&p[title]=Muniyamma&p[summary]=Support a software engineer become farmer by recharge or shopping &p[url]=${applicationUrl}/story&p[images][0]=${applicationUrl}/images/favicon.ico',
       'facebook-share-dialog',
       'width=626,height=436');"
-				title="Share on Facebook" class="btn btn-facebook"><i
+				title="Share us on Facebook" class="btn btn-facebook"><i
 				class="fa fa-facebook"></i> Facebook</a>
 			<!-- Twitter -->
-			<a href="javascript:tweetWindow()" title="Share on Twitter"
+			<a href="javascript:tweetWindow()" title="Share us on Twitter"
 				class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
 			<!-- Google+ -->
 
@@ -168,7 +168,7 @@
 				onclick="javascript:window.open('https://plus.google.com/share?url=${applicationUrl}/story','',
 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 return false;"
-				title="Share on Google+" class="btn btn-googleplus"><i
+				title="Share us on Google+" class="btn btn-googleplus"><i
 				class="fa fa-google-plus"></i> Google+</a>
 		</div>
 	</section>
