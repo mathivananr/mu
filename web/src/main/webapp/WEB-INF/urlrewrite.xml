@@ -78,7 +78,11 @@
         <from>/logout*</from>
         <to>/logout.jsp</to>
     </rule>
-
+	<rule>
+        <from>/robots.txt</from>
+        <to>/robots.txt</to>
+    </rule>
+    
     <!-- Spring MVC -->
     <rule>
         <from>/**</from>
