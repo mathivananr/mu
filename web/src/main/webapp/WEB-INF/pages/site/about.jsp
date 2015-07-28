@@ -24,6 +24,6 @@
 			</ul>
 		</div>
 	</div>
-	<p>We do best for give fast and easy recharge services to our
-		users.</p>
+	<!-- <p>We do best for give fast and easy recharge services to our
+		users.</p> -->
 </div>
