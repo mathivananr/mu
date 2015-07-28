@@ -61,7 +61,7 @@
 				<c:forEach var="merchantType" items="${merchantTypeList}">
 					<div class="row">
 						<div class="page-header">
-							<h2>${merchantType.typeName}</h2>
+							<h3>${merchantType.typeName}</h3>
 						</div>
 						<c:forEach var="merchant" items="${merchantType.merchants}">
 							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
@@ -78,7 +78,7 @@
 			<c:forEach var="merchantType" items="${merchantTypeList}">
 				<div class="tab-pane col-lg-12 col-md-12 col-sm-12 col-xs-12" id="${merchantType.id}">
 					<div class="page-header">
-						<h2>${merchantType.typeName}</h2>
+						<h3>${merchantType.typeName}</h3>
 					</div>
 					<c:forEach var="merchant" items="${merchantType.merchants}">
 						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
